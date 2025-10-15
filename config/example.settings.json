@@ -1,0 +1,133 @@
+{
+  "bot-account": {
+    "username": "YourUsername",
+    "password": "YourPasswordIfNeeded",
+    "type": "mojang",
+    "note": "For Microsoft accounts, set type to 'microsoft'. For offline servers, leave password empty."
+  },
+
+  "server": {
+    "ip": "your.server.ip",
+    "port": 25565,
+    "version": "1.12.1",
+    "name": "YourServerName"
+  },
+  
+  "position": {
+    "enabled": false,
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+
+  "advanced-behavior": {
+    "auto-shelter": {
+      "enabled": true,
+      "note": "Automatically dig a safe hole and block the top when joining",
+      "depth": 4,
+      "place-block-on-top": true,
+      "only-if-unsafe": true
+    },
+    
+    "realistic-movement": {
+      "enabled": true,
+      "look-around": true,
+      "random-walking": true,
+      "jump-occasionally": true,
+      "sprint-sometimes": true,
+      "interact-with-environment": false
+    },
+
+    "conversation-memory": {
+      "enabled": true,
+      "remember-players": true,
+      "context-length": 10,
+      "remember-topics": true,
+      "learn-from-chat": true
+    },
+
+    "smart-actions": {
+      "enabled": true,
+      "look-at-players": true,
+      "wave-at-players": false,
+      "follow-nearby-players": false,
+      "avoid-danger": true
+    }
+  },
+
+  "device-health": {
+    "cpu-throttling": {
+      "enabled": true,
+      "max-cpu-percent": 25,
+      "throttle-when-high": true
+    },
+    
+    "memory-limits": {
+      "max-memory-mb": 200,
+      "cleanup-interval-minutes": 30,
+      "aggressive-cleanup": false
+    },
+
+    "performance-mode": {
+      "enabled": false,
+      "reduce-chat-frequency": true,
+      "reduce-movement-frequency": true,
+      "minimal-logging": false
+    }
+  },
+
+  "utils": {
+    "auto-auth": {
+      "enabled": false,
+      "password": "YourAuthPassword"
+    },
+
+    "smart-responses": {
+      "enabled": true,
+      "response-delay-min": 800,
+      "response-delay-max": 3000,
+      "context-aware": true,
+      "learn-player-preferences": true
+    },
+
+    "admin-helper": {
+      "enabled": true,
+      "welcome-new-players": true,
+      "answer-questions": true,
+      "provide-tips": true,
+      "helpful-suggestions": true,
+      "remember-conversations": true
+    },
+
+    "anti-afk": {
+      "enabled": true,
+      "sneak": false,
+      "advanced": true,
+      "varied-patterns": true,
+      "realistic-timing": true
+    },
+
+    "chat-messages": {
+      "enabled": true,
+      "repeat": true,
+      "repeat-delay": 180,
+      "random-variation": 60,
+      "context-sensitive": true,
+
+      "messages": [
+        "Hey everyone! Welcome to this awesome server!",
+        "Having a great time here, love the community",
+        "The builds on this server are amazing",
+        "Anyone need help with anything?",
+        "This is such a friendly server!",
+        "Nice to see everyone online!",
+        "Great server for SMP gameplay",
+        "Really enjoying the survival experience here"
+      ]
+    },
+
+    "chat-log": true,
+    "auto-reconnect": true,
+    "auto-reconnect-delay": 5000
+  }
+}
