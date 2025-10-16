@@ -1,0 +1,71 @@
+{
+  "server": {
+    "host": "localhost",
+    "port": 25565,
+    "version": "1.20.1"
+  },
+  "auth": {
+    "type": "offline",
+    "username": "BetterBender",
+    "password": ""
+  },
+  "mode": {
+    "current": "afk",
+    "autoSwitch": false
+  },
+  "safety": {
+    "maxCpuPercent": 30,
+    "maxMemoryMB": 512,
+    "maxBlocksPerHour": 200,
+    "checkIntervalMs": 30000,
+    "enableThermalMonitoring": true,
+    "enableBatteryMonitoring": true,
+    "autoThrottle": true
+  },
+  "dashboard": {
+    "enabled": true,
+    "port": 5000,
+    "adminToken": "CHANGE_THIS_TOKEN_NOW"
+  },
+  "afkMode": {
+    "movementPattern": "random",
+    "movementInterval": 15000,
+    "movementRange": 5,
+    "autoEat": true,
+    "autoRespawn": true,
+    "avoidMobs": true,
+    "statusUpdateInterval": 60000
+  },
+  "playerMode": {
+    "workDuration": 1800000,
+    "restDuration": 300000,
+    "tradeDuration": 600000,
+    "socialDuration": 900000,
+    "exploreDuration": 1200000,
+    "maxBlocksPerCycle": 100,
+    "smartInventory": true,
+    "useChests": true,
+    "helpPlayers": true,
+    "buildCommunity": true,
+    "respondToChat": true
+  },
+  "reconnect": {
+    "enabled": true,
+    "maxAttempts": 100,
+    "initialDelayMs": 5000,
+    "maxDelayMs": 300000,
+    "backoffMultiplier": 1.5
+  },
+  "logging": {
+    "level": "info",
+    "logToFile": true,
+    "logDir": "data/logs",
+    "maxLogSizeMB": 10,
+    "maxLogFiles": 5
+  },
+  "tasks": {
+    "persistDir": "data/tasks",
+    "enablePersistence": true,
+    "maxQueueSize": 100
+  }
+}

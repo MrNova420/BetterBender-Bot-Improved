@@ -1,72 +1,37 @@
 {
-  "name": "bettersmp-bot",
-  "version": "4.0.0",
-  "description": "Production-ready Minecraft bot for 24/7 server activity and player assistance - stable, lightweight, and fully automated",
-  "main": "index.js",
+  "name": "betterbender-2.0",
+  "version": "2.0.0",
+  "description": "Autonomous Minecraft bot for 24/7 Termux operation with AFK and Player modes",
+  "main": "src/engine.js",
   "scripts": {
-    "start": "node bot-enhanced.js",
-    "enhanced": "node bot-enhanced.js",
-    "setup": "node auto-setup.js",
-    "config": "node quick-config.js",
-    "dev": "node index.js",
-    "pm2": "pm2 start ecosystem.config.js",
-    "pm2:enhanced": "pm2 start ecosystem.config.js --only bot-enhanced",
+    "start": "node src/engine.js",
+    "dashboard": "node dashboard/server.js",
+    "dashboard-only": "node dashboard-only.js",
+    "test": "node test/smoke.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
     "pm2:stop": "pm2 stop all",
     "pm2:restart": "pm2 restart all",
     "pm2:logs": "pm2 logs",
-    "pm2:monit": "pm2 monit",
-    "pm2:status": "pm2 list",
-    "test": "node -e \"require('./index.js')\"",
-    "validate": "node -e \"require('./config/settings.json'); console.log('Config valid');\""
+    "pm2:status": "pm2 status"
   },
   "keywords": [
     "minecraft",
     "bot",
+    "termux",
     "mineflayer",
-    "server",
-    "smp",
-    "activity",
-    "lightweight",
-    "24/7",
-    "admin-helper",
-    "auto-reconnect",
-    "stable",
-    "production-ready"
+    "autonomous"
   ],
-  "author": "BetterSMP Community",
+  "author": "BetterBender Team",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/bettersmp-bot"
-  },
-  "bugs": {
-    "url": "https://github.com/yourusername/bettersmp-bot/issues"
-{
-  "name": "BetterBender-AFK-McBot",
-  "version": "1.0.0",
-  "description": "AFK Minecraft bot with advanced AI, pathfinding, combat, and automation systems",
-  "main": "bot-enhanced.js",
-  "scripts": {
-    "start": "node bot-enhanced.js"
-  },
   "dependencies": {
-    "axios": "^1.6.6",
-    "bcryptjs": "^2.4.3",
-    "express": "^4.18.1",
-    "http": "^0.0.1-security",
-    "jsonwebtoken": "^9.0.2",
-    "minecraft-data": "^3.99.1",
-    "mineflayer": "^4.3.0",
-    "mineflayer-collectblock": "^1.6.0",
-    "mineflayer-pathfinder": "^2.1.1",
-    "mineflayer-pvp": "^1.3.2",
-    "socket.io": "^4.8.1",
-    "uuid": "^13.0.0",
-    "minecraft-protocol": "^1.29.0",
-    "prismarine-auth": "^3.0.0",
-    "@xboxreplay/xboxlive-auth": "^4.0.0"
+    "mineflayer": "^4.20.1",
+    "mineflayer-pathfinder": "^2.4.4",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "prismarine-item": "^1.14.0"
   },
+  "devDependencies": {},
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=18.0.0"
   }
 }

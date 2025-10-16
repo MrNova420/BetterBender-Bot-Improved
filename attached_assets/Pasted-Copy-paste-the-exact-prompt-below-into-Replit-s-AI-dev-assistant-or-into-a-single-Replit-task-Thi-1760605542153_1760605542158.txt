@@ -1,0 +1,167 @@
+Copy-paste the exact prompt below into Replit’s AI/dev assistant (or into a single Replit task). This is a one-shot, do-everything instruction: read the uploaded project as a foundation reference only, autonomously redesign and fully rewrite every part of the bot, produce a finished export (ZIP + repo), Termux install artifact, working dashboard, smoke-tests, and show a live test run — no TODOs, no half-done files. Be strict about device-safety, lightweight defaults, and cracked/offline-server support.
+
+
+---
+
+ONE-SHOT REPLIT PROMPT — FULL AUTONOMOUS REBUILD FOR BETTERBENDER 2.0
+
+You are an autonomous Replit dev agent. You have one complete run to read the uploaded project in this workspace and fully rebuild it into a production-ready deliverable called BetterBender 2.0. Use the uploaded project only as a functional reference (features, behaviors, desired goals). Reimplement every file from scratch — do not copy-paste legacy code. Deliver a fully working Node.js project prepared for Termux (Android) plus a self-hosted web dashboard with live remote control. Follow every requirement below exactly, run tests, fix any failures, and produce the final downloadable export.
+
+High-level goals
+
+1. Full rewrite of the bot (engine + addons). No legacy code copied; use it for behavior reference only.
+
+
+2. Two runtime modes: afk (ultra-light keepalive) and player (24/7 living-player simulation with low-impact heuristics).
+
+
+3. Foundation engine with plugin/addon registry so new features are modular.
+
+
+4. Web dashboard (Express + Socket.IO) for live remote control: start/stop, mode switch, raw chat, upload tasks, view logs, system health, remote command execution in-game.
+
+
+5. Run reliably on Termux (Node.js), default to offline/cracked auth, low CPU/RAM, device thermal safety.
+
+
+6. Single-run deliverables: full repo, EXPORT.zip, termux-install.sh, CONFIG.example.json, README.md, smoke tests and test logs, and a recorded console log of a mock run showing both afk and player modes for ~30s each.
+
+
+
+Required deliverables (commit & attach)
+
+AUDIT.md — feature audit of uploaded project (map of behaviors -> replacement plan).
+
+src/ — full rewritten source (engine, core libs, addons). Prefer plain JS + JSDoc; TypeScript allowed only if fully compiled for Termux.
+
+addons/ — afk, player, crafting, pathfinding (working examples).
+
+dashboard/ — server + SPA UI (minimal React or vanilla SPA) with websocket live-control.
+
+package.json with start, dashboard, test scripts.
+
+termux/termux-install.sh — one-shot install + pm2/nohup fallback + config setup + safety defaults.
+
+CONFIG.example.json — full config schema.
+
+README.md — clear Termux install steps, dashboard connect steps, and troubleshooting.
+
+test/ — smoke tests (mock server or unit tests) that run in Replit and pass. Attach test-results/ logs.
+
+EXPORT.zip — repository packaged and available for direct download.
+
+Commit history showing final stable commit.
+
+
+Functional & technical requirements (implement exactly)
+
+A. Core engine
+
+engine.start(config), engine.stop(), engine.registerAddon(addon) API.
+
+Use mineflayer (or equivalent) with clean wrappers; support auth {type:'offline'|'mojang'|'microsoft'}. Default: offline.
+
+Robust reconnect/backoff, safe shutdown, and event logging.
+
+
+B. Safety & device health
+
+Implement core/safety.js to monitor Node os metrics and Termux battery if available.
+
+Configurable thresholds: maxCpuPercent, maxMemoryMB, maxBlocksPerHour.
+
+If thresholds exceeded: throttle tasks, pause heavy addons, switch to afk idle mode, and write event to logs + dashboard.
+
+Implement log rotation, batched disk writes, and avoidance of busy loops.
+
+
+C. Addons
+
+addons/afk.js: minimal movement pattern, anti-AFK, mob avoidance, eat when hungry, auto-respawn, periodic status update.
+
+addons/player.js: schedule-driven state machine (work/rest/trade/social), inventory management, low-impact heuristics (limit blocks/hr), safe chest storage behavior.
+
+All addons must be modular, configurable, and able to be enabled/disabled at runtime.
+
+
+D. Task manager & persistence
+
+Persist tasks and minimal runtime state to local JSON or lightweight sqlite (better-sqlite3 only if prebuilt; prefer JSON if native build issues).
+
+Task queue supports resume after reconnect or restart.
+
+
+E. Dashboard
+
+dashboard/server.js (Express + Socket.IO). Auth via single admin token in CONFIG.json.
+
+UI features: start/stop bot, toggle mode, upload tasks, send raw chat, live logs, system health, manual command execution, remote file upload (for scripts/tasks).
+
+Websocket controls must send commands to engine instantly.
+
+
+F. Termux compatibility
+
+termux-install.sh installs Node (or instructs exact manual steps), installs deps, sets up PM2 or nohup fallback, copies CONFIG.example.json to CONFIG.json, and securely prompts to set dashboard token.
+
+Provide one-line install command for Termux that runs the script (document required Android permissions).
+
+
+G. Performance & throttling rules
+
+Default maxCpuPercent = 30, maxMemoryMB = 512. Implement logic to reduce workload when on battery or if thresholds hit.
+
+
+H. Testing & verification
+
+Implement test/smoke.js to run engine in mock/offline mode exercising both afk and player addons for ~30s each; tests must assert no exceptions and log expected actions.
+
+Run tests in Replit before finishing. Fix failures until passing.
+
+Provide test-results/ logs and a recorded console output demonstrating both modes.
+
+
+I. Export & delivery
+
+Create EXPORT.zip of repo root and provide a direct download link in Replit output.
+
+Commit everything to workspace repo and provide the final commit hash.
+
+
+Operational constraints for this single run
+
+No TODO placeholders. All modules must be implemented and tested. If a dependency requires native compiling that blocks Termux compatibility, choose a pure-JS alternative and document the decision in AUDIT.md.
+
+If access to device-specific APIs (battery/thermal) is not available in Replit, implement the safety hooks and simulate checks during smoke tests — document how Termux supplies real values and how the script uses termux-battery-status or /sys/class/thermal in README.
+
+
+Final output required at the end of the run (print in Replit console)
+
+1. EXPORT.zip clickable download link.
+
+
+2. One-line Termux pasteable installer command that runs termux-install.sh.
+
+
+3. Dashboard connect instructions including admin token and example URL.
+
+
+4. test-results/ logs and console snapshot of the mock run showing both modes.
+
+
+5. Checklist (AUDIT.md + delivered files) and final commit hash.
+
+
+
+
+---
+
+Use this workspace’s uploaded project as the reference blueprint only — analyze behaviors, copy nothing verbatim, and produce a superior reimplementation. Act like an expert dev: research missing details, choose stable lightweight libs, run and fix tests, and finish everything in this single execution.
+
+Start now and complete all tasks. When finished, print the final download link, the Termux installer command, dashboard connect info (URL + admin token), and attach test-results/ logs.
+
+
+---
+
+Paste that prompt into Replit now. Want me to also generate a short CONFIG.example.json and termux-install.sh template here for you to paste into Replit if it helps?
+
