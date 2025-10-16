@@ -40,9 +40,13 @@ class EnhancedPlayerAddon {
     
     const ProgressionSystem = require('../src/core/progressionSystem');
     const PlayerInteractions = require('./player-interactions');
+    const AutonomousGoalGenerator = require('../src/core/autonomousGoals');
+    const HomeBuilder = require('../src/core/homeBuilder');
     
     this.progression = new ProgressionSystem(engine.getStateManager(), this.logger);
     this.interactions = new PlayerInteractions(bot, engine, this.logger);
+    this.autonomousGoals = new AutonomousGoalGenerator(bot, this.logger, this.progression);
+    this.homeBuilder = new HomeBuilder(bot, this.logger);
     
     this._setupEventHandlers();
     
@@ -413,38 +417,75 @@ class EnhancedPlayerAddon {
     this.progression.updateGoal('social', 'helpPlayers', 1);
   }
   
-  _doWork() {
-    const currentGoal = this.progression.getCurrentGoal();
+  async _doWork() {
+    const autonomousGoal = this.autonomousGoals.getNextGoal();
     
-    if (currentGoal) {
-      if (currentGoal.name.includes('mine') || currentGoal.name.includes('Mine')) {
-        this._mineNaturally();
-      } else if (currentGoal.name.includes('gather') || currentGoal.name.includes('Gather')) {
-        this._gatherNaturally();
-      } else if (currentGoal.name.includes('build') || currentGoal.name.includes('Build')) {
-        this._placeBlockNaturally();
-      } else {
-        const activities = [0.4, 0.7, 0.9];
-        const rand = Math.random();
-        
-        if (rand < activities[0]) {
-          this._mineNaturally();
-        } else if (rand < activities[1]) {
+    if (autonomousGoal) {
+      this.logger.info(`[Player] Working on: ${autonomousGoal.description}`);
+      
+      switch (autonomousGoal.action) {
+        case 'establish_home':
+          await this.homeBuilder.buildBasicHome();
+          const homePos = this.homeBuilder.getHomeLocation();
+          if (homePos) {
+            this.autonomousGoals.setHomeLocation(homePos);
+          }
+          this.autonomousGoals.completeGoal('establish_home');
+          break;
+          
+        case 'build_storage':
+          this._placeBlockNaturally();
+          this.autonomousGoals.completeGoal('build_storage');
+          break;
+          
+        case 'expand_base':
+          await this.homeBuilder.expandBase();
+          this.autonomousGoals.completeGoal('expand_base');
+          break;
+          
+        case 'gather_basic_materials':
           this._gatherNaturally();
-        } else {
-          this._lookAround();
-        }
+          break;
+          
+        case 'craft_tools':
+          this._checkInventory();
+          break;
+          
+        case 'find_food':
+          this._gatherNaturally();
+          break;
+          
+        case 'interact_with_players':
+          this._doSocial();
+          break;
+          
+        case 'explore_new_areas':
+        case 'explore_randomly':
+          this._walkNaturally();
+          break;
+          
+        case 'find_trading_opportunities':
+          this._doTrade();
+          break;
+          
+        default:
+          this._mineNaturally();
       }
     } else {
-      const activities = [0.4, 0.7, 0.9];
-      const rand = Math.random();
+      const currentGoal = this.progression.getCurrentGoal();
       
-      if (rand < activities[0]) {
-        this._mineNaturally();
-      } else if (rand < activities[1]) {
-        this._gatherNaturally();
+      if (currentGoal) {
+        if (currentGoal.name.includes('mine') || currentGoal.name.includes('Mine')) {
+          this._mineNaturally();
+        } else if (currentGoal.name.includes('gather') || currentGoal.name.includes('Gather')) {
+          this._gatherNaturally();
+        } else if (currentGoal.name.includes('build') || currentGoal.name.includes('Build')) {
+          this._placeBlockNaturally();
+        } else {
+          this._mineNaturally();
+        }
       } else {
-        this._lookAround();
+        this._mineNaturally();
       }
     }
   }

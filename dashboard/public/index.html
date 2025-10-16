@@ -731,6 +731,22 @@
     let authToken = null;
     let startTime = null;
     
+    const isLocalhost = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' ||
+                       window.location.hostname === '::1';
+    
+    if (isLocalhost) {
+      authToken = localStorage.getItem('dashboardToken') || 'localhost-auto';
+      document.getElementById('loginModal').classList.remove('active');
+      initDashboard();
+    } else {
+      authToken = localStorage.getItem('dashboardToken');
+      if (authToken) {
+        document.getElementById('loginModal').classList.remove('active');
+        initDashboard();
+      }
+    }
+    
     document.getElementById('loginBtn').addEventListener('click', login);
     document.getElementById('tokenInput').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') login();
