@@ -100,18 +100,40 @@ Then automatically creates goals like:
 
 ---
 
-## 📊 Dashboard
+## 📊 Dashboard - Complete Remote Control
 
-Open: **http://localhost:5000**
+Open: **http://localhost:5000** (no login needed!)
 
-Features:
-- 📈 Real-time bot status
-- ❤️ Health & food monitoring
-- 📍 Position tracking
-- 🎯 Current goals & tasks
-- 💬 Chat & commands
-- ⚙️ Settings & controls
-- 🔄 Switch AFK ↔ Player mode
+### Full Control Features:
+
+**🔌 Server Management**
+- Change server address & port from dashboard
+- Switch account types (offline/Microsoft/Mojang)
+- No config file editing needed!
+
+**🎮 Real-Time Bot Control**
+- **Movement**: WASD controls, jump, sneak, sprint
+- **Actions**: Eat, attack, dig, place, use items
+- **Navigation**: Go to coordinates, follow players, return home
+- **Quick Commands**: Mine, build, gather, explore, trade, fish, farm
+
+**⚙️ Live Settings**
+- Toggle auto-eat, auto-defend, auto-reconnect
+- Enable/disable health alerts
+- All changes apply instantly
+
+**📊 Real-Time Monitoring**
+- Health & food bars
+- Position tracking
+- CPU & memory usage
+- Inventory viewer
+- Activity history
+- Goals & progress tracking
+
+**💬 Communication**
+- Send chat messages
+- Execute custom commands
+- View chat logs
 
 ---
 

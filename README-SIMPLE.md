@@ -31,13 +31,21 @@ Examples:
 
 ---
 
-## 📊 Dashboard
+## 📊 Dashboard - Full Remote Control
 
 Open browser: **http://localhost:5000**
 - ✅ No login needed for localhost!
-- 🎮 Full control panel
-- 📈 Real-time stats
-- 🔄 Switch AFK ↔ Player mode
+- 🎮 **Complete bot control panel**
+- 📈 Real-time stats & monitoring
+- 🔄 Switch modes (AFK ↔ Player)
+- 🔌 **Change server from dashboard** - no file editing!
+- 🎮 **Movement controls** - WASD, jump, sneak, sprint
+- ⚔️ **Quick actions** - eat, attack, dig, place, use
+- 🎒 **Live inventory view**
+- 📍 **Navigation** - go to coordinates, follow players
+- ⚙️ **Settings toggles** - auto-eat, auto-defend, etc.
+- 💬 Send chat messages & commands
+- 📊 View goals, tasks, and activity history
 
 ---
 

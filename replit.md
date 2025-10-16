@@ -2,9 +2,27 @@
 
 ## Overview
 
-BetterBender 2.0 is a fully autonomous Minecraft bot designed for 24/7 operation on low-to-medium end devices, including Termux (Android). It features advanced player simulation, device safety monitoring, and smart resource management. The bot supports offline/cracked servers and provides two operational modes: AFK (lightweight server presence) and Player (full autonomous player simulation). Built with Mineflayer and Node.js, it's heavily optimized for minimal resource usage (80-300MB RAM depending on preset) and includes comprehensive safety features to prevent device damage. The project has been fully debugged and optimized with fixed CPU calculation, smart reconnection, reduced file I/O, and performance presets for different device tiers.
+BetterBender 2.0 is a fully autonomous Minecraft bot designed for 24/7 operation on low-to-medium end devices, including Termux (Android). It features advanced player simulation with **autonomous goal generation**, **home building**, **community interaction**, and **dynamic task creation** - the bot literally plays the game like a real player and never runs out of things to do. Built with Mineflayer and Node.js, it's heavily optimized for minimal resource usage (80-300MB RAM) and includes comprehensive safety features. The bot can run for months continuously, building bases, gathering resources, trading, and creating its own objectives. Setup is incredibly simple: install Node.js, edit one line in CONFIG.json, and run the start script.
 
-## Recent Optimizations (October 16, 2025) - Production Ready ✅
+## Recent Updates (October 16, 2025) - Fully Autonomous & Production Ready ✅
+
+### Autonomous Player Features 🤖
+- **Dynamic goal generation** - Bot creates its own objectives based on inventory, health, environment, and progress
+- **Home building system** - Finds ideal locations, builds foundations, walls, roofs, and storage
+- **Community interaction** - Adds nearby players to community, helps others, trades, and socializes
+- **Progressive gameplay** - Starts with survival, builds home, expands base, explores, trades
+- **Never stops** - Always generates new goals: gather resources → craft tools → build home → expand → trade → explore
+- **Concurrency protection** - isWorking flag prevents overlapping async tasks
+- **Milestone tracking** - Tracks completed goals to prevent loops and enable progression
+
+### Ease of Use Improvements 🚀
+- **3-step setup** - Install Node.js, edit CONFIG.json, run start script
+- **Dashboard auto-login** - No token required for localhost connections
+- **Simple documentation** - README.md and README-SIMPLE.md with clear examples
+- **Start scripts** - start.sh and start.bat for one-click launching
+- **Ready-to-use configs** - Examples for all account types and device tiers
+
+## Previous Optimizations - Production Ready ✅
 
 ### Critical Bug Fixes
 - **Fixed CPU calculation bug** - Implemented differential CPU measurement with 5-reading average and 30s startup exemption. Now shows accurate CPU usage (was stuck at false 36%)
@@ -53,6 +71,12 @@ Single-process Node.js application running a Minecraft bot client and a basic we
 - Employs an event-driven pattern for handling server interactions.
 - Uses a Promise-based queue for sequential command execution to prevent server spam.
 - Includes auto-reconnection logic with configurable delays.
+
+**Autonomous Systems**
+- **AutonomousGoalGenerator** (src/core/autonomousGoals.js): Dynamically creates goals based on bot state, inventory, health, nearby players, and completed milestones
+- **HomeBuilder** (src/core/homeBuilder.js): Finds ideal building locations using scoring system, evaluates terrain, resources, and community proximity
+- **ProgressionSystem** (src/core/progressionSystem.js): Tracks achievements and unlocks new goals as the bot progresses
+- **Enhanced Player Mode** (addons/player.js): Fully autonomous player simulation with home building, resource gathering, trading, exploration, and community interaction
 
 **Configuration System**
 - JSON-based configuration in `config/settings.json`, which is gitignored for security.

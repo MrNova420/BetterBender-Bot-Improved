@@ -103,6 +103,74 @@ class DashboardServer {
       }
       res.json(safeConfig);
     });
+    
+    this.app.post('/api/server/config', this._authenticate.bind(this), (req, res) => {
+      const { host, port, version } = req.body;
+      
+      if (!host) {
+        return res.json({ success: false, error: 'Server host is required' });
+      }
+      
+      this.config.server.host = host;
+      this.config.server.port = parseInt(port) || 25565;
+      if (version) {
+        this.config.server.version = version;
+      } else {
+        delete this.config.server.version;
+      }
+      
+      const configPath = require('path').join(__dirname, '../CONFIG.json');
+      require('fs').writeFileSync(configPath, JSON.stringify(this.config, null, 2));
+      
+      if (this.engine && this.engine.getBot()) {
+        this.engine.getBot().end();
+        setTimeout(() => {
+          if (this.engine) {
+            this.engine.start();
+          }
+        }, 2000);
+      }
+      
+      res.json({ 
+        success: true, 
+        message: `Bot will reconnect to ${host}:${port}`,
+        config: { host, port, version }
+      });
+    });
+    
+    this.app.post('/api/auth/config', this._authenticate.bind(this), (req, res) => {
+      const { type, username, password } = req.body;
+      
+      if (!username) {
+        return res.json({ success: false, error: 'Username is required' });
+      }
+      
+      this.config.auth.type = type || 'offline';
+      this.config.auth.username = username;
+      
+      if (type === 'mojang' && password) {
+        this.config.auth.password = password;
+      } else {
+        delete this.config.auth.password;
+      }
+      
+      const configPath = require('path').join(__dirname, '../CONFIG.json');
+      require('fs').writeFileSync(configPath, JSON.stringify(this.config, null, 2));
+      
+      if (this.engine && this.engine.getBot()) {
+        this.engine.getBot().end();
+        setTimeout(() => {
+          if (this.engine) {
+            this.engine.start();
+          }
+        }, 2000);
+      }
+      
+      res.json({ 
+        success: true, 
+        message: `Account settings updated. Bot will reconnect with ${type} auth.`
+      });
+    });
   }
   
   _authenticate(req, res, next) {
@@ -231,6 +299,47 @@ class DashboardServer {
             socket.emit('goal_added', { success: true });
             this.broadcast('goals_update', { goals: playerAddon.progression.getProgress() });
           }
+        }
+      });
+      
+      socket.on('send_command', (data) => {
+        if (!socket.authenticated) return;
+        this._handleCommand(data.command, socket);
+      });
+      
+      socket.on('toggle_setting', (data) => {
+        if (!socket.authenticated) return;
+        if (this.engine) {
+          const config = this.engine.config;
+          const setting = data.setting;
+          
+          if (setting === 'autoEat') {
+            config.autoEat.enabled = !config.autoEat.enabled;
+            socket.emit('setting_toggled', { setting, value: config.autoEat.enabled });
+          } else if (setting === 'autoDefend') {
+            config.autoDefend.enabled = !config.autoDefend.enabled;
+            socket.emit('setting_toggled', { setting, value: config.autoDefend.enabled });
+          } else if (setting === 'autoReconnect') {
+            config.autoReconnect.enabled = !config.autoReconnect.enabled;
+            socket.emit('setting_toggled', { setting, value: config.autoReconnect.enabled });
+          } else if (setting === 'healthAlerts') {
+            config.healthAlerts = !config.healthAlerts;
+            socket.emit('setting_toggled', { setting, value: config.healthAlerts });
+          }
+        }
+      });
+      
+      socket.on('get_inventory', () => {
+        if (!socket.authenticated) return;
+        if (this.engine && this.engine.getBot()) {
+          const bot = this.engine.getBot();
+          const inventory = bot.inventory ? bot.inventory.slots.filter(slot => slot !== null).map(slot => ({
+            name: slot.name,
+            displayName: slot.displayName,
+            count: slot.count,
+            slot: slot.slot
+          })) : [];
+          socket.emit('inventory_update', { inventory });
         }
       });
       

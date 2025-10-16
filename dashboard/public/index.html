@@ -510,6 +510,8 @@
     
     <div class="tabs">
       <div class="tab active" data-tab="overview">Overview</div>
+      <div class="tab" data-tab="controls">🎮 Controls</div>
+      <div class="tab" data-tab="server">🔌 Server</div>
       <div class="tab" data-tab="goals">Goals & Progress</div>
       <div class="tab" data-tab="activities">Activity History</div>
       <div class="tab" data-tab="chat">Chat & Commands</div>
@@ -590,6 +592,241 @@
               <p>No active tasks</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="controls" class="tab-content">
+      <div class="grid">
+        <div class="card">
+          <h2>🎮 Movement Controls</h2>
+          <p style="color: #94a3b8; margin-bottom: 20px;">Control bot movement in real-time</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto 20px;">
+            <div></div>
+            <button id="moveForward" onmousedown="startMove('forward')" onmouseup="stopMove()" ontouchstart="startMove('forward')" ontouchend="stopMove()" style="padding: 20px;">↑<br>Forward</button>
+            <div></div>
+            <button id="moveLeft" onmousedown="startMove('left')" onmouseup="stopMove()" ontouchstart="startMove('left')" ontouchend="stopMove()" style="padding: 20px;">←<br>Left</button>
+            <button id="moveBack" onmousedown="startMove('back')" onmouseup="stopMove()" ontouchstart="startMove('back')" ontouchend="stopMove()" style="padding: 20px;">↓<br>Back</button>
+            <button id="moveRight" onmousedown="startMove('right')" onmouseup="stopMove()" ontouchstart="startMove('right')" ontouchend="stopMove()" style="padding: 20px;">→<br>Right</button>
+          </div>
+          
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+            <button onclick="sendCommand('jump')">⬆️ Jump</button>
+            <button onclick="sendCommand('sneak')">🔽 Sneak</button>
+            <button onclick="sendCommand('sprint')">⚡ Sprint</button>
+            <button onclick="sendCommand('stop')">⏹️ Stop</button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>⚔️ Quick Actions</h2>
+          <p style="color: #94a3b8; margin-bottom: 20px;">Perform actions instantly</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            <button onclick="sendCommand('eat')" class="success">🍖 Eat Food</button>
+            <button onclick="sendCommand('attack')" class="danger">⚔️ Attack</button>
+            <button onclick="sendCommand('dig')" >⛏️ Dig Block</button>
+            <button onclick="sendCommand('place')" >🧱 Place Block</button>
+            <button onclick="sendCommand('use')" >👆 Use Item</button>
+            <button onclick="sendCommand('drop')" >🗑️ Drop Item</button>
+            <button onclick="sendCommand('craft')" >🔨 Craft</button>
+            <button onclick="sendCommand('equip')" >🛡️ Equip</button>
+          </div>
+          
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #334155;">
+            <label style="display: block; margin-bottom: 10px;">Look Direction:</label>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+              <button onclick="sendCommand('look up')">👆 Look Up</button>
+              <button onclick="sendCommand('look down')">👇 Look Down</button>
+              <button onclick="sendCommand('look left')">👈 Look Left</button>
+              <button onclick="sendCommand('look right')">👉 Look Right</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>⚙️ Bot Settings</h2>
+          <p style="color: #94a3b8; margin-bottom: 20px;">Toggle bot features on/off</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #0f172a; border-radius: 6px;">
+              <div>
+                <strong>Auto-Eat</strong><br>
+                <small style="color: #64748b;">Automatically eat when hungry</small>
+              </div>
+              <button id="toggleAutoEat" onclick="toggleSetting('autoEat')" class="success">ON</button>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #0f172a; border-radius: 6px;">
+              <div>
+                <strong>Auto-Defend</strong><br>
+                <small style="color: #64748b;">Fight back when attacked</small>
+              </div>
+              <button id="toggleAutoDefend" onclick="toggleSetting('autoDefend')" class="success">ON</button>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #0f172a; border-radius: 6px;">
+              <div>
+                <strong>Auto-Reconnect</strong><br>
+                <small style="color: #64748b;">Reconnect on disconnect</small>
+              </div>
+              <button id="toggleAutoReconnect" onclick="toggleSetting('autoReconnect')" class="success">ON</button>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #0f172a; border-radius: 6px;">
+              <div>
+                <strong>Health Alerts</strong><br>
+                <small style="color: #64748b;">Alert on low health</small>
+              </div>
+              <button id="toggleHealthAlerts" onclick="toggleSetting('healthAlerts')" class="success">ON</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>🎒 Inventory</h2>
+          <p style="color: #94a3b8; margin-bottom: 10px;">Bot's current inventory</p>
+          <div id="inventoryDisplay" style="max-height: 400px; overflow-y: auto; background: #0f172a; padding: 15px; border-radius: 6px;">
+            <div class="empty-state">
+              <div class="empty-state-icon">🎒</div>
+              <p>Inventory empty or not loaded</p>
+            </div>
+          </div>
+          <button onclick="refreshInventory()" style="width: 100%; margin-top: 10px;">🔄 Refresh Inventory</button>
+        </div>
+        
+        <div class="card">
+          <h2>📍 Navigation</h2>
+          <p style="color: #94a3b8; margin-bottom: 15px;">Move bot to specific locations</p>
+          
+          <div class="form-group">
+            <label>Go to Coordinates (X, Y, Z):</label>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+              <input type="number" id="gotoX" placeholder="X" />
+              <input type="number" id="gotoY" placeholder="Y" />
+              <input type="number" id="gotoZ" placeholder="Z" />
+            </div>
+            <button onclick="gotoCoordinates()" class="success" style="width: 100%; margin-top: 10px;">🚀 Go to Location</button>
+          </div>
+          
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #334155;">
+            <label style="display: block; margin-bottom: 10px;">Quick Navigation:</label>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+              <button onclick="sendCommand('goto spawn')">🏠 Go to Spawn</button>
+              <button onclick="sendCommand('goto home')">🏡 Go Home</button>
+              <button onclick="sendCommand('follow nearest')">👤 Follow Player</button>
+              <button onclick="sendCommand('come here')">📍 Come Here</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>🔨 Quick Commands</h2>
+          <p style="color: #94a3b8; margin-bottom: 15px;">Common bot commands</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            <button onclick="sendCommand('mine')">⛏️ Start Mining</button>
+            <button onclick="sendCommand('build')">🏗️ Start Building</button>
+            <button onclick="sendCommand('gather wood')">🌲 Gather Wood</button>
+            <button onclick="sendCommand('gather food')">🍖 Gather Food</button>
+            <button onclick="sendCommand('explore')">🗺️ Explore</button>
+            <button onclick="sendCommand('trade')">💰 Find Trades</button>
+            <button onclick="sendCommand('fish')">🎣 Start Fishing</button>
+            <button onclick="sendCommand('farm')">🌾 Start Farming</button>
+          </div>
+          
+          <div style="margin-top: 20px;">
+            <div class="form-group">
+              <label>Custom Command:</label>
+              <div style="display: flex; gap: 10px;">
+                <input type="text" id="customCommand" placeholder="Enter command..." style="flex: 1;" />
+                <button onclick="sendCustomCommand()" class="success">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="server" class="tab-content">
+      <div class="grid">
+        <div class="card">
+          <h2>🔌 Server Connection</h2>
+          <p style="color: #94a3b8; margin-bottom: 20px;">Configure which Minecraft server the bot should connect to. Changes will reconnect the bot.</p>
+          
+          <div class="form-group">
+            <label>Server Address</label>
+            <input type="text" id="serverHost" placeholder="play.hypixel.net or localhost" value="" />
+            <small style="color: #64748b;">Enter server IP or domain (e.g., play.hypixel.net, mc.server.com, 192.168.1.100)</small>
+          </div>
+          
+          <div class="form-group">
+            <label>Server Port</label>
+            <input type="number" id="serverPort" placeholder="25565" value="25565" min="1" max="65535" />
+            <small style="color: #64748b;">Default Minecraft port is 25565</small>
+          </div>
+          
+          <div class="form-group">
+            <label>Minecraft Version</label>
+            <input type="text" id="serverVersion" placeholder="1.20.1" value="" />
+            <small style="color: #64748b;">Leave empty for auto-detection (recommended)</small>
+          </div>
+          
+          <div class="alert" style="background: #1e3a5f; border-left: 4px solid #3b82f6; padding: 15px; margin-bottom: 20px;">
+            <strong>💡 Quick Tips:</strong><br>
+            • For offline/cracked servers: Just enter the IP<br>
+            • For online servers: Make sure your account is configured in auth settings<br>
+            • Public servers: play.hypixel.net, mc.hypixel.net, 2b2t.org<br>
+            • Local server: localhost or 127.0.0.1
+          </div>
+          
+          <button id="saveServerBtn" class="success" style="width: 100%;">💾 Save & Reconnect</button>
+        </div>
+        
+        <div class="card">
+          <h2>👤 Account Settings</h2>
+          <p style="color: #94a3b8; margin-bottom: 20px;">Configure bot authentication</p>
+          
+          <div class="form-group">
+            <label>Account Type</label>
+            <select id="authType">
+              <option value="offline">Offline/Cracked (No login)</option>
+              <option value="microsoft">Microsoft Account</option>
+              <option value="mojang">Mojang Account (Legacy)</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Bot Username</label>
+            <input type="text" id="botUsername" placeholder="BetterBender" value="" />
+            <small style="color: #64748b;">Your bot's in-game name</small>
+          </div>
+          
+          <div id="microsoftAuthInfo" style="display: none; background: #1e3a5f; border-left: 4px solid #3b82f6; padding: 15px; margin-top: 15px;">
+            <strong>Microsoft Login:</strong><br>
+            When you save, the bot will show you a login link. Click it and sign in with your Microsoft account.
+          </div>
+          
+          <div id="mojangAuthFields" style="display: none;">
+            <div class="form-group">
+              <label>Password (Legacy Mojang only)</label>
+              <input type="password" id="mojangPassword" placeholder="Password" />
+              <small style="color: #ef4444;">⚠️ Only for old Mojang accounts. Not recommended!</small>
+            </div>
+          </div>
+          
+          <button id="saveAuthBtn" class="success" style="width: 100%; margin-top: 15px;">💾 Save Account Settings</button>
+        </div>
+      </div>
+      
+      <div class="card" style="margin-top: 20px;">
+        <h2>📊 Current Configuration</h2>
+        <div style="background: #0f172a; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 0.9em;">
+          <div style="margin-bottom: 10px;"><strong>Server:</strong> <span id="currentServer">-</span></div>
+          <div style="margin-bottom: 10px;"><strong>Port:</strong> <span id="currentPort">-</span></div>
+          <div style="margin-bottom: 10px;"><strong>Account:</strong> <span id="currentAuth">-</span></div>
+          <div><strong>Username:</strong> <span id="currentUsername">-</span></div>
         </div>
       </div>
     </div>
@@ -808,6 +1045,7 @@
     function loadInitialData() {
       socket.emit('get_activities', { limit: 100 });
       socket.emit('get_goals');
+      loadServerConfig();
     }
     
     function setupEventListeners() {
@@ -844,6 +1082,16 @@
       
       document.getElementById('activitySearch').addEventListener('input', filterActivities);
       document.getElementById('activityFilter').addEventListener('change', filterActivities);
+      
+      document.getElementById('saveServerBtn').addEventListener('click', saveServerConfig);
+      document.getElementById('saveAuthBtn').addEventListener('click', saveAuthConfig);
+      document.getElementById('authType').addEventListener('change', updateAuthFields);
+      
+      document.querySelectorAll('.tab').forEach(tab => {
+        if (tab.dataset.tab === 'server') {
+          tab.addEventListener('click', loadServerConfig);
+        }
+      });
     }
     
     function setupTabs() {
@@ -1173,6 +1421,201 @@
       document.getElementById('goalName').value = '';
       document.getElementById('goalTarget').value = '10';
       document.getElementById('goalPriority').value = '3';
+    }
+    
+    function loadServerConfig() {
+      fetch('/api/config', {
+        headers: { 'Authorization': `Bearer ${authToken}` }
+      })
+      .then(res => res.json())
+      .then(config => {
+        document.getElementById('serverHost').value = config.server?.host || '';
+        document.getElementById('serverPort').value = config.server?.port || 25565;
+        document.getElementById('serverVersion').value = config.server?.version || '';
+        
+        document.getElementById('authType').value = config.auth?.type || 'offline';
+        document.getElementById('botUsername').value = config.auth?.username || '';
+        updateAuthFields();
+        
+        document.getElementById('currentServer').textContent = config.server?.host || '-';
+        document.getElementById('currentPort').textContent = config.server?.port || '-';
+        document.getElementById('currentAuth').textContent = config.auth?.type || '-';
+        document.getElementById('currentUsername').textContent = config.auth?.username || '-';
+      })
+      .catch(err => console.error('Failed to load config:', err));
+    }
+    
+    function updateAuthFields() {
+      const authType = document.getElementById('authType').value;
+      const microsoftInfo = document.getElementById('microsoftAuthInfo');
+      const mojangFields = document.getElementById('mojangAuthFields');
+      
+      microsoftInfo.style.display = authType === 'microsoft' ? 'block' : 'none';
+      mojangFields.style.display = authType === 'mojang' ? 'block' : 'none';
+    }
+    
+    function saveServerConfig() {
+      const host = document.getElementById('serverHost').value.trim();
+      const port = parseInt(document.getElementById('serverPort').value) || 25565;
+      const version = document.getElementById('serverVersion').value.trim();
+      
+      if (!host) {
+        alert('Please enter a server address');
+        return;
+      }
+      
+      const btn = document.getElementById('saveServerBtn');
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+      
+      fetch('/api/server/config', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify({ host, port, version })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert(`✅ ${data.message}`);
+          loadServerConfig();
+        } else {
+          alert(`❌ Error: ${data.error}`);
+        }
+      })
+      .catch(err => {
+        alert('❌ Failed to save server config');
+        console.error(err);
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = '💾 Save & Reconnect';
+      });
+    }
+    
+    function saveAuthConfig() {
+      const type = document.getElementById('authType').value;
+      const username = document.getElementById('botUsername').value.trim();
+      const password = document.getElementById('mojangPassword')?.value || '';
+      
+      if (!username) {
+        alert('Please enter a username');
+        return;
+      }
+      
+      const btn = document.getElementById('saveAuthBtn');
+      btn.disabled = true;
+      btn.textContent = 'Saving...';
+      
+      fetch('/api/auth/config', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify({ type, username, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert(`✅ ${data.message}`);
+          loadServerConfig();
+        } else {
+          alert(`❌ Error: ${data.error}`);
+        }
+      })
+      .catch(err => {
+        alert('❌ Failed to save auth config');
+        console.error(err);
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = '💾 Save Account Settings';
+      });
+    }
+    
+    let currentMoveDirection = null;
+    
+    function startMove(direction) {
+      currentMoveDirection = direction;
+      socket.emit('send_command', { command: `move ${direction} start` });
+    }
+    
+    function stopMove() {
+      if (currentMoveDirection) {
+        socket.emit('send_command', { command: `move ${currentMoveDirection} stop` });
+        currentMoveDirection = null;
+      }
+    }
+    
+    function toggleSetting(setting) {
+      socket.emit('toggle_setting', { setting });
+      const btn = document.getElementById(`toggle${setting.charAt(0).toUpperCase() + setting.slice(1)}`);
+      if (btn.classList.contains('success')) {
+        btn.classList.remove('success');
+        btn.classList.add('danger');
+        btn.textContent = 'OFF';
+      } else {
+        btn.classList.remove('danger');
+        btn.classList.add('success');
+        btn.textContent = 'ON';
+      }
+    }
+    
+    function refreshInventory() {
+      socket.emit('get_inventory');
+    }
+    
+    socket.on('inventory_update', (data) => {
+      const container = document.getElementById('inventoryDisplay');
+      if (!data.inventory || data.inventory.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">🎒</div>
+            <p>Inventory empty</p>
+          </div>
+        `;
+        return;
+      }
+      
+      let html = '<div style="display: grid; gap: 8px;">';
+      data.inventory.forEach(item => {
+        html += `
+          <div style="display: flex; justify-content: space-between; padding: 8px; background: #1e293b; border-radius: 4px;">
+            <div>
+              <strong>${item.name}</strong>
+              ${item.displayName ? `<br><small style="color: #64748b;">${item.displayName}</small>` : ''}
+            </div>
+            <span style="color: #38bdf8;">×${item.count}</span>
+          </div>
+        `;
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    });
+    
+    function gotoCoordinates() {
+      const x = document.getElementById('gotoX').value;
+      const y = document.getElementById('gotoY').value;
+      const z = document.getElementById('gotoZ').value;
+      
+      if (!x || !y || !z) {
+        alert('Please enter X, Y, and Z coordinates');
+        return;
+      }
+      
+      sendCommand(`goto ${x} ${y} ${z}`);
+    }
+    
+    function sendCustomCommand() {
+      const input = document.getElementById('customCommand');
+      const command = input.value.trim();
+      if (command) {
+        sendCommand(command);
+        input.value = '';
+      }
     }
     
     function logout() {
