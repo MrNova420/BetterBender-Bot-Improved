@@ -11,9 +11,14 @@ class ActivityTracker {
     this._ensureDir();
     this._loadActivities();
     
+    this.dirty = false;
+    
     this.saveInterval = setInterval(() => {
-      this._saveActivities();
-    }, 30000);
+      if (this.dirty) {
+        this._saveActivities();
+        this.dirty = false;
+      }
+    }, 120000);
   }
   
   _ensureDir() {
@@ -58,6 +63,7 @@ class ActivityTracker {
       this.activities.shift();
     }
     
+    this.dirty = true;
     this.logger.debug(`[ActivityTracker] Recorded: ${type}`);
   }
   

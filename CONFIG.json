@@ -14,10 +14,10 @@
     "autoSwitch": false
   },
   "safety": {
-    "maxCpuPercent": 30,
+    "maxCpuPercent": 45,
     "maxMemoryMB": 512,
     "maxBlocksPerHour": 200,
-    "checkIntervalMs": 30000,
+    "checkIntervalMs": 45000,
     "enableThermalMonitoring": true,
     "enableBatteryMonitoring": true,
     "autoThrottle": true
@@ -29,12 +29,12 @@
   },
   "afkMode": {
     "movementPattern": "random",
-    "movementInterval": 15000,
+    "movementInterval": 20000,
     "movementRange": 5,
     "autoEat": true,
     "autoRespawn": true,
     "avoidMobs": true,
-    "statusUpdateInterval": 60000
+    "statusUpdateInterval": 90000
   },
   "playerMode": {
     "workDuration": 1800000,
@@ -51,9 +51,9 @@
   },
   "reconnect": {
     "enabled": true,
-    "maxAttempts": 100,
+    "maxAttempts": 75,
     "initialDelayMs": 5000,
-    "maxDelayMs": 300000,
+    "maxDelayMs": 60000,
     "backoffMultiplier": 1.5
   },
   "logging": {

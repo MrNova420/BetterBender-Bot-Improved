@@ -31,6 +31,11 @@ class SafetyMonitor {
       onRestore: null,
       onCritical: null
     };
+    
+    this.lastCpuInfo = null;
+    this.lastMemCheck = Date.now();
+    this.startupTime = Date.now();
+    this.cpuReadings = [];
   }
   
   start() {
@@ -78,6 +83,7 @@ class SafetyMonitor {
   
   _getCpuUsage() {
     const cpus = os.cpus();
+    
     let totalIdle = 0;
     let totalTick = 0;
     
@@ -88,18 +94,31 @@ class SafetyMonitor {
       totalIdle += cpu.times.idle;
     });
     
-    const idle = totalIdle / cpus.length;
-    const total = totalTick / cpus.length;
-    const usage = 100 - (100 * idle / total);
+    const currentCpuInfo = {
+      idle: totalIdle,
+      total: totalTick,
+      timestamp: Date.now()
+    };
     
-    return Math.round(usage);
+    if (!this.lastCpuInfo) {
+      this.lastCpuInfo = currentCpuInfo;
+      return 0;
+    }
+    
+    const idleDiff = currentCpuInfo.idle - this.lastCpuInfo.idle;
+    const totalDiff = currentCpuInfo.total - this.lastCpuInfo.total;
+    
+    this.lastCpuInfo = currentCpuInfo;
+    
+    if (totalDiff === 0) return 0;
+    
+    const usage = 100 - (100 * idleDiff / totalDiff);
+    return Math.max(0, Math.min(100, Math.round(usage)));
   }
   
   _getMemoryUsageMB() {
-    const totalMem = os.totalmem();
-    const freeMem = os.freemem();
-    const usedMem = totalMem - freeMem;
-    return Math.round(usedMem / (1024 * 1024));
+    const processMemory = process.memoryUsage();
+    return Math.round(processMemory.rss / (1024 * 1024));
   }
   
   _getTemperature() {
@@ -125,8 +144,18 @@ class SafetyMonitor {
   }
   
   _shouldThrottle() {
-    if (this.metrics.cpu > this.config.maxCpuPercent) {
-      this.logger.warn(`CPU usage high: ${this.metrics.cpu}%`);
+    const uptimeSeconds = (Date.now() - this.startupTime) / 1000;
+    const isStartupPhase = uptimeSeconds < 30;
+    
+    this.cpuReadings.push(this.metrics.cpu);
+    if (this.cpuReadings.length > 5) {
+      this.cpuReadings.shift();
+    }
+    
+    const avgCpu = this.cpuReadings.reduce((a, b) => a + b, 0) / this.cpuReadings.length;
+    
+    if (avgCpu > this.config.maxCpuPercent && !isStartupPhase) {
+      this.logger.warn(`CPU usage high (avg): ${Math.round(avgCpu)}%`);
       return true;
     }
     

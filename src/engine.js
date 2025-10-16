@@ -123,6 +123,9 @@ class BotEngine {
     
     this.bot.on('error', (err) => {
       this.logger.error('Bot error:', err.message);
+      if (err.code) {
+        this.reconnectManager.recordFailure(err.code);
+      }
     });
     
     this.bot.on('kicked', (reason) => {
@@ -193,7 +196,7 @@ class BotEngine {
   }
   
   _setupPositionTracking() {
-    setInterval(() => {
+    this.positionInterval = setInterval(() => {
       if (this.bot && this.bot.entity && this.bot.entity.position) {
         this.stateManager.updatePosition(this.bot.entity.position);
         
@@ -201,7 +204,7 @@ class BotEngine {
         const chunkZ = Math.floor(this.bot.entity.position.z / 16);
         this.stateManager.addExploredChunk(chunkX, chunkZ);
       }
-    }, 10000);
+    }, 30000);
   }
   
   _initializeAddons() {
@@ -275,6 +278,11 @@ class BotEngine {
     this.logger.info('Stopping bot...');
     
     this.reconnectManager.cancel();
+    
+    if (this.positionInterval) {
+      clearInterval(this.positionInterval);
+      this.positionInterval = null;
+    }
     
     if (this.bot) {
       this.bot.quit();

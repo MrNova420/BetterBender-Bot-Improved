@@ -20,9 +20,14 @@ class StateManager {
     this._ensureStateDir();
     this._loadState();
     
+    this.dirty = false;
+    
     this.saveInterval = setInterval(() => {
-      this._saveState();
-    }, 60000);
+      if (this.dirty) {
+        this._saveState();
+        this.dirty = false;
+      }
+    }, 120000);
   }
   
   _ensureStateDir() {
@@ -61,6 +66,7 @@ class StateManager {
       z: position.z,
       dimension: position.dimension || 'overworld'
     };
+    this.dirty = true;
   }
   
   updateMode(mode) {
@@ -70,6 +76,7 @@ class StateManager {
   
   updateActivity(activity) {
     this.state.currentActivity = activity;
+    this.dirty = true;
   }
   
   addExploredChunk(chunkX, chunkZ) {
@@ -79,6 +86,7 @@ class StateManager {
       if (this.state.exploredChunks.length > 1000) {
         this.state.exploredChunks.shift();
       }
+      this.dirty = true;
     }
   }
   

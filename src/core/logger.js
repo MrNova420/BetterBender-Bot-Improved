@@ -72,7 +72,7 @@ class Logger {
   _startBufferFlush() {
     this.bufferFlushInterval = setInterval(() => {
       this._flushBuffer();
-    }, 5000);
+    }, 15000);
   }
   
   _flushBuffer() {
