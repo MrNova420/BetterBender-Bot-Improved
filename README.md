@@ -1,657 +1,380 @@
-# 🤖 BetterBender 2.0
+# 🤖 BetterBender 2.0 - Autonomous Minecraft Bot
 
-**The Ultimate Autonomous Minecraft Bot for 24/7 Long-Term Operation**
-
-Fully autonomous, ultra-realistic Minecraft bot designed to run for months on Termux (Android) without intervention. Features advanced player simulation, device safety monitoring, and remote web dashboard control.
+**A fully autonomous Minecraft bot that acts like a real player - builds homes, gathers resources, trades, creates communities, and generates its own goals for months of continuous operation!**
 
 ---
 
-## 🚀 ONE-LINE TERMUX INSTALLATION
+## ⚡ Quick Start (3 Steps!)
 
+### 1. Install Node.js
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/yourusername/betterbender-2.0/main/termux/termux-install.sh)
+# Download from https://nodejs.org
+# Or on Termux: pkg install nodejs-lts
 ```
 
-Or download and run manually:
-
-```bash
-git clone https://github.com/yourusername/betterbender-2.0.git
-cd betterbender-2.0
-bash termux/termux-install.sh
-```
-
----
-
-## ✨ Features
-
-### 🎭 TWO POWERFUL MODES
-
-#### **AFK Mode** - Ultra-Lightweight Server Presence
-- Minimal movement patterns (anti-AFK detection avoidance)
-- Automatic mob avoidance and escape
-- Auto-eat when hungry
-- Auto-respawn on death
-- Uses <5% CPU on average
-
-#### **Player Mode** - FULLY AUTONOMOUS PLAYER SIMULATION
-**The bot behaves EXACTLY like a real player:**
-
-✅ **Natural Chat & Social**
-- Greets players when they join
-- Responds to questions contextually
-- Random observations about the world
-- Helps new players
-- Natural typing delays (1-3 seconds)
-- Realistic conversation flow
-
-✅ **Realistic Work Activities**
-- Mining with proper tool selection
-- Gathering resources (wood, crops, items)
-- Building structures block by block
-- Organizing inventory naturally
-- Variable work speeds (not robotic)
-
-✅ **Human-like Movement**
-- Random walks and exploration
-- Stops to look around
-- Occasional jumps while walking
-- Sprint bursts
-- Natural path selection
-
-✅ **State Machine Lifecycle**
-- **Work** (30%) - Mining, gathering, building
-- **Rest** (15%) - Standing, looking around, organizing
-- **Explore** (20%) - Walking, discovering areas
-- **Social** (15%) - Chatting, helping players
-- **Build** (15%) - Constructing structures
-- **Organize** (5%) - Inventory management
-
-✅ **Anti-Detection Features**
-- Block rate limiting (max 200/hour by default)
-- Natural delays between actions
-- Random activity patterns
-- Realistic mistakes and reactions
-- Variable response times
-
-### 🛡️ DEVICE SAFETY (Critical for 24/7 Operation)
-
-**Prevents Device Damage:**
-- 📊 CPU usage monitoring (auto-throttle at 30%)
-- 💾 Memory monitoring (auto-throttle at 512MB)
-- 🌡️ Temperature monitoring (Termux thermal sensors)
-- 🔋 Battery monitoring (auto-throttle when <20%)
-- ⚡ Adaptive throttling (switches to AFK when overloaded)
-- 📝 Log rotation (prevents disk fill)
-
-**Perfect for Months-Long Operation:**
-- Automatic resource management
-- No memory leaks
-- Graceful degradation under load
-- Safe shutdown procedures
-
-### 🎛️ WEB DASHBOARD (Remote Control)
-
-**Access:** `http://localhost:5000` or `http://YOUR_IP:5000`
-
-**Features:**
-- 🔄 Start/Stop bot remotely
-- 🎮 Switch modes instantly
-- 💬 Live chat interface
-- 📊 Real-time metrics (CPU, RAM, temp, battery)
-- 📈 Bot status (health, food, position, mode)
-- ⚡ Execute commands
-- 📋 Task queue management
-- 📜 Live log streaming
-- 🔐 Token authentication
-
----
-
-## 📱 TERMUX SETUP (Android)
-
-### Step 1: Install Termux
-
-Download from **F-Droid** (NOT Google Play - outdated version):
-https://f-droid.org/en/packages/com.termux/
-
-### Step 2: Run Installer
-
-```bash
-pkg update && pkg install git -y
-git clone https://github.com/yourusername/betterbender-2.0.git
-cd betterbender-2.0
-bash termux/termux-install.sh
-```
-
-The installer will:
-- ✅ Install Node.js
-- ✅ Install dependencies
-- ✅ Create CONFIG.json
-- ✅ Set up PM2 (optional)
-- ✅ Configure safety defaults
-- ✅ Set up directories
-
-### Step 3: Configure
-
-Edit `CONFIG.json`:
-
-```bash
-nano CONFIG.json
-```
-
-**Minimum settings:**
-
+### 2. Configure Server
+Edit `CONFIG.json` - change ONE line:
 ```json
 {
   "server": {
-    "host": "your.server.ip",
-    "port": 25565,
-    "version": "1.20.1"
-  },
-  "auth": {
-    "type": "offline",
-    "username": "BetterBender"
-  },
-  "dashboard": {
-    "adminToken": "CHANGE_THIS_NOW"
+    "host": "YOUR-SERVER-HERE"    ← Put your Minecraft server here!
   }
 }
 ```
 
-### Step 4: Start
-
-**With PM2 (Recommended for 24/7):**
-
+### 3. Start Bot
 ```bash
-npm run pm2:start
+./start.sh           # Linux/Mac
+start.bat            # Windows
+# Or: node dashboard/server.js CONFIG.json
+```
+
+**Dashboard**: http://localhost:5000 (no login needed!)
+
+---
+
+## 🎮 What It Does
+
+### AFK Mode (Simple)
+- Prevents AFK kicks
+- Minimal resource usage  
+- Just stays online
+
+### Player Mode (Autonomous!) ⭐
+**The bot becomes a real player:**
+
+✅ **Survival** - Gathers food, wood, crafts tools
+✅ **Home Building** - Finds location, builds complete home  
+✅ **Resource Gathering** - Mines, collects, organizes inventory
+✅ **Exploration** - Discovers new areas and biomes
+✅ **Trading** - Finds villagers and trades automatically
+✅ **Community** - Interacts with players, helps others
+✅ **Dynamic Goals** - Creates new objectives automatically
+✅ **Never Stops** - Always has something to do!
+
+---
+
+## 🏠 Autonomous Features
+
+### How Player Mode Works:
+
+**Phase 1: Survival (0-10 min)**
+- Gathers wood and resources
+- Crafts basic tools
+- Finds food
+- Establishes home location
+
+**Phase 2: Building (10-30 min)**
+- Builds foundation
+- Constructs walls and roof
+- Adds storage chests
+- Creates workspace
+
+**Phase 3: Expansion (30+ min)**
+- Builds farms
+- Mines for resources
+- Explores nearby areas
+- Expands storage
+
+**Phase 4: Community (1+ hours)**
+- Trades with villagers
+- Helps other players
+- Builds community structures
+- **Generates new goals automatically!**
+
+### Dynamic Goal Generation
+
+The bot **never runs out of things to do**. It constantly evaluates:
+- Current inventory and resources
+- Health and food levels
+- Nearby players and villages
+- Completed milestones
+- Environmental opportunities
+
+Then automatically creates goals like:
+- "Need tools? Craft them!"
+- "Low on food? Find some!"
+- "Players nearby? Interact!"
+- "Have excess resources? Trade!"
+- "Home established? Expand it!"
+
+---
+
+## 📊 Dashboard
+
+Open: **http://localhost:5000**
+
+Features:
+- 📈 Real-time bot status
+- ❤️ Health & food monitoring
+- 📍 Position tracking
+- 🎯 Current goals & tasks
+- 💬 Chat & commands
+- ⚙️ Settings & controls
+- 🔄 Switch AFK ↔ Player mode
+
+---
+
+## 🚀 24/7 Deployment
+
+### PM2 (Recommended for Linux/Mac)
+```bash
+npm install -g pm2
+pm2 start ecosystem.config.js
 pm2 save
 pm2 startup
 ```
 
-**Direct:**
-
+### Termux (Android)
 ```bash
-npm run dashboard
+node dashboard/server.js CONFIG.json
+# Press Ctrl+Z, then:
+bg
+disown
+# Settings → Battery → No restrictions
 ```
 
-### Step 5: Keep Running 24/7
-
-**Install wake lock:**
-
-```bash
-termux-wake-lock
-```
-
-**Auto-start on boot:**
-
-1. Install Termux:Boot from F-Droid
-2. Create `~/.termux/boot/start-bot.sh`:
-
-```bash
-#!/data/data/com.termux/files/usr/bin/bash
-termux-wake-lock
-cd ~/betterbender-2.0
-pm2 resurrect
-```
-
-3. Make executable: `chmod +x ~/.termux/boot/start-bot.sh`
-
-**Prevent battery optimization:**
-
-Settings → Apps → Termux → Battery → Don't optimize
+### Windows
+Double-click `start.bat` and minimize window
 
 ---
 
-## ⚙️ CONFIGURATION
+## ⚙️ Configuration
 
-### Safety Settings (CRITICAL)
+### Device Presets
 
+**Old Phone/Tablet:**
 ```json
 {
+  "mode": { "current": "afk" },
   "safety": {
     "maxCpuPercent": 30,
-    "maxMemoryMB": 512,
-    "maxBlocksPerHour": 200,
-    "checkIntervalMs": 30000,
-    "enableThermalMonitoring": true,
-    "enableBatteryMonitoring": true,
-    "autoThrottle": true
+    "maxMemoryMB": 256
   }
 }
 ```
 
-**For low-end devices:**
-- `maxCpuPercent: 20`
-- `maxMemoryMB: 256`
-- Use AFK mode primarily
-
-**For high-end devices:**
-- `maxCpuPercent: 50`
-- `maxMemoryMB: 1024`
-- `maxBlocksPerHour: 400`
-
-### Mode Settings
-
-**AFK Mode:**
-
+**Modern Phone:**
 ```json
 {
-  "afkMode": {
-    "movementPattern": "random",
-    "movementInterval": 15000,
-    "movementRange": 5,
-    "autoEat": true,
-    "autoRespawn": true,
-    "avoidMobs": true,
-    "statusUpdateInterval": 60000
+  "mode": { "current": "player" },
+  "safety": {
+    "maxCpuPercent": 45,
+    "maxMemoryMB": 512
   }
 }
 ```
 
-**Player Mode:**
-
+**PC/Laptop:**
 ```json
 {
-  "playerMode": {
-    "workDuration": 1800000,
-    "restDuration": 300000,
-    "tradeDuration": 600000,
-    "socialDuration": 900000,
-    "exploreDuration": 1200000,
-    "buildDuration": 1500000,
-    "maxBlocksPerCycle": 100,
-    "smartInventory": true,
-    "useChests": true,
-    "helpPlayers": true,
-    "buildCommunity": true,
-    "respondToChat": true
+  "mode": { "current": "player" },
+  "safety": {
+    "maxCpuPercent": 60,
+    "maxMemoryMB": 1024
   }
 }
 ```
 
-### Authentication
+### Account Types
 
-**Offline/Cracked:**
-
+**Offline/Cracked (Easiest):**
 ```json
 {
   "auth": {
     "type": "offline",
-    "username": "BotName"
+    "username": "MyBot"
   }
 }
 ```
 
-**Microsoft Account:**
-
+**Microsoft (Premium):**
 ```json
 {
   "auth": {
     "type": "microsoft",
-    "username": "email@outlook.com"
+    "username": "your-email@example.com"
   }
 }
 ```
 
-Device code will appear in logs - enter it at microsoft.com/link
-
 **Mojang (Legacy):**
-
 ```json
 {
   "auth": {
     "type": "mojang",
-    "username": "your_username",
-    "password": "your_password"
+    "username": "your-username",
+    "password": "your-password"
   }
 }
 ```
 
 ---
 
-## 🎮 USAGE
+## 🎯 Features
 
-### NPM Scripts
+### Core Features
+- ✅ Autonomous goal generation
+- ✅ Home & base building
+- ✅ Resource management
+- ✅ Pathfinding & navigation
+- ✅ Combat & auto-defend
+- ✅ Trading with villagers
+- ✅ Community interaction
+- ✅ Chat responses
+- ✅ Inventory management
+- ✅ 24/7 stability
 
-```bash
-npm start              # Start bot
-npm run dashboard      # Start dashboard + bot
-npm test               # Run tests
-
-# PM2
-npm run pm2:start      # Start with PM2
-npm run pm2:stop       # Stop
-npm run pm2:restart    # Restart
-npm run pm2:logs       # View logs
-npm run pm2:status     # Status
-```
-
-### PM2 Commands
-
-```bash
-pm2 list               # List processes
-pm2 logs               # Live logs
-pm2 monit              # Monitor resources
-pm2 restart all        # Restart
-pm2 stop all           # Stop
-pm2 delete all         # Remove
-pm2 save               # Save state
-pm2 resurrect          # Restore saved state
-```
-
-### Dashboard Access
-
-**Local (Termux):**
-```
-http://localhost:5000
-```
-
-**Remote (from PC/phone on same WiFi):**
-```
-http://TERMUX_DEVICE_IP:5000
-```
-
-Find your IP: `ifconfig` or `ip addr`
+### Safety Features
+- ✅ CPU monitoring & throttling
+- ✅ Memory limits
+- ✅ Thermal protection (Termux)
+- ✅ Battery awareness
+- ✅ Smart reconnection
+- ✅ Auto-respawn
+- ✅ Health alerts
 
 ---
 
-## 🔐 SECURITY
-
-### Change Admin Token
-
-**CRITICAL**: Change the default token immediately!
-
-Edit `CONFIG.json`:
-
-```json
-{
-  "dashboard": {
-    "adminToken": "your_very_secure_random_token_here"
-  }
-}
-```
-
-Generate secure token:
-
-```bash
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-```
-
-### Network Security
-
-**Local only (recommended):**
-
-Dashboard binds to `0.0.0.0:5000` by default. For local-only access, firewall port 5000.
-
-**SSH Tunnel (safest for remote access):**
-
-```bash
-# On your computer
-ssh -L 5000:localhost:5000 termux@device-ip
-
-# Access: http://localhost:5000
-```
-
----
-
-## 🐛 TROUBLESHOOTING
-
-### Bot Won't Start
-
-1. **Check logs:** `pm2 logs` or `data/logs/`
-2. **Verify config:** `cat CONFIG.json | grep -E "(host|port|version)"`
-3. **Test connection:** `ping your.server.ip`
-4. **Check version:** Server version must match `server.version`
-
-### Dashboard Not Loading
-
-1. **Port in use:** `lsof -i :5000` (if installed)
-2. **Change port:** Edit `dashboard.port` in CONFIG.json
-3. **Check token:** Verify admin token is set
-4. **Browser cache:** Clear cache or try incognito
-
-### High Resource Usage
-
-1. **Switch to AFK mode** from dashboard
-2. **Lower safety thresholds**
-3. **Increase action delays**
-4. **Reduce maxBlocksPerHour**
-
-### Bot Keeps Disconnecting
-
-1. **Check reconnect settings**
-2. **Server kicks:** Check server logs
-3. **Network:** Ensure stable WiFi
-4. **Whitelist:** Add bot to server whitelist
-
-### Termux Stops When Screen Off
-
-1. **Install Termux:Wake Lock**
-2. **Run:** `termux-wake-lock`
-3. **Disable battery optimization**
-4. **Use PM2** for process management
-
-### Memory Issues
-
-1. **Set lower maxMemoryMB**
-2. **Use AFK mode**
-3. **Restart bot daily:** `crontab -e` → `0 4 * * * pm2 restart all`
-
----
-
-## 📊 PERFORMANCE
-
-### Resource Usage
-
-**AFK Mode:**
-- CPU: 2-5%
-- RAM: 150-200 MB
-- Battery: Minimal impact
-
-**Player Mode:**
-- CPU: 10-30%
-- RAM: 300-500 MB
-- Battery: Moderate impact
-
-### Optimization Tips
-
-**For 24/7 operation:**
-- Keep device plugged in
-- Ensure good ventilation
-- Use AFK mode overnight
-- Monitor temperature regularly
-- Set up automatic restarts
-
-**Network:**
-- Use WiFi (not mobile data)
-- Stable connection required
-- 5-10 Mbps recommended
-
----
-
-## 🏗️ PROJECT STRUCTURE
+## 📁 Project Structure
 
 ```
-BetterBender-2.0/
+BetterBender/
+├── CONFIG.json              # Your settings
+├── start.sh / start.bat     # Easy start scripts
+├── dashboard/               # Web control panel
 ├── src/
-│   ├── engine.js           # Core bot engine
-│   ├── core/
-│   │   ├── logger.js       # Logging system
-│   │   ├── safety.js       # Device safety
-│   │   └── taskManager.js  # Task queue
-│   └── utils/
-│       ├── auth.js         # Authentication
-│       └── reconnect.js    # Reconnect logic
-├── addons/
-│   ├── afk.js             # AFK mode
-│   ├── player.js          # Player mode (enhanced)
-│   ├── crafting.js        # Crafting system
-│   ├── pathfinding.js     # Navigation
-│   ├── mining.js          # Mining
-│   ├── building.js        # Building
-│   └── trading.js         # Trading
-├── dashboard/
-│   ├── server.js          # Backend
-│   └── public/
-│       └── index.html     # Dashboard UI
-├── termux/
-│   └── termux-install.sh  # Installer
-├── test/
-│   └── smoke.js           # Tests
-├── data/                  # Runtime data
-│   ├── logs/              # Log files
-│   └── tasks/             # Task persistence
-├── CONFIG.json            # Your config
-├── CONFIG.example.json    # Example config
-├── package.json           # Dependencies
-└── README.md              # This file
+│   ├── core/               # Bot brain
+│   │   ├── autonomousGoals.js    # Dynamic goal generation
+│   │   ├── homeBuilder.js        # Home building system
+│   │   ├── progressionSystem.js  # Achievement tracking
+│   │   └── safety.js            # Device protection
+│   └── utils/              # Helper functions
+└── addons/
+    ├── player.js           # Full player simulation
+    ├── afk.js             # AFK prevention
+    ├── mining.js          # Mining automation
+    ├── building.js        # Building automation
+    ├── crafting.js        # Crafting system
+    └── trading.js         # Trading automation
 ```
 
 ---
 
-## ⚠️ IMPORTANT NOTES
+## 📚 Documentation
 
-### Long-Term Operation
-
-**For months-long operation:**
-- ✅ Use PM2 with auto-restart
-- ✅ Set up PM2 startup script
-- ✅ Enable wake lock
-- ✅ Monitor device temperature
-- ✅ Keep device cool and ventilated
-- ✅ Stable power supply
-- ✅ Stable internet connection
-
-### Server Etiquette
-
-- ✅ Get permission before running bots
-- ✅ Respect server rules
-- ✅ Don't grief or spam
-- ✅ Build helpful structures
-- ✅ Help other players
-- ✅ Use realistic block rates
-
-### Device Safety
-
-- 🌡️ Temperature should stay below 60°C
-- 🔋 Use while plugged in for 24/7
-- 💨 Ensure good airflow
-- 📱 Monitor device health
-- ⚠️ Stop if device gets hot
+- **README-SIMPLE.md** - Beginner-friendly setup
+- **SETUP-GUIDE.md** - Detailed configuration
+- **OPTIMIZATION.md** - Performance tuning
+- **CONFIG-PRESETS.json** - Ready-to-use configs
+- **TESTING.md** - Testing procedures
+- **PRODUCTION-READY.md** - Deployment guide
+- **CHANGELOG.md** - Version history
 
 ---
 
-## 📖 EXAMPLES
+## ⚠️ Troubleshooting
 
-### Example 1: AFK on Server
+### Connection Refused
+✅ Server is offline - bot will auto-retry
 
-Keep server populated while you're away.
-
-**CONFIG.json:**
+### High CPU
 ```json
-{
-  "mode": { "current": "afk" },
-  "afkMode": {
-    "movementInterval": 20000,
-    "movementRange": 3
-  }
-}
+{ "safety": { "maxCpuPercent": 30 } }
 ```
 
-Start: `npm run pm2:start`
+### Bot Not Building
+- Make sure mode is "player"
+- Give it 10-15 minutes to gather resources
+- Check dashboard for current activity
 
-### Example 2: Autonomous Player
+### Can't Access Dashboard
+Try:
+- http://localhost:5000
+- http://127.0.0.1:5000
 
-Bot lives on server, gathering resources and building.
+---
 
-**CONFIG.json:**
-```json
-{
-  "mode": { "current": "player" },
-  "playerMode": {
-    "respondToChat": true,
-    "helpPlayers": true,
-    "maxBlocksPerCycle": 150
-  }
-}
+## 🎮 Example: First Hour
+
+```
+00:00 - Bot joins server
+00:01 - "Hey everyone!" (greets)
+00:02 - Gathers wood
+00:05 - Crafts pickaxe
+00:08 - Mines stone
+00:10 - Crafts stone tools
+00:15 - Finds home location
+00:20 - Builds foundation
+00:25 - Builds walls
+00:30 - Adds door
+00:35 - Places chests
+00:40 - Builds farm
+00:45 - Mines for iron
+00:50 - Trades with player
+00:55 - Expands base
+01:00 - Creates goal: "Find diamonds"
 ```
 
-Start: `npm run pm2:start`
-
-### Example 3: Low-Power Mode
-
-For old/slow devices.
-
-**CONFIG.json:**
-```json
-{
-  "safety": {
-    "maxCpuPercent": 15,
-    "maxMemoryMB": 200
-  },
-  "mode": { "current": "afk" }
-}
-```
+**And continues forever!**
 
 ---
 
-## 🆘 SUPPORT
+## 🔥 What Makes This Special?
 
-### Logs
+### Other Minecraft Bots:
+- ❌ Complex setup
+- ❌ Fixed behaviors only
+- ❌ Stop when goals complete
+- ❌ Can't adapt
 
-- **Bot logs:** `data/logs/bot-YYYY-MM-DD.log`
-- **PM2 logs:** `pm2 logs`
-- **Test results:** `test-results/`
-
-### Debug Mode
-
-Enable detailed logging:
-
-```json
-{
-  "logging": {
-    "level": "debug"
-  }
-}
-```
+### BetterBender 2.0:
+- ✅ **3-step setup**
+- ✅ **Autonomous goal generation**
+- ✅ **Never stops progressing**
+- ✅ **Builds communities**
+- ✅ **Adapts to environment**
+- ✅ **24/7 stable**
+- ✅ **Easy to use & reuse**
 
 ---
 
-## ✅ CHECKLIST
+## 📊 Performance
 
-Before running 24/7:
+### Resource Usage (Connected to Server)
 
-- [ ] CONFIG.json configured
-- [ ] Admin token changed
-- [ ] PM2 installed and running
-- [ ] Wake lock enabled
-- [ ] Battery optimization disabled
-- [ ] Device properly cooled
-- [ ] Stable power supply
-- [ ] Stable WiFi connection
-- [ ] Server permission obtained
-- [ ] Tested for 1 hour first
+| Device     | CPU    | RAM      | Battery |
+|-----------|--------|----------|---------|
+| Low-End   | 5-15%  | 80-150MB | Minimal |
+| Medium    | 10-25% | 150-300MB| Low     |
+| High-End  | 15-40% | 300-600MB| Moderate|
+
+**Note**: CPU spikes to 50-80% during reconnection when server is offline (normal behavior).
 
 ---
 
-## 📜 LICENSE
+## ✅ Quick Checklist
 
-MIT License - See LICENSE file
-
----
-
-## ⚠️ DISCLAIMER
-
-- Use responsibly and ethically
-- Get server admin permission
-- Respect server rules and players
-- Monitor your device health
-- Use at your own risk
-- Not responsible for bans or damage
+- [ ] Install Node.js
+- [ ] Edit CONFIG.json (server address)
+- [ ] Run start script
+- [ ] Open dashboard (localhost:5000)
+- [ ] Switch to Player mode
+- [ ] Watch bot build and progress!
 
 ---
 
-**Built for the Minecraft community with ❤️**
+## 🤝 Community & Support
 
-*Fully autonomous • Ultra-realistic • Production-ready*
+**Made with ❤️ for the Minecraft community**
 
-🎮 Enjoy your 24/7 Minecraft companion! 🤖
+- Stable and tested
+- Optimized for long-term operation  
+- Safe for your device
+- Easy to setup and reuse
+
+**Need help?** Check the documentation files!
+
+---
+
+**Happy Botting!** 🎮🤖

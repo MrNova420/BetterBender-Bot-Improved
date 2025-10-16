@@ -145,7 +145,7 @@ class AutonomousGoalGenerator {
   }
 
   hasChests() {
-    return this.completedMilestones.has('storage_built');
+    return this.completedMilestones.has('build_storage') || this.completedMilestones.has('storage_built');
   }
 
   hasBasicResources() {

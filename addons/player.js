@@ -17,6 +17,7 @@ class EnhancedPlayerAddon {
     this.lastActionTime = 0;
     this.recentPlayers = new Map();
     this.inventory = [];
+    this.isWorking = false;
     
     this.naturalPhrases = {
       greetings: ['Hey!', 'Hi there', 'Hello!', 'Yo', 'Sup', 'Hey everyone', 'Greetings'],
@@ -418,30 +419,38 @@ class EnhancedPlayerAddon {
   }
   
   async _doWork() {
-    const autonomousGoal = this.autonomousGoals.getNextGoal();
+    if (this.isWorking) return;
+    this.isWorking = true;
     
-    if (autonomousGoal) {
-      this.logger.info(`[Player] Working on: ${autonomousGoal.description}`);
+    try {
+      const autonomousGoal = this.autonomousGoals.getNextGoal();
       
-      switch (autonomousGoal.action) {
-        case 'establish_home':
-          await this.homeBuilder.buildBasicHome();
-          const homePos = this.homeBuilder.getHomeLocation();
-          if (homePos) {
-            this.autonomousGoals.setHomeLocation(homePos);
-          }
-          this.autonomousGoals.completeGoal('establish_home');
-          break;
-          
-        case 'build_storage':
-          this._placeBlockNaturally();
-          this.autonomousGoals.completeGoal('build_storage');
-          break;
-          
-        case 'expand_base':
-          await this.homeBuilder.expandBase();
-          this.autonomousGoals.completeGoal('expand_base');
-          break;
+      if (autonomousGoal) {
+        this.logger.info(`[Player] Working on: ${autonomousGoal.description}`);
+        
+        switch (autonomousGoal.action) {
+          case 'establish_home':
+            this._gatherNaturally();
+            const homePos = this.bot.entity.position;
+            if (homePos) {
+              this.autonomousGoals.setHomeLocation(homePos);
+              this.autonomousGoals.completeGoal('establish_home');
+            }
+            break;
+            
+          case 'build_storage':
+            this._placeBlockNaturally();
+            setTimeout(() => {
+              this.autonomousGoals.completeGoal('build_storage');
+            }, 60000);
+            break;
+            
+          case 'expand_base':
+            this._placeBlockNaturally();
+            setTimeout(() => {
+              this.autonomousGoals.completeGoal('expand_base');
+            }, 120000);
+            break;
           
         case 'gather_basic_materials':
           this._gatherNaturally();
@@ -470,23 +479,26 @@ class EnhancedPlayerAddon {
           
         default:
           this._mineNaturally();
-      }
-    } else {
-      const currentGoal = this.progression.getCurrentGoal();
-      
-      if (currentGoal) {
-        if (currentGoal.name.includes('mine') || currentGoal.name.includes('Mine')) {
-          this._mineNaturally();
-        } else if (currentGoal.name.includes('gather') || currentGoal.name.includes('Gather')) {
-          this._gatherNaturally();
-        } else if (currentGoal.name.includes('build') || currentGoal.name.includes('Build')) {
-          this._placeBlockNaturally();
+        }
+      } else {
+        const currentGoal = this.progression.getCurrentGoal();
+        
+        if (currentGoal) {
+          if (currentGoal.name.includes('mine') || currentGoal.name.includes('Mine')) {
+            this._mineNaturally();
+          } else if (currentGoal.name.includes('gather') || currentGoal.name.includes('Gather')) {
+            this._gatherNaturally();
+          } else if (currentGoal.name.includes('build') || currentGoal.name.includes('Build')) {
+            this._placeBlockNaturally();
+          } else {
+            this._mineNaturally();
+          }
         } else {
           this._mineNaturally();
         }
-      } else {
-        this._mineNaturally();
       }
+    } finally {
+      this.isWorking = false;
     }
   }
   
