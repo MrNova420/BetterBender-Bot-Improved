@@ -374,10 +374,16 @@ class BotEngine {
   switchMode(newMode) {
     if (newMode === this.currentMode) return;
     
+    if (!this.bot || !this.bot.entity) {
+      this.logger.warn(`Cannot switch mode - bot not connected. Will switch to ${newMode} when ready.`);
+      this.currentMode = newMode;
+      return;
+    }
+    
     this.logger.info(`Switching mode: ${this.currentMode} -> ${newMode}`);
     
     for (const [name, addon] of this.addons) {
-      if (addon.disable) {
+      if (addon.disable && addon.enabled) {
         addon.disable();
       }
     }
@@ -388,7 +394,7 @@ class BotEngine {
     this.activityTracker.record('mode_change', { from: oldMode, to: newMode });
     
     const targetAddon = this.addons.get(newMode);
-    if (targetAddon && targetAddon.enable) {
+    if (targetAddon && targetAddon.enable && targetAddon.logger) {
       targetAddon.enable();
     }
     
