@@ -254,8 +254,13 @@ class DashboardServer {
       socket.on('switch_mode', (data) => {
         if (!socket.authenticated) return;
         if (this.engine && this.engine.running) {
-          this.engine.switchMode(data.mode);
-          this.broadcast('mode_changed', { mode: data.mode });
+          const bot = this.engine.getBot();
+          if (bot && bot.entity) {
+            this.engine.switchMode(data.mode);
+            this.broadcast('mode_changed', { mode: data.mode });
+          } else {
+            socket.emit('error', { message: 'Bot must be connected to server to switch modes' });
+          }
         }
       });
       
