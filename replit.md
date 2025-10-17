@@ -4,9 +4,18 @@
 
 BetterBender 2.0 is a fully autonomous Minecraft bot designed for 24/7 operation on low-to-medium end devices, including Termux (Android). It features advanced player simulation with **autonomous goal generation**, **home building**, **community interaction**, and **dynamic task creation** - the bot literally plays the game like a real player and never runs out of things to do. Built with Mineflayer and Node.js, it's heavily optimized for minimal resource usage (80-300MB RAM) and includes comprehensive safety features. The bot can run for months continuously, building bases, gathering resources, trading, and creating its own objectives. Setup is incredibly simple: install Node.js, edit one line in CONFIG.json, and run the start script.
 
-## Recent Updates (October 17, 2025) - Final Production Fixes ✅
+## Recent Updates (October 17, 2025) - Critical Bot Action Fixes ✅
 
-### Critical Stability Fixes (Oct 17, 2025)
+### Critical Bot Action Fixes (Oct 17, 2025 - Evening)
+- **Fixed bot standing still bug** - Bot was logging AI decisions but not executing actions due to missing navigation and async/await issues
+- **Added pathfinding integration** - All mining/gathering methods now navigate to blocks before attempting actions
+- **Fixed async method calls** - Properly awaited all async operations so bot waits for actions to complete
+- **Added tool equipping** - Bot now equips proper tools (axe for wood, pickaxe for stone/ore) before mining
+- **Added getAddon method** - Engine can now retrieve registered addons for cross-addon communication
+- **Improved error logging** - Changed from debug to warn level so failures are visible in logs
+- **Both modes fully functional** - Player mode performs actual actions, AFK mode moves correctly
+
+### Critical Stability Fixes (Oct 17, 2025 - Morning)  
 - **Fixed auto-switch to AFK bug** - Removed engine.js code that forced mode switch to AFK on low health, allowing Player mode to handle survival autonomously
 - **Fixed deprecated mobType** - Updated mob detection to use displayName/name instead of deprecated mobType property
 - **Added autonomous escape** - Player mode now detects danger (zombies, skeletons, etc.) and runs away when health < 6

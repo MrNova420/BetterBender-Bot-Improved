@@ -348,7 +348,7 @@ class EnhancedPlayerAddon {
     return 'work';
   }
   
-  _performActivity() {
+  async _performActivity() {
     if (!this.bot || !this.bot.entity || !this.enabled) return;
     
     const now = Date.now();
@@ -367,14 +367,14 @@ class EnhancedPlayerAddon {
     }
     
     if (this.lifelikeAI && Math.random() < 0.4) {
-      this._performLifelikeActivity();
+      await this._performLifelikeActivity();
       this.lastActionTime = now;
       return;
     }
     
     switch (this.currentState) {
       case 'work':
-        this._doWork();
+        await this._doWork();
         break;
       case 'rest':
         this._doRest();
@@ -386,7 +386,7 @@ class EnhancedPlayerAddon {
         this._doSocial();
         break;
       case 'build':
-        this._doBuild();
+        await this._doBuild();
         break;
       case 'organize':
         this._doOrganize();
@@ -558,9 +558,9 @@ class EnhancedPlayerAddon {
     }
   }
   
-  _doBuild() {
+  async _doBuild() {
     if (Math.random() < 0.4) {
-      this._placeBlockNaturally();
+      await this._placeBlockNaturally();
     } else {
       this._lookAround();
     }
@@ -570,7 +570,7 @@ class EnhancedPlayerAddon {
     this._checkInventory();
   }
   
-  _mineNaturally() {
+  async _mineNaturally() {
     try {
       const mcData = require('minecraft-data')(this.bot.version);
       const blocks = ['stone', 'dirt', 'coal_ore', 'iron_ore', 'oak_log', 'birch_log'];
@@ -588,45 +588,45 @@ class EnhancedPlayerAddon {
           const tool = this._getBestTool(block);
           
           if (tool) {
-            this.bot.equip(tool, 'hand', (err) => {
-              if (err) return;
-              
-              this.bot.lookAt(block.position.offset(0.5, 0.5, 0.5));
-              
-              setTimeout(() => {
-                this.bot.dig(block, (err) => {
-                  if (!err) {
-                    this.blocksThisCycle++;
-                    this.engine.getSafety().recordBlock();
-                    
-                    if (blockName.includes('coal')) {
-                      this.progression.updateGoal('resources', 'mineCoal', 1);
-                    } else if (blockName.includes('iron')) {
-                      this.progression.updateGoal('resources', 'mineIron', 1);
-                    } else if (blockName.includes('stone')) {
-                      this.progression.updateGoal('resources', 'mineStone', 1);
-                    }
-                    
-                    if (Math.random() < 0.05) {
-                      setTimeout(() => {
-                        const comments = ['nice', 'got it', 'cool'];
-                        this._saySomething(this._randomFrom(comments));
-                      }, 500 + Math.random() * 1000);
-                    }
-                  }
-                });
-              }, 300 + Math.random() * 700);
-            });
+            await this.bot.equip(tool, 'hand');
+          }
+          
+          const pathfinder = this.engine.getAddon('pathfinding');
+          if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
+            const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
+            if (!success) {
+              this.logger.debug(`[Enhanced Player] Could not reach ${blockName}`);
+              continue;
+            }
+          }
+          
+          await this.bot.dig(block);
+          this.blocksThisCycle++;
+          this.engine.getSafety().recordBlock();
+          
+          if (blockName.includes('coal')) {
+            this.progression.updateGoal('resources', 'mineCoal', 1);
+          } else if (blockName.includes('iron')) {
+            this.progression.updateGoal('resources', 'mineIron', 1);
+          } else if (blockName.includes('stone')) {
+            this.progression.updateGoal('resources', 'mineStone', 1);
+          }
+          
+          this.logger.info(`[Enhanced Player] Mined ${blockName}`);
+          
+          if (Math.random() < 0.05) {
+            const comments = ['nice', 'got it', 'cool'];
+            this._saySomething(this._randomFrom(comments));
           }
           break;
         }
       }
     } catch (err) {
-      this.logger.debug('[Enhanced Player] Mining error:', err.message);
+      this.logger.warn('[Enhanced Player] Mining error:', err.message);
     }
   }
   
-  _gatherNaturally() {
+  async _gatherNaturally() {
     try {
       const mcData = require('minecraft-data')(this.bot.version);
       const gatherables = ['wheat', 'carrots', 'potatoes', 'oak_log', 'birch_log'];
@@ -641,31 +641,40 @@ class EnhancedPlayerAddon {
         });
         
         if (block) {
-          this.bot.lookAt(block.position.offset(0.5, 0.5, 0.5));
+          const tool = this._getBestTool(block);
+          if (tool) {
+            await this.bot.equip(tool, 'hand');
+          }
           
-          setTimeout(() => {
-            this.bot.dig(block, (err) => {
-              if (!err) {
-                this.blocksThisCycle++;
-                this.engine.getSafety().recordBlock();
-                
-                if (itemName.includes('log')) {
-                  this.progression.updateGoal('survival', 'gatherWood', 1);
-                } else if (itemName.includes('wheat') || itemName.includes('carrot') || itemName.includes('potato')) {
-                  this.progression.updateGoal('survival', 'gatherFood', 1);
-                }
-              }
-            });
-          }, 400 + Math.random() * 600);
+          const pathfinder = this.engine.getAddon('pathfinding');
+          if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
+            const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
+            if (!success) {
+              this.logger.debug(`[Enhanced Player] Could not reach ${itemName}`);
+              continue;
+            }
+          }
+          
+          await this.bot.dig(block);
+          this.blocksThisCycle++;
+          this.engine.getSafety().recordBlock();
+          
+          if (itemName.includes('log')) {
+            this.progression.updateGoal('survival', 'gatherWood', 1);
+          } else if (itemName.includes('wheat') || itemName.includes('carrot') || itemName.includes('potato')) {
+            this.progression.updateGoal('survival', 'gatherFood', 1);
+          }
+          
+          this.logger.info(`[Enhanced Player] Gathered ${itemName}`);
           break;
         }
       }
     } catch (err) {
-      this.logger.debug('[Enhanced Player] Gathering error:', err.message);
+      this.logger.warn('[Enhanced Player] Gathering error:', err.message);
     }
   }
   
-  _placeBlockNaturally() {
+  async _placeBlockNaturally() {
     try {
       const buildableItems = this.bot.inventory.items().filter(item => {
         return item && item.name && (
@@ -687,25 +696,18 @@ class EnhancedPlayerAddon {
         );
         
         if (referenceBlock && referenceBlock.name !== 'air') {
-          this.bot.equip(item, 'hand', (err) => {
-            if (err) return;
-            
-            this.bot.lookAt(referenceBlock.position.offset(0.5, 1, 0.5));
-            
-            setTimeout(() => {
-              const Vec3 = require('vec3');
-              this.bot.placeBlock(referenceBlock, new Vec3(0, 1, 0), (err) => {
-                if (!err) {
-                  this.blocksThisCycle++;
-                  this.engine.getSafety().recordBlock();
-                }
-              });
-            }, 300 + Math.random() * 700);
-          });
+          await this.bot.equip(item, 'hand');
+          await this.bot.lookAt(referenceBlock.position.offset(0.5, 1, 0.5));
+          
+          const Vec3 = require('vec3');
+          await this.bot.placeBlock(referenceBlock, new Vec3(0, 1, 0));
+          this.blocksThisCycle++;
+          this.engine.getSafety().recordBlock();
+          this.logger.info('[Enhanced Player] Placed block');
         }
       }
     } catch (err) {
-      this.logger.debug('[Enhanced Player] Building error:', err.message);
+      this.logger.warn('[Enhanced Player] Building error:', err.message);
     }
   }
   
@@ -854,7 +856,7 @@ class EnhancedPlayerAddon {
     return array[Math.floor(Math.random() * array.length)];
   }
   
-  _performLifelikeActivity() {
+  async _performLifelikeActivity() {
     if (!this.lifelikeAI || !this.bot || !this.bot.entity) return;
     
     this.lifelikeAI.performRandomBehavior();
@@ -867,15 +869,15 @@ class EnhancedPlayerAddon {
     
     switch (aiDecision.action) {
       case 'chop_trees':
-        this._gatherWood();
+        await this._gatherWood();
         this.minecraftProgression.updateGoal('early_game', 'gather_wood', 4);
         break;
       case 'mine_stone':
-        this._mineStone();
+        await this._mineStone();
         this.minecraftProgression.updateGoal('early_game', 'mine_stone', 1);
         break;
       case 'mine_ore':
-        this._mineOre(aiDecision.ore || 'coal_ore');
+        await this._mineOre(aiDecision.ore || 'coal_ore');
         if (aiDecision.ore === 'coal_ore') {
           this.minecraftProgression.updateGoal('iron_age', 'mine_coal', 1);
         } else if (aiDecision.ore === 'iron_ore') {
@@ -885,13 +887,13 @@ class EnhancedPlayerAddon {
         }
         break;
       case 'scout_location':
-        this._scoutBuildLocation();
+        await this._scoutBuildLocation();
         break;
       case 'build_structure':
-        this._buildStructure(aiDecision.structure);
+        await this._buildStructure(aiDecision.structure);
         break;
       case 'hunt_gather':
-        this._gatherFood();
+        await this._gatherFood();
         this.minecraftProgression.updateGoal('early_game', 'find_food', 2);
         break;
       case 'interact_players':
@@ -904,7 +906,7 @@ class EnhancedPlayerAddon {
         this._doRest();
         break;
       default:
-        this._doWork();
+        await this._doWork();
     }
   }
   
@@ -919,12 +921,31 @@ class EnhancedPlayerAddon {
       });
       
       if (block) {
+        const tool = this.bot.inventory.items().find(item => 
+          item && item.name && item.name.includes('axe')
+        );
+        
+        if (tool) {
+          await this.bot.equip(tool, 'hand');
+        }
+        
+        const pathfinder = this.engine.getAddon('pathfinding');
+        if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
+          const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
+          if (!success) {
+            this.logger.warn('[Player] Could not reach wood block');
+            return;
+          }
+        }
+        
         await this.bot.dig(block);
         this.engine.getSafety().recordBlock();
         this.logger.info('[Player] Gathered wood');
+      } else {
+        this.logger.debug('[Player] No wood blocks found nearby');
       }
     } catch (err) {
-      this.logger.debug('[Player] Wood gathering error:', err.message);
+      this.logger.warn('[Player] Wood gathering error:', err.message);
     }
   }
   
@@ -941,12 +962,31 @@ class EnhancedPlayerAddon {
       });
       
       if (block) {
+        const tool = this.bot.inventory.items().find(item => 
+          item && item.name && item.name.includes('pickaxe')
+        );
+        
+        if (tool) {
+          await this.bot.equip(tool, 'hand');
+        }
+        
+        const pathfinder = this.engine.getAddon('pathfinding');
+        if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
+          const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
+          if (!success) {
+            this.logger.warn('[Player] Could not reach stone block');
+            return;
+          }
+        }
+        
         await this.bot.dig(block);
         this.engine.getSafety().recordBlock();
         this.logger.info('[Player] Mined stone');
+      } else {
+        this.logger.debug('[Player] No stone blocks found nearby');
       }
     } catch (err) {
-      this.logger.debug('[Player] Stone mining error:', err.message);
+      this.logger.warn('[Player] Stone mining error:', err.message);
     }
   }
   
@@ -963,12 +1003,31 @@ class EnhancedPlayerAddon {
       });
       
       if (block) {
+        const tool = this.bot.inventory.items().find(item => 
+          item && item.name && item.name.includes('pickaxe')
+        );
+        
+        if (tool) {
+          await this.bot.equip(tool, 'hand');
+        }
+        
+        const pathfinder = this.engine.getAddon('pathfinding');
+        if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
+          const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
+          if (!success) {
+            this.logger.warn(`[Player] Could not reach ${oreName} block`);
+            return;
+          }
+        }
+        
         await this.bot.dig(block);
         this.engine.getSafety().recordBlock();
         this.logger.info(`[Player] Mined ${oreName}`);
+      } else {
+        this.logger.debug(`[Player] No ${oreName} blocks found nearby`);
       }
     } catch (err) {
-      this.logger.debug(`[Player] ${oreName} mining error:`, err.message);
+      this.logger.warn(`[Player] ${oreName} mining error:`, err.message);
     }
   }
   

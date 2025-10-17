@@ -1,7 +1,7 @@
 {
   "server": {
-    "host": "localhost",
-    "port": 25565,
+    "host": "BetterSMP-J787.aternos.me",
+    "port": 11415,
     "version": "1.20.1"
   },
   "auth": {

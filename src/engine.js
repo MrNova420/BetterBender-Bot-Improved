@@ -493,6 +493,10 @@ class BotEngine {
   getActivityTracker() {
     return this.activityTracker;
   }
+  
+  getAddon(name) {
+    return this.addons.get(name);
+  }
 }
 
 if (require.main === module) {
