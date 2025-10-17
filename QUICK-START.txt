@@ -1,0 +1,55 @@
+========================================
+  BETTERBENDER 2.0 - QUICK START
+========================================
+
+STEP 1: EDIT CONFIG.JSON
+-------------------------
+Open CONFIG.json and change ONLY these 3 lines:
+
+Line 3:  "host": "your-server-address.com"
+Line 4:  "port": 25565
+Line 5:  "version": "1.20.1"
+
+Examples:
+- Aternos: "host": "MyServer.aternos.me"
+- IP Address: "host": "192.168.1.100"
+- Domain: "host": "mc.hypixel.net"
+
+
+STEP 2: CHOOSE AUTH TYPE
+-------------------------
+Line 8: "type": "offline"
+
+Options:
+- "offline" = Cracked servers (no premium account needed)
+- "mojang" = Premium account (add email + password)
+- "microsoft" = Microsoft account (bot will show login code)
+
+
+STEP 3: START THE BOT
+-------------------------
+Windows: Double-click start.bat
+Linux/Mac: Run ./start.sh
+Manual: node dashboard/server.js CONFIG.json
+
+Dashboard: http://localhost:5000
+
+
+MODES
+-------------------------
+AFK MODE: Prevents AFK kicks with small movements
+PLAYER MODE: Fully autonomous - mines, builds, explores, trades
+
+Switch modes in the dashboard anytime!
+
+
+THAT'S IT!
+-------------------------
+The bot will:
+✓ Auto-reconnect if disconnected
+✓ Auto-eat when hungry
+✓ Auto-respawn on death
+✓ Adapt to any Minecraft version
+✓ Run 24/7 stable
+
+Dashboard shows everything: health, position, inventory, tasks

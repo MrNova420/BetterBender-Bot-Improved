@@ -10,7 +10,7 @@
     "password": ""
   },
   "mode": {
-    "current": "afk",
+    "current": "player",
     "autoSwitch": false
   },
   "safety": {
