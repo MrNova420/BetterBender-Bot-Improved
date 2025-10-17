@@ -43,11 +43,16 @@ class EnhancedPlayerAddon {
     const PlayerInteractions = require('./player-interactions');
     const AutonomousGoalGenerator = require('../src/core/autonomousGoals');
     const HomeBuilder = require('../src/core/homeBuilder');
+    const MinecraftProgressionSystem = require('../src/core/minecraftProgression');
+    const LifelikeAI = require('../src/core/lifelikeAI');
     
     this.progression = new ProgressionSystem(engine.getStateManager(), this.logger);
     this.interactions = new PlayerInteractions(bot, engine, this.logger);
     this.autonomousGoals = new AutonomousGoalGenerator(bot, this.logger, this.progression);
     this.homeBuilder = new HomeBuilder(bot, this.logger);
+    
+    this.minecraftProgression = new MinecraftProgressionSystem(engine.getStateManager(), this.logger);
+    this.lifelikeAI = new LifelikeAI(bot, this.logger, this.minecraftProgression);
     
     this._setupEventHandlers();
     
@@ -343,6 +348,12 @@ class EnhancedPlayerAddon {
     
     if (this.interactions.hasActiveTasks()) {
       this._handlePlayerTask();
+      this.lastActionTime = now;
+      return;
+    }
+    
+    if (this.lifelikeAI && Math.random() < 0.4) {
+      this._performLifelikeActivity();
       this.lastActionTime = now;
       return;
     }
@@ -785,6 +796,173 @@ class EnhancedPlayerAddon {
     return array[Math.floor(Math.random() * array.length)];
   }
   
+  _performLifelikeActivity() {
+    if (!this.lifelikeAI || !this.bot || !this.bot.entity) return;
+    
+    this.lifelikeAI.performRandomBehavior();
+    
+    const aiDecision = this.lifelikeAI.decideNextAction();
+    if (!aiDecision) return;
+    
+    this.logger.info(`[AI Decision] ${aiDecision.description || aiDecision.action}`);
+    this.lifelikeAI.recordActivity(aiDecision.action);
+    
+    switch (aiDecision.action) {
+      case 'chop_trees':
+        this._gatherWood();
+        this.minecraftProgression.updateGoal('early_game', 'gather_wood', 4);
+        break;
+      case 'mine_stone':
+        this._mineStone();
+        this.minecraftProgression.updateGoal('early_game', 'mine_stone', 1);
+        break;
+      case 'mine_ore':
+        this._mineOre(aiDecision.ore || 'coal_ore');
+        if (aiDecision.ore === 'coal_ore') {
+          this.minecraftProgression.updateGoal('iron_age', 'mine_coal', 1);
+        } else if (aiDecision.ore === 'iron_ore') {
+          this.minecraftProgression.updateGoal('iron_age', 'mine_iron', 1);
+        } else if (aiDecision.ore === 'diamond_ore') {
+          this.minecraftProgression.updateGoal('diamond', 'find_diamonds', 1);
+        }
+        break;
+      case 'scout_location':
+        this._scoutBuildLocation();
+        break;
+      case 'build_structure':
+        this._buildStructure(aiDecision.structure);
+        break;
+      case 'hunt_gather':
+        this._gatherFood();
+        this.minecraftProgression.updateGoal('early_game', 'find_food', 2);
+        break;
+      case 'interact_players':
+        this._doSocial();
+        break;
+      case 'explore':
+        this._walkNaturally();
+        break;
+      case 'rest':
+        this._doRest();
+        break;
+      default:
+        this._doWork();
+    }
+  }
+  
+  async _gatherWood() {
+    try {
+      const mcData = require('minecraft-data')(this.bot.version);
+      const logBlocks = ['oak_log', 'birch_log', 'spruce_log', 'jungle_log'].map(name => mcData.blocksByName[name]?.id).filter(id => id);
+      
+      const block = this.bot.findBlock({
+        matching: logBlocks,
+        maxDistance: 32
+      });
+      
+      if (block) {
+        await this.bot.dig(block);
+        this.engine.getSafety().recordBlock();
+        this.logger.info('[Player] Gathered wood');
+      }
+    } catch (err) {
+      this.logger.debug('[Player] Wood gathering error:', err.message);
+    }
+  }
+  
+  async _mineStone() {
+    try {
+      const mcData = require('minecraft-data')(this.bot.version);
+      const stoneId = mcData.blocksByName['stone']?.id;
+      
+      if (!stoneId) return;
+      
+      const block = this.bot.findBlock({
+        matching: stoneId,
+        maxDistance: 32
+      });
+      
+      if (block) {
+        await this.bot.dig(block);
+        this.engine.getSafety().recordBlock();
+        this.logger.info('[Player] Mined stone');
+      }
+    } catch (err) {
+      this.logger.debug('[Player] Stone mining error:', err.message);
+    }
+  }
+  
+  async _mineOre(oreName) {
+    try {
+      const mcData = require('minecraft-data')(this.bot.version);
+      const oreId = mcData.blocksByName[oreName]?.id;
+      
+      if (!oreId) return;
+      
+      const block = this.bot.findBlock({
+        matching: oreId,
+        maxDistance: 32
+      });
+      
+      if (block) {
+        await this.bot.dig(block);
+        this.engine.getSafety().recordBlock();
+        this.logger.info(`[Player] Mined ${oreName}`);
+      }
+    } catch (err) {
+      this.logger.debug(`[Player] ${oreName} mining error:`, err.message);
+    }
+  }
+  
+  async _scoutBuildLocation() {
+    try {
+      const location = await this.homeBuilder.findBuildLocation();
+      if (location) {
+        this.logger.info(`[Player] Found build location at ${Math.floor(location.x)}, ${Math.floor(location.y)}, ${Math.floor(location.z)}`);
+        this.minecraftProgression.updateGoal('shelter', 'find_location', 1);
+      }
+    } catch (err) {
+      this.logger.debug('[Player] Scout error:', err.message);
+    }
+  }
+  
+  async _buildStructure(structureType) {
+    try {
+      if (structureType === 'foundation') {
+        this.minecraftProgression.updateGoal('shelter', 'build_foundation', 1);
+      } else if (structureType === 'walls') {
+        this.minecraftProgression.updateGoal('shelter', 'build_walls', 1);
+      }
+      this._placeBlockNaturally();
+    } catch (err) {
+      this.logger.debug('[Player] Build error:', err.message);
+    }
+  }
+  
+  async _gatherFood() {
+    try {
+      const foods = ['beef', 'chicken', 'porkchop', 'mutton', 'rabbit', 'apple', 'carrot', 'potato'];
+      const inventory = this.bot.inventory.items();
+      const hasFood = inventory.some(item => foods.some(food => item.name.includes(food)));
+      
+      if (!hasFood) {
+        this._gatherNaturally();
+      }
+    } catch (err) {
+      this.logger.debug('[Player] Food gathering error:', err.message);
+    }
+  }
+  
+  getMinecraftProgress() {
+    if (!this.minecraftProgression) return null;
+    return this.minecraftProgression.getProgress();
+  }
+  
+  getAIStatus() {
+    if (!this.lifelikeAI) return null;
+    return this.lifelikeAI.getStatus();
+  }
+
   cleanup() {
     this.disable();
   }

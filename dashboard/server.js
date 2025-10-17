@@ -70,6 +70,32 @@ class DashboardServer {
       }
     });
     
+    this.app.get('/api/minecraft-progress', this._authenticate.bind(this), (req, res) => {
+      if (this.engine) {
+        const playerAddon = this.engine.addons.get('player');
+        if (playerAddon && playerAddon.getMinecraftProgress) {
+          res.json({ progress: playerAddon.getMinecraftProgress() });
+        } else {
+          res.json({ progress: null });
+        }
+      } else {
+        res.json({ progress: null });
+      }
+    });
+    
+    this.app.get('/api/ai-status', this._authenticate.bind(this), (req, res) => {
+      if (this.engine) {
+        const playerAddon = this.engine.addons.get('player');
+        if (playerAddon && playerAddon.getAIStatus) {
+          res.json({ ai: playerAddon.getAIStatus() });
+        } else {
+          res.json({ ai: null });
+        }
+      } else {
+        res.json({ ai: null });
+      }
+    });
+    
     this.app.post('/api/goals', this._authenticate.bind(this), (req, res) => {
       if (this.engine) {
         const playerAddon = this.engine.addons.get('player');
