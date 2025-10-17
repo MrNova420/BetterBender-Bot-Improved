@@ -171,19 +171,6 @@ class BotEngine {
   _restoreState() {
     const savedState = this.stateManager.getState();
     
-    if (savedState.currentMode && savedState.currentMode !== this.currentMode) {
-      this.logger.info(`Restoring mode: ${savedState.currentMode}`);
-      this.currentMode = savedState.currentMode;
-      
-      setTimeout(() => {
-        const targetAddon = this.addons.get(savedState.currentMode);
-        if (targetAddon && targetAddon.enable) {
-          targetAddon.enable();
-          this.logger.info(`Mode ${savedState.currentMode} activated`);
-        }
-      }, 2000);
-    }
-    
     if (savedState.lastPosition) {
       this.logger.info(`Last known position: (${Math.round(savedState.lastPosition.x)}, ${Math.round(savedState.lastPosition.y)}, ${Math.round(savedState.lastPosition.z)})`);
       this.logger.info(`Explored ${savedState.exploredChunks?.length || 0} chunks`);
@@ -233,6 +220,14 @@ class BotEngine {
         this.logger.error(`Failed to initialize addon ${name}:`, err.message);
       }
     }
+    
+    setTimeout(() => {
+      const currentAddon = this.addons.get(this.currentMode);
+      if (currentAddon && !currentAddon.enabled && currentAddon.enable) {
+        this.logger.info(`Ensuring ${this.currentMode} mode is enabled`);
+        currentAddon.enable();
+      }
+    }, 1000);
     
     this._setupCorePlayerBehaviors();
     this._emit('bot_ready');
