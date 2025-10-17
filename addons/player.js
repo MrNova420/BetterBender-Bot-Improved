@@ -182,7 +182,10 @@ class EnhancedPlayerAddon {
       this._tryEat();
     }
     
-    if (this.bot.health < 10 && this.currentState !== 'rest') {
+    if (this.bot.health < 6) {
+      this._escapeFromDanger();
+      this._tryEat();
+    } else if (this.bot.health < 10 && this.currentState !== 'rest') {
       this._setState('rest');
     }
   }
@@ -350,6 +353,12 @@ class EnhancedPlayerAddon {
     
     const now = Date.now();
     if (now - this.lastActionTime < 2000) return;
+    
+    if (this.bot.health < 6) {
+      this._escapeFromDanger();
+      this.lastActionTime = now;
+      return;
+    }
     
     if (this.interactions.hasActiveTasks()) {
       this._handlePlayerTask();
@@ -798,6 +807,46 @@ class EnhancedPlayerAddon {
       }
     } catch (err) {
       this.logger.debug('[Enhanced Player] Eat error:', err.message);
+    }
+  }
+  
+  _escapeFromDanger() {
+    try {
+      const entities = Object.values(this.bot.entities);
+      const nearbyMobs = entities.filter(e => {
+        if (!e || !e.position || !e.type || e.type !== 'mob') return false;
+        const mobName = e.displayName || e.name || '';
+        const hostileTypes = ['zombie', 'skeleton', 'spider', 'creeper', 'enderman', 'vindicator', 'pillager'];
+        return hostileTypes.some(type => mobName.toLowerCase().includes(type));
+      });
+      
+      if (nearbyMobs.length > 0) {
+        const closestMob = nearbyMobs.sort((a, b) => {
+          const distA = this.bot.entity.position.distanceTo(a.position);
+          const distB = this.bot.entity.position.distanceTo(b.position);
+          return distA - distB;
+        })[0];
+        
+        const mobPos = closestMob.position;
+        const myPos = this.bot.entity.position;
+        const dx = myPos.x - mobPos.x;
+        const dz = myPos.z - mobPos.z;
+        
+        const escapePos = myPos.offset(dx * 3, 0, dz * 3);
+        this.bot.lookAt(escapePos);
+        
+        this.bot.clearControlStates();
+        this.bot.setControlState('forward', true);
+        this.bot.setControlState('sprint', true);
+        
+        this.logger.info('[Player] Escaping from danger!');
+        
+        setTimeout(() => {
+          this.bot.clearControlStates();
+        }, 3000);
+      }
+    } catch (err) {
+      this.logger.debug('[Player] Escape error:', err.message);
     }
   }
   

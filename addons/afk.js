@@ -121,10 +121,11 @@ class AFKAddon {
       const entities = Object.values(this.bot.entities);
       const hostileMobs = entities.filter(e => {
         if (!e || !e.position || !e.type || e.type !== 'mob') return false;
-        if (!e.mobType) return false;
+        const mobName = e.displayName || e.name || '';
+        if (!mobName) return false;
         
         const hostileTypes = ['zombie', 'skeleton', 'spider', 'creeper', 'enderman'];
-        return hostileTypes.includes(e.mobType.toLowerCase());
+        return hostileTypes.some(type => mobName.toLowerCase().includes(type));
       });
       
       for (const mob of hostileMobs) {

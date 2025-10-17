@@ -305,11 +305,6 @@ class BotEngine {
       if (this.bot.food < 18) {
         this._tryEat();
       }
-      
-      if (this.bot.health < 10 && this.currentMode !== 'afk') {
-        this.logger.warn('Low health! Switching to defensive mode');
-        this.switchMode('afk');
-      }
     }, 10000);
   }
   

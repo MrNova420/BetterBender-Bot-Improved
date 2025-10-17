@@ -1,0 +1,1750 @@
+~/bot3/BetterBender-Bot-Improved-patch $ nano CONFIG.json
+~/bot3/BetterBender-Bot-Improved-patch $ ./start.sh
+🤖 BetterBender 2.0 - Starting...
+
+📋 Current Configuration:
+   Server: BetterSMP-J787.aternos.me
+   Port: 11415
+5000
+   Mode: player
+
+🚀 Starting BetterBender...
+📊 Dashboard will be available at: http://localhost:5000
+🔑 For localhost connections, no login required!
+
+Press Ctrl+C to stop the bot
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[2025-10-17T18:50:08.447Z] [INFO] [StateManager] Loaded saved state
+[2025-10-17T18:50:08.452Z] [INFO] [ActivityTracker] Loaded 0 activities
+[2025-10-17T18:50:08.466Z] [INFO] Addon registered: afk
+[2025-10-17T18:50:08.466Z] [INFO] Addon registered: player
+[2025-10-17T18:50:08.467Z] [INFO] Addon registered: crafting
+[2025-10-17T18:50:08.467Z] [INFO] Addon registered: pathfinding
+[2025-10-17T18:50:08.467Z] [INFO] Addon registered: mining
+[2025-10-17T18:50:08.467Z] [INFO] Addon registered: building
+[2025-10-17T18:50:08.467Z] [INFO] Addon registered: trading
+[Dashboard] Server running on http://0.0.0.0:5000
+[Dashboard] Admin token: 5600
+[2025-10-17T18:50:08.498Z] [INFO] Starting BetterBender 2.0...
+[2025-10-17T18:50:08.498Z] [INFO] Safety monitor started
+[2025-10-17T18:50:09.708Z] [INFO] Connecting to BetterSMP-J787.aternos.me:11415 as BetterBender
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+[2025-10-17T18:50:10.636Z] [ERROR] Bot error: "read ECONNRESET"
+[2025-10-17T18:50:10.637Z] [INFO] Bot disconnected
+[2025-10-17T18:50:10.638Z] [INFO] Handling disconnect: Connection ended
+[2025-10-17T18:50:10.640Z] [INFO] Reconnecting in 5000ms (attempt 1/75)
+[2025-10-17T18:50:15.644Z] [INFO] Connecting to BetterSMP-J787.aternos.me:11415 as BetterBender
+[2025-10-17T18:50:17.087Z] [INFO] Bot logged in successfully
+[Dashboard] Chat message event received: { message: 'BetterBender joined the game' }
+[2025-10-17T18:50:17.428Z] [INFO] Bot spawned in world
+[2025-10-17T18:50:17.430Z] [INFO] Initializing addons...
+[2025-10-17T18:50:17.433Z] [INFO] Command handler initialized
+[2025-10-17T18:50:17.434Z] [INFO] Addon initialized: afk
+[2025-10-17T18:50:17.467Z] [INFO] [Enhanced Player] Mode activated
+[2025-10-17T18:50:17.469Z] [INFO] Addon initialized: player
+[2025-10-17T18:50:17.469Z] [INFO] Addon initialized: crafting
+[2025-10-17T18:50:17.536Z] [INFO] [Pathfinding] Initialized
+[2025-10-17T18:50:17.536Z] [INFO] Addon initialized: pathfinding
+[2025-10-17T18:50:17.537Z] [INFO] Addon initialized: mining
+[2025-10-17T18:50:17.537Z] [INFO] Addon initialized: building
+[2025-10-17T18:50:17.537Z] [INFO] Addon initialized: trading
+[Dashboard] Bot ready event received
+[2025-10-17T18:50:22.474Z] [INFO] [Enhanced Player] State: rest -> social
+[2025-10-17T18:50:25.389Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T18:50:26.983Z] [INFO] [Enhanced Player] State: social -> rest
+[2025-10-17T18:50:27.538Z] [WARN] Low health! Switching to defensive mode
+[2025-10-17T18:50:27.539Z] [INFO] Switching mode: player -> afk
+[2025-10-17T18:50:27.539Z] [INFO] [Enhanced Player] Mode deactivated
+[2025-10-17T18:50:27.541Z] [INFO] [AFK] Mode activated
+[Dashboard] Mode changed event received: { mode: 'afk' }
+[2025-10-17T18:50:30.479Z] [WARN] Low health: 3.333333969116211
+[2025-10-17T18:50:30.928Z] [WARN] Low health: 4.333333969116211
+[2025-10-17T18:50:30.983Z] [WARN] Low health: 4.333333969116211
+[2025-10-17T18:50:30.983Z] [WARN] Low health: 4.333333969116211
+[2025-10-17T18:50:31.479Z] [WARN] Low health: 1.833333969116211
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:50:32.592Z] [WARN] Low health: 0
+[2025-10-17T18:50:32.596Z] [WARN] Bot died
+[2025-10-17T18:50:32.597Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:50:33.599Z] [INFO] Auto-respawning...
+[2025-10-17T18:50:42.278Z] [WARN] Low health: 3.333333969116211
+[2025-10-17T18:50:43.281Z] [WARN] Low health: 0.8333339691162109
+[2025-10-17T18:50:43.828Z] [WARN] Low health: 1.833333969116211
+[2025-10-17T18:50:43.886Z] [WARN] Low health: 1.833333969116211
+[2025-10-17T18:50:43.886Z] [WARN] Low health: 1.833333969116211
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:50:44.309Z] [WARN] Low health: 0
+[2025-10-17T18:50:44.309Z] [WARN] Bot died
+[2025-10-17T18:50:44.314Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:50:45.316Z] [INFO] Auto-respawning...
+[2025-10-17T18:50:56.423Z] [WARN] Low health: 3.3333358764648438
+[2025-10-17T18:50:56.457Z] [WARN] Low health: 4.333335876464844
+[2025-10-17T18:50:56.458Z] [WARN] Low health: 1.8333358764648438
+[2025-10-17T18:50:56.458Z] [WARN] Low health: 1.8333358764648438
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:50:57.392Z] [WARN] Low health: 0
+[2025-10-17T18:50:57.392Z] [WARN] Bot died
+[2025-10-17T18:50:57.393Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:50:58.393Z] [INFO] Auto-respawning...
+[2025-10-17T18:51:05.779Z] [WARN] Low health: 3.333333969116211
+[2025-10-17T18:51:06.795Z] [WARN] Low health: 0.8333339691162109
+[2025-10-17T18:51:07.335Z] [WARN] Low health: 1.833333969116211
+[2025-10-17T18:51:07.381Z] [WARN] Low health: 1.833333969116211
+[2025-10-17T18:51:07.382Z] [WARN] Low health: 1.833333969116211
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:51:07.798Z] [WARN] Low health: 0
+[2025-10-17T18:51:07.798Z] [WARN] Bot died
+[2025-10-17T18:51:07.799Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:51:08.799Z] [INFO] Auto-respawning...
+[2025-10-17T18:51:16.283Z] [WARN] Low health: 3.333333969116211
+[Dashboard] Chat message event received: { message: '.f555123 joined the game' }
+[2025-10-17T18:51:17.323Z] [WARN] Low health: 0.8333339691162109
+[2025-10-17T18:51:17.712Z] [WARN] Low health: 1.833333969116211
+[2025-10-17T18:51:17.737Z] [WARN] Low health: 1.833333969116211
+[2025-10-17T18:51:17.738Z] [WARN] Low health: 1.833333969116211
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:51:18.309Z] [WARN] Low health: 0
+[2025-10-17T18:51:18.309Z] [WARN] Bot died
+[2025-10-17T18:51:18.312Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:51:19.312Z] [INFO] Auto-respawning...
+[2025-10-17T18:51:40.252Z] [WARN] Low health: 4.333333969116211
+[2025-10-17T18:51:40.288Z] [WARN] Low health: 1.833333969116211
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:51:41.314Z] [WARN] Low health: 0
+[2025-10-17T18:51:41.314Z] [WARN] Bot died
+[2025-10-17T18:51:41.318Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:51:42.318Z] [INFO] Auto-respawning...
+[2025-10-17T18:51:49.784Z] [WARN] Low health: 3.3333349227905273
+[2025-10-17T18:51:50.780Z] [WARN] Low health: 0.8333349227905273
+[2025-10-17T18:51:51.480Z] [WARN] Low health: 1.8333349227905273
+[2025-10-17T18:51:51.531Z] [WARN] Low health: 1.8333349227905273
+[2025-10-17T18:51:51.531Z] [WARN] Low health: 1.8333349227905273
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:51:51.788Z] [WARN] Low health: 0
+[2025-10-17T18:51:51.788Z] [WARN] Bot died
+[2025-10-17T18:51:51.788Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:51:52.788Z] [INFO] Auto-respawning...
+[2025-10-17T18:51:57.542Z] [INFO] [AFK] Status: Health=20 Food=20 Pos=(455, 134, 197)
+[2025-10-17T18:52:13.480Z] [WARN] Low health: 4.333334922790527
+[2025-10-17T18:52:14.481Z] [WARN] Low health: 1.8333349227905273
+[2025-10-17T18:52:14.580Z] [WARN] Low health: 2.8333349227905273
+[2025-10-17T18:52:14.627Z] [WARN] Low health: 2.8333349227905273
+[2025-10-17T18:52:14.628Z] [WARN] Low health: 2.8333349227905273
+[2025-10-17T18:52:15.481Z] [WARN] Low health: 0.33333492279052734
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:52:16.495Z] [WARN] Low health: 0
+[2025-10-17T18:52:16.495Z] [WARN] Bot died
+[2025-10-17T18:52:16.495Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:52:17.496Z] [INFO] Auto-respawning...
+[2025-10-17T18:52:25.119Z] [WARN] Low health: 3.333333969116211
+[2025-10-17T18:52:25.870Z] [WARN] Low health: 0.8333339691162109
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by Zombie' }
+[2025-10-17T18:52:26.795Z] [WARN] Low health: 0
+[2025-10-17T18:52:26.795Z] [WARN] Bot died
+[2025-10-17T18:52:26.795Z] [INFO] [AFK] Auto-respawning...
+[2025-10-17T18:52:27.796Z] [INFO] Auto-respawning...
+[Dashboard] Chat message event received: { message: '.f555123 was shot by Skeleton' }
+[Dashboard] Chat message event received: { message: 'hello' }
+[Dashboard] Chat message event received: { message: '!help' }
+[Dashboard] Chat message event received: { message: '.f555123 left the game' }
+[2025-10-17T18:53:27.543Z] [INFO] [AFK] Status: Health=20 Food=20 Pos=(453, 133, 197)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead                                        at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16                   at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)                                     at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)                                                 at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)                             at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)      Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)                            at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)                           at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)                                               at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)               at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)        at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:124:16
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+Trace: Warning: entity.mobType is deprecated. Use entity.displayName instead
+    at printMobTypeWarning (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:75:11)
+    at get mobType (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/prismarine-entity/index.js:29:7)
+    at /data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:127:40
+    at Array.filter (<anonymous>)
+    at AFKAddon._checkNearbyMobs (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:122:36)
+    at EventEmitter.<anonymous> (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/addons/afk.js:45:14)
+    at EventEmitter.emit (node:events:520:35)
+    at tickPhysics (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:82:11)
+    at Timeout.doPhysics [as _onTimeout] (/data/data/com.termux/files/home/bot3/BetterBender-Bot-Improved-patch/node_modules/mineflayer/lib/plugins/physics.js:71:7)
+    at listOnTimeout (node:internal/timers:608:17)
+[2025-10-17T18:56:27.544Z] [INFO] [AFK] Status: Health=20 Food=20 Pos=(456, 132, 197)
+[Dashboard] Client connected: Hp9omdFq1a1ToXGMAAAB      [Dashboard] Client disconnected: Hp9omdFq1a1ToXGMAAAB   [2025-10-17T18:57:44.858Z] [INFO] Bot disconnected
+[2025-10-17T18:57:44.862Z] [INFO] Handling disconnect: Connection ended                                         [2025-10-17T18:57:44.863Z] [INFO] [AFK] Mode deactivated
+[2025-10-17T18:57:44.874Z] [INFO] Reconnecting in 5000ms (attempt 1/75)
+[2025-10-17T18:57:49.879Z] [INFO] Connecting to BetterSMP-J787.aternos.me:11415 as BetterBender                 [2025-10-17T18:57:53.979Z] [INFO] Bot logged in successfully
+[Dashboard] Chat message event received: { message: 'BetterBender joined the game' }                            [2025-10-17T18:57:54.811Z] [INFO] Bot spawned in world
+[2025-10-17T18:57:54.812Z] [INFO] Last known position: (455, 132, 199)                                          [2025-10-17T18:57:54.812Z] [INFO] Explored 1 chunks     [2025-10-17T18:57:54.812Z] [INFO] Initializing addons...
+[2025-10-17T18:57:54.814Z] [INFO] Command handler initialized                                                   [2025-10-17T18:57:54.815Z] [INFO] [AFK] Mode activated
+[2025-10-17T18:57:54.815Z] [INFO] Addon initialized: afk
+[2025-10-17T18:57:54.818Z] [INFO] Addon initialized: player
+[2025-10-17T18:57:54.818Z] [INFO] Addon initialized: crafting                                                   [2025-10-17T18:57:54.845Z] [INFO] [Pathfinding] Initialized                                                     [2025-10-17T18:57:54.845Z] [INFO] Addon initialized: pathfinding
+[2025-10-17T18:57:54.846Z] [INFO] Addon initialized: mining
+[2025-10-17T18:57:54.846Z] [INFO] Addon initialized: building                                                   [2025-10-17T18:57:54.846Z] [INFO] Addon initialized: trading
+[Dashboard] Bot ready event received                    [2025-10-17T18:58:47.517Z] [INFO] Bot disconnected      [2025-10-17T18:58:47.519Z] [INFO] Handling disconnect: Connection ended
+[2025-10-17T18:58:47.519Z] [INFO] [AFK] Mode deactivated[2025-10-17T18:58:47.522Z] [INFO] Reconnecting in 5000ms (attempt 1/75)
+[2025-10-17T18:58:52.526Z] [INFO] Connecting to BetterSMP-J787.aternos.me:11415 as BetterBender                 Error: getaddrinfo ENOTFOUND BetterSMP-J787.aternos.me
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {                                         errno: -3007,
+  code: 'ENOTFOUND',                                      syscall: 'getaddrinfo',                                 hostname: 'BetterSMP-J787.aternos.me'
+}                                                       [2025-10-17T18:59:02.596Z] [ERROR] Bot error: "getaddrinfo ENOTFOUND BetterSMP-J787.aternos.me"
+[2025-10-17T18:59:02.598Z] [INFO] Bot disconnected      [2025-10-17T18:59:02.599Z] [INFO] Handling disconnect: Connection ended
+[2025-10-17T18:59:02.600Z] [INFO] Reconnecting in 7500ms (attempt 2/75)                                         [2025-10-17T18:59:10.102Z] [INFO] Connecting to BetterSMP-J787.aternos.me:11415 as BetterBender                 [2025-10-17T18:59:15.266Z] [INFO] Bot logged in successfully
+[Dashboard] Chat message event received: { message: 'BetterBender joined the game' }                            [2025-10-17T18:59:16.093Z] [INFO] Bot spawned in world  [2025-10-17T18:59:16.093Z] [INFO] Last known position: (458, 132, 197)                                          [2025-10-17T18:59:16.094Z] [INFO] Explored 1 chunks     [2025-10-17T18:59:16.094Z] [INFO] Initializing addons...
+[2025-10-17T18:59:16.094Z] [INFO] Command handler initialized                                                   [2025-10-17T18:59:16.094Z] [INFO] [AFK] Mode activated
+[2025-10-17T18:59:16.094Z] [INFO] Addon initialized: afk[2025-10-17T18:59:16.096Z] [INFO] Addon initialized: player
+[2025-10-17T18:59:16.096Z] [INFO] Addon initialized: crafting                                                   [2025-10-17T18:59:16.118Z] [INFO] [Pathfinding] Initialized                                                     [2025-10-17T18:59:16.118Z] [INFO] Addon initialized: pathfinding
+[2025-10-17T18:59:16.118Z] [INFO] Addon initialized: mining                                                     [2025-10-17T18:59:16.119Z] [INFO] Addon initialized: building                                                   [2025-10-17T18:59:16.119Z] [INFO] Addon initialized: trading
+[Dashboard] Bot ready event received
+[2025-10-17T19:00:39.371Z] [INFO] IDLE MODE ACTIVATED - Reducing resource consumption                           [2025-10-17T19:00:46.095Z] [INFO] [AFK] Status: Health=20 Food=20 Pos=(458, 132, 199)                           [2025-10-17T19:02:16.095Z] [INFO] [AFK] Status: Health=20 Food=20 Pos=(456, 132, 197)
