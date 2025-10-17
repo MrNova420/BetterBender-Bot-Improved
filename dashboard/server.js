@@ -7,7 +7,7 @@ const fs = require('fs');
 class DashboardServer {
   constructor(config, engine = null) {
     this.config = config;
-    this.engine = engine;
+    this.engine = null;
     this.app = express();
     this.server = http.createServer(this.app);
     this.io = socketIO(this.server);
@@ -17,6 +17,10 @@ class DashboardServer {
     
     this._setupExpress();
     this._setupSocketIO();
+    
+    if (engine) {
+      this.setEngine(engine);
+    }
   }
   
   _setupExpress() {
@@ -427,27 +431,46 @@ class DashboardServer {
     
     if (engine) {
       engine.on('bot_ready', () => {
+        console.log('[Dashboard] Bot ready event received');
         this.broadcast('bot_status', { running: true, ready: true });
+        this.broadcast('log_entry', { level: 'success', message: '✅ Bot connected and ready!' });
       });
       
       engine.on('mode_changed', (data) => {
+        console.log('[Dashboard] Mode changed event received:', data);
         this.broadcast('mode_changed', data);
+        this.broadcast('log_entry', { level: 'info', message: `Mode changed to: ${data.mode}` });
       });
       
       engine.on('chat_message', (data) => {
+        console.log('[Dashboard] Chat message event received:', data);
         this.broadcast('chat_message', data);
       });
       
+      engine.on('bot_death', () => {
+        this.broadcast('log_entry', { level: 'warning', message: '💀 Bot died!' });
+      });
+      
       setInterval(() => {
-        if (engine.running) {
-          this.broadcast('status_update', engine.getStatus());
+        if (engine.running && engine.getBot() && engine.getBot().entity) {
+          const status = engine.getStatus();
+          this.broadcast('status_update', status);
+        }
+      }, 2000);
+      
+      setInterval(() => {
+        if (engine.running && engine.getBot() && engine.getBot().entity) {
+          const activities = engine.getActivityTracker().getActivities({ limit: 10 });
+          this.broadcast('recent_activities', { activities });
         }
       }, 5000);
       
       setInterval(() => {
-        if (engine.running) {
-          const activities = engine.getActivityTracker().getActivities({ limit: 10 });
-          this.broadcast('recent_activities', { activities });
+        if (engine.running && engine.getBot() && engine.getBot().entity) {
+          const playerAddon = engine.addons.get('player');
+          if (playerAddon && playerAddon.progression) {
+            this.broadcast('goals_update', { goals: playerAddon.progression.getProgress() });
+          }
         }
       }, 10000);
     }

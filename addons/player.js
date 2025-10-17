@@ -102,6 +102,7 @@ class EnhancedPlayerAddon {
     
     this.enabled = true;
     this.logger.info('[Enhanced Player] Mode activated');
+    this.engine.getActivityTracker().record('mode_activated', { mode: 'player' });
     
     this._setState('rest');
     
@@ -268,6 +269,10 @@ class EnhancedPlayerAddon {
     if (this.currentState === newState) return;
     
     this.logger.info(`[Enhanced Player] State: ${this.currentState} -> ${newState}`);
+    this.engine.getActivityTracker().record('state_change', { 
+      from: this.currentState, 
+      to: newState 
+    });
     this.currentState = newState;
     this.stateStartTime = Date.now();
     this.blocksThisCycle = 0;
@@ -438,6 +443,10 @@ class EnhancedPlayerAddon {
       
       if (autonomousGoal) {
         this.logger.info(`[Player] Working on: ${autonomousGoal.description}`);
+        this.engine.getActivityTracker().record('autonomous_goal', { 
+          action: autonomousGoal.action,
+          description: autonomousGoal.description 
+        });
         
         switch (autonomousGoal.action) {
           case 'establish_home':
