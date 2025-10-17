@@ -11,7 +11,10 @@ class SafetyMonitor {
       checkIntervalMs: config.checkIntervalMs || 30000,
       enableThermalMonitoring: config.enableThermalMonitoring !== false,
       enableBatteryMonitoring: config.enableBatteryMonitoring !== false,
-      autoThrottle: config.autoThrottle !== false
+      autoThrottle: config.autoThrottle !== false,
+      enableIdleMode: config.enableIdleMode !== false,
+      idleThresholdMs: config.idleThresholdMs || 600000,
+      enable24x7Optimization: config.enable24x7Optimization !== false
     };
     
     this.logger = logger || console;
@@ -25,17 +28,24 @@ class SafetyMonitor {
     };
     
     this.throttled = false;
+    this.idleMode = false;
+    this.activityLevel = 'normal';
+    this.lastActivityTime = Date.now();
     this.monitorInterval = null;
     this.callbacks = {
       onThrottle: null,
       onRestore: null,
-      onCritical: null
+      onCritical: null,
+      onIdleMode: null,
+      onActiveMode: null
     };
     
     this.lastCpuInfo = null;
     this.lastMemCheck = Date.now();
     this.startupTime = Date.now();
     this.cpuReadings = [];
+    this.memoryReadings = [];
+    this.performanceHistory = [];
   }
   
   start() {
@@ -59,6 +69,11 @@ class SafetyMonitor {
     this.metrics.cpu = this._getCpuUsage();
     this.metrics.memory = this._getMemoryUsageMB();
     
+    this.memoryReadings.push(this.metrics.memory);
+    if (this.memoryReadings.length > 10) {
+      this.memoryReadings.shift();
+    }
+    
     if (this.config.enableThermalMonitoring) {
       this.metrics.temperature = this._getTemperature();
     }
@@ -72,6 +87,14 @@ class SafetyMonitor {
       this.metrics.lastBlockReset = Date.now();
     }
     
+    if (this.config.enableIdleMode) {
+      this._checkIdleMode();
+    }
+    
+    if (this.config.enable24x7Optimization) {
+      this._optimize24x7();
+    }
+    
     const shouldThrottle = this._shouldThrottle();
     
     if (shouldThrottle && !this.throttled) {
@@ -79,6 +102,8 @@ class SafetyMonitor {
     } else if (!shouldThrottle && this.throttled) {
       this._deactivateThrottle();
     }
+    
+    this._recordPerformanceHistory();
   }
   
   _getCpuUsage() {
@@ -212,6 +237,93 @@ class SafetyMonitor {
     return { ...this.metrics };
   }
   
+  _checkIdleMode() {
+    const timeSinceActivity = Date.now() - this.lastActivityTime;
+    
+    if (timeSinceActivity > this.config.idleThresholdMs && !this.idleMode) {
+      this._activateIdleMode();
+    } else if (timeSinceActivity < this.config.idleThresholdMs && this.idleMode) {
+      this._deactivateIdleMode();
+    }
+  }
+  
+  _activateIdleMode() {
+    this.idleMode = true;
+    this.activityLevel = 'idle';
+    this.logger.info('IDLE MODE ACTIVATED - Reducing resource consumption');
+    
+    if (this.callbacks.onIdleMode) {
+      this.callbacks.onIdleMode(this.metrics);
+    }
+  }
+  
+  _deactivateIdleMode() {
+    this.idleMode = false;
+    this.activityLevel = 'normal';
+    this.logger.info('IDLE MODE DEACTIVATED - Resuming normal activity');
+    
+    if (this.callbacks.onActiveMode) {
+      this.callbacks.onActiveMode(this.metrics);
+    }
+  }
+  
+  _optimize24x7() {
+    const avgMemory = this.memoryReadings.reduce((a, b) => a + b, 0) / this.memoryReadings.length;
+    const avgCpu = this.cpuReadings.reduce((a, b) => a + b, 0) / this.cpuReadings.length;
+    
+    if (avgMemory > this.config.maxMemoryMB * 0.8) {
+      if (global.gc) {
+        try {
+          global.gc();
+          this.logger.info('Performed garbage collection to optimize memory');
+        } catch (err) {
+          this.logger.debug('GC not available:', err.message);
+        }
+      }
+    }
+    
+    if (avgCpu < 10 && !this.idleMode) {
+      this.activityLevel = 'low';
+    } else if (avgCpu > 20 && avgCpu < 35) {
+      this.activityLevel = 'normal';
+    } else if (avgCpu > 35) {
+      this.activityLevel = 'high';
+    }
+  }
+  
+  _recordPerformanceHistory() {
+    const record = {
+      timestamp: Date.now(),
+      cpu: this.metrics.cpu,
+      memory: this.metrics.memory,
+      throttled: this.throttled,
+      idleMode: this.idleMode,
+      activityLevel: this.activityLevel
+    };
+    
+    this.performanceHistory.push(record);
+    
+    if (this.performanceHistory.length > 100) {
+      this.performanceHistory.shift();
+    }
+  }
+  
+  recordActivity() {
+    this.lastActivityTime = Date.now();
+  }
+  
+  isIdleMode() {
+    return this.idleMode;
+  }
+  
+  getActivityLevel() {
+    return this.activityLevel;
+  }
+  
+  getPerformanceHistory() {
+    return this.performanceHistory;
+  }
+
   on(event, callback) {
     if (event === 'throttle') {
       this.callbacks.onThrottle = callback;
@@ -219,6 +331,10 @@ class SafetyMonitor {
       this.callbacks.onRestore = callback;
     } else if (event === 'critical') {
       this.callbacks.onCritical = callback;
+    } else if (event === 'idle') {
+      this.callbacks.onIdleMode = callback;
+    } else if (event === 'active') {
+      this.callbacks.onActiveMode = callback;
     }
   }
 }
