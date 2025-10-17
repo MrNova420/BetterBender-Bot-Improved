@@ -100,9 +100,62 @@ Then automatically creates goals like:
 
 ---
 
+## 💬 In-Game Chat Commands
+
+Control the bot from Minecraft chat! All commands start with `!`:
+
+### Basic Control
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `!help` | Show all commands | `!help` or `!help <command>` |
+| `!status` | Show bot status | `!status` |
+| `!mode` | Switch bot mode | `!mode <afk\|player>` |
+| `!stop` | Stop current action | `!stop` |
+
+### Movement & Navigation
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `!come` | Make bot come to you | `!come` |
+| `!follow` | Follow a player | `!follow [player]` |
+| `!home` | Go to home location | `!home` |
+
+### Actions
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `!mine` | Mine specific block | `!mine <block>` |
+| `!build` | Build a structure | `!build <house\|tower\|wall>` |
+| `!craft` | Craft an item | `!craft <item> [amount]` |
+| `!sleep` | Go to sleep | `!sleep` |
+
+### Inventory & Items
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `!inv` | Show inventory summary | `!inv` |
+| `!give` | Give item to player | `!give <item> [amount] [player]` |
+
+### Progression & AI
+| Command | Description | Usage |
+|---------|-------------|-------|
+| `!progress` | Show Minecraft progression | `!progress` |
+| `!mood` | Show AI mood and status | `!mood` |
+
+**Example:**
+```
+Player: !status
+Bot: Health: 20/20 | Food: 18/20 | Position: (128, 64, -45) | Mode: player
+
+Player: !come
+Bot: Coming to Player!
+
+Player: !progress
+Bot: Stage: Early Game Survival (60%) | Next: Mine stone
+```
+
+---
+
 ## 📊 Dashboard - Complete Remote Control
 
-Open: **http://localhost:5000** (no login needed!)
+Open: **http://localhost:5000** (admin token required for full access)
 
 ### Full Control Features:
 
@@ -129,11 +182,20 @@ Open: **http://localhost:5000** (no login needed!)
 - Inventory viewer
 - Activity history
 - Goals & progress tracking
+- **Minecraft Progression** - Full game completion tracker
+- **AI Status** - Mood, energy, and decision-making
 
 **💬 Communication**
 - Send chat messages
 - Execute custom commands
 - View chat logs
+
+### Dashboard API Endpoints
+- `GET /api/status` - Bot status
+- `GET /api/metrics` - Performance metrics
+- `GET /api/goals` - Current goals
+- `GET /api/minecraft-progress` - Minecraft progression tracker
+- `GET /api/ai-status` - AI mood and status
 
 ---
 
@@ -337,6 +399,83 @@ Try:
 00:55 - Expands base
 01:00 - Creates goal: "Find diamonds"
 ```
+
+**And continues forever!**
+
+---
+
+## 🎯 Minecraft Progression System
+
+**NEW!** The bot now has a complete Minecraft progression tracker - from survival basics to defeating the Ender Dragon!
+
+### Progression Stages:
+
+**1. Early Game Survival ⛏️**
+- Gather wood → Craft tools → Mine stone → Find food
+- Auto-tracks: 64 wood, crafting table, pickaxe, 32 stone, tools, 20 food
+
+**2. Build Shelter 🏠**
+- Find location → Build foundation → Walls → Roof → Door → Bed → Storage
+- Fully autonomous home construction
+
+**3. Iron Age ⚒️**
+- Find caves → Mine coal/iron → Craft furnace → Smelt → Iron gear
+- Complete iron armor and tools
+
+**4. Diamond Hunting 💎**
+- Deep mining (Y -54) → Find diamonds → Craft diamond pickaxe → Mine obsidian
+- Build enchanting table
+
+**5. Nether Expedition 🔥**
+- Build portal → Enter Nether → Find fortress → Collect blaze rods → Ender pearls
+- Craft Eyes of Ender
+
+**6. Stronghold Hunt 🗺️**
+- Locate stronghold → Prepare equipment → Gather supplies → Activate portal
+
+**7. Defeat Ender Dragon 🐉**
+- Enter The End → Destroy crystals → Defeat dragon
+- **Beat Minecraft!**
+
+**8. Post-Game 🏆**
+- Mega base → Automated farms → End cities → Max enchantments
+
+### Track Progress
+- Use `!progress` in chat
+- Check dashboard `/api/minecraft-progress`
+- Monitor stage completion and next goals
+
+---
+
+## 🧠 Lifelike AI System
+
+**NEW!** The bot now has a personality and makes human-like decisions!
+
+### AI Personality:
+- **Curiosity**: 70% - Loves exploring
+- **Social**: 60% - Enjoys player interaction  
+- **Ambitious**: 80% - Driven to progress
+- **Cautious**: 50% - Balanced risk-taking
+- **Helpful**: 70% - Assists others
+
+### AI Moods:
+- **Neutral** - Normal operation
+- **Stressed** - Low health/danger
+- **Accomplished** - Goals completed
+- **Bored** - Needs new activity
+- **Social** - Players nearby
+
+### Dynamic Behavior:
+The AI decides what to do based on:
+- Current Minecraft progression goals
+- Player health and hunger
+- Nearby players and opportunities
+- Boredom and energy levels
+- Time since last activity
+
+Check AI status: `!mood` or dashboard API
+
+---
 
 **And continues forever!**
 

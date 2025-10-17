@@ -5,6 +5,7 @@ const TaskManager = require('./core/taskManager');
 const StateManager = require('./core/stateManager');
 const ActivityTracker = require('./core/activityTracker');
 const ReconnectManager = require('./utils/reconnect');
+const CommandHandler = require('./core/commandHandler');
 const { getAuthOptions } = require('./utils/auth');
 const fs = require('fs');
 const path = require('path');
@@ -154,6 +155,17 @@ class BotEngine {
     this.bot.on('messagestr', (message) => {
       this._emit('chat_message', { message });
     });
+    
+    this.bot.on('chat', (username, message) => {
+      if (this.commandHandler && username && username !== this.bot.username) {
+        const response = this.commandHandler.handleMessage(message, username);
+        if (response) {
+          setTimeout(() => {
+            this.bot.chat(response);
+          }, 500);
+        }
+      }
+    });
   }
   
   _restoreState() {
@@ -210,6 +222,9 @@ class BotEngine {
   _initializeAddons() {
     this.logger.info('Initializing addons...');
     
+    this.commandHandler = new CommandHandler(this.bot, this, this.logger);
+    this.logger.info('Command handler initialized');
+    
     for (const [name, addon] of this.addons) {
       try {
         addon.init(this.bot, this);
@@ -219,7 +234,121 @@ class BotEngine {
       }
     }
     
+    this._setupCorePlayerBehaviors();
     this._emit('bot_ready');
+  }
+  
+  _setupCorePlayerBehaviors() {
+    this.bot.on('death', () => {
+      setTimeout(() => {
+        try {
+          this.logger.info('Auto-respawning...');
+          this.bot.respawn();
+          
+          setTimeout(() => {
+            if (this.bot.entity && this.bot.game && this.bot.game.dimension === 'minecraft:overworld') {
+              this.bot.chat('Respawned! Time for revenge...');
+            }
+          }, 2000);
+        } catch (err) {
+          this.logger.error('Respawn error:', err.message);
+        }
+      }, 1000);
+    });
+    
+    this.bot.on('spawn', async () => {
+      setTimeout(async () => {
+        if (!this.bot.entity) return;
+        
+        const bed = this.bot.findBlock({
+          matching: (block) => block && block.name && block.name.includes('bed'),
+          maxDistance: 32
+        });
+        
+        if (!bed) {
+          const bedItem = this.bot.inventory.items().find(i => i.name.includes('bed'));
+          if (bedItem) {
+            try {
+              this.logger.info('Placing bed for spawn point...');
+              await this.bot.equip(bedItem, 'hand');
+              
+              const pos = this.bot.entity.position.offset(0, -1, 0);
+              const referenceBlock = this.bot.blockAt(pos);
+              
+              if (referenceBlock && referenceBlock.name !== 'air') {
+                const Vec3 = require('vec3');
+                await this.bot.placeBlock(referenceBlock, new Vec3(0, 1, 0));
+                this.logger.info('Bed placed successfully!');
+              }
+            } catch (err) {
+              this.logger.debug('Bed placement error:', err.message);
+            }
+          }
+        }
+        
+        if (this.bot.time.timeOfDay > 12000 && this.bot.time.timeOfDay < 24000) {
+          const bedToSleep = this.bot.findBlock({
+            matching: (block) => block && block.name && block.name.includes('bed'),
+            maxDistance: 32
+          });
+          
+          if (bedToSleep) {
+            try {
+              await this.bot.sleep(bedToSleep);
+              this.logger.info('Sleeping through the night...');
+            } catch (err) {
+              this.logger.debug('Cannot sleep:', err.message);
+            }
+          }
+        }
+      }, 5000);
+    });
+    
+    setInterval(() => {
+      if (!this.bot || !this.bot.entity) return;
+      
+      if (this.bot.food < 18) {
+        this._tryEat();
+      }
+      
+      if (this.bot.health < 10 && this.currentMode !== 'afk') {
+        this.logger.warn('Low health! Switching to defensive mode');
+        this.switchMode('afk');
+      }
+    }, 10000);
+  }
+  
+  _tryEat() {
+    try {
+      const foods = this.bot.inventory.items().filter(item => {
+        return item && item.name && (
+          item.name.includes('bread') ||
+          item.name.includes('beef') ||
+          item.name.includes('pork') ||
+          item.name.includes('chicken') ||
+          item.name.includes('fish') ||
+          item.name.includes('apple') ||
+          item.name.includes('carrot') ||
+          item.name.includes('potato') ||
+          item.name.includes('mutton') ||
+          item.name.includes('cooked')
+        );
+      });
+      
+      if (foods.length > 0) {
+        this.bot.equip(foods[0], 'hand', (err) => {
+          if (!err) {
+            this.bot.consume((err) => {
+              if (!err) {
+                this.logger.info('Ate food');
+              }
+            });
+          }
+        });
+      }
+    } catch (err) {
+      this.logger.debug('Eat error:', err.message);
+    }
   }
   
   _handleDisconnect(reason) {
