@@ -1,0 +1,357 @@
+ ls
+CHANGELOG.md         attached_assets
+CONFIG-PRESETS.json  config
+CONFIG.example.json  dashboard
+CONFIG.json          data
+INSTALLATION.md      ecosystem.config.js
+LICENSE              package-lock.json
+OPTIMIZATION.md      package.json
+PRODUCTION-READY.md  public
+QUICK-START.md       replit.md
+QUICK-START.txt      src
+README-SIMPLE.md     start-termux.sh
+README.md            start.bat
+SETUP-GUIDE.md       start.sh
+TESTING.md           termux
+addons               test
+~/bot4/BetterBender-Bot-Improved-patch $ nano CONFIG.json
+~/bot4/BetterBender-Bot-Improved-patch $ npm install
+npm warn deprecated lodash.get@4.4.2: This package is deprecated. Use the optional chaining (?.) operator instead.
+
+added 187 packages, and audited 188 packages in 11s
+
+21 packages are looking for funding
+  run `npm fund` for details
+
+5 high severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+~/bot4/BetterBender-Bot-Improved-patch $ chmod +x start.sh
+~/bot4/BetterBender-Bot-Improved-patch $ ./start.sh
+🤖 BetterBender 2.0 - Starting...
+
+📋 Current Configuration:
+   Server: BetterSMP-J787.aternos.me
+   Port: 11415
+5000
+   Mode: player
+
+🚀 Starting BetterBender...
+📊 Dashboard will be available at: http://localhost:5000
+🔑 For localhost connections, no login required!
+
+Press Ctrl+C to stop the bot
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[2025-10-17T19:26:22.734Z] [INFO] [StateManager] Loaded saved state
+[2025-10-17T19:26:22.740Z] [INFO] [ActivityTracker] Loaded 0 activities
+[2025-10-17T19:26:22.756Z] [INFO] Addon registered: afk
+[2025-10-17T19:26:22.756Z] [INFO] Addon registered: player
+[2025-10-17T19:26:22.756Z] [INFO] Addon registered: crafting
+[2025-10-17T19:26:22.756Z] [INFO] Addon registered: pathfinding
+[2025-10-17T19:26:22.757Z] [INFO] Addon registered: mining
+[2025-10-17T19:26:22.757Z] [INFO] Addon registered: building
+[2025-10-17T19:26:22.757Z] [INFO] Addon registered: trading
+[Dashboard] Server running on http://0.0.0.0:5000
+[Dashboard] Admin token: CHANGE_THIS_TOKEN_NOW
+[2025-10-17T19:26:22.785Z] [INFO] Starting BetterBender 2.0...
+[2025-10-17T19:26:22.785Z] [INFO] Safety monitor started
+[2025-10-17T19:26:24.396Z] [INFO] Connecting to BetterSMP-J787.aternos.me:11415 as BetterBender
+Error: read ECONNRESET
+    at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+[2025-10-17T19:26:25.379Z] [ERROR] Bot error: "read ECONNRESET"
+[2025-10-17T19:26:25.380Z] [INFO] Bot disconnected
+[2025-10-17T19:26:25.380Z] [INFO] Handling disconnect: Connection ended
+[2025-10-17T19:26:25.382Z] [INFO] Reconnecting in 5000ms (attempt 1/75)
+[2025-10-17T19:26:30.384Z] [INFO] Connecting to BetterSMP-J787.aternos.me:11415 as BetterBender
+[2025-10-17T19:26:32.447Z] [INFO] Bot logged in successfully
+[Dashboard] Chat message event received: { message: 'BetterBender joined the game' }
+[2025-10-17T19:26:32.653Z] [INFO] Bot spawned in world
+[2025-10-17T19:26:32.654Z] [INFO] Initializing addons...
+[2025-10-17T19:26:32.656Z] [INFO] Command handler initialized
+[2025-10-17T19:26:32.656Z] [INFO] Addon initialized: afk
+[2025-10-17T19:26:32.673Z] [INFO] [Enhanced Player] Mode activated
+[2025-10-17T19:26:32.674Z] [INFO] Addon initialized: player
+[2025-10-17T19:26:32.674Z] [INFO] Addon initialized: crafting
+[2025-10-17T19:26:32.725Z] [INFO] [Pathfinding] Initialized
+[2025-10-17T19:26:32.725Z] [INFO] Addon initialized: pathfinding
+[2025-10-17T19:26:32.725Z] [INFO] Addon initialized: mining
+[2025-10-17T19:26:32.725Z] [INFO] Addon initialized: building
+[2025-10-17T19:26:32.725Z] [INFO] Addon initialized: trading
+[Dashboard] Bot ready event received
+[2025-10-17T19:26:37.438Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:26:37.675Z] [INFO] [Enhanced Player] State: rest -> work
+[Dashboard] Chat message event received: { message: 'Gathering some materials' }
+[2025-10-17T19:26:42.178Z] [INFO] [Player] Working on: Find location and build first home
+[2025-10-17T19:26:42.381Z] [INFO] [Autonomous] Home established at 456, 132, 196
+[2025-10-17T19:26:42.382Z] [INFO] [Autonomous] Completed goal: establish_home
+[2025-10-17T19:26:46.929Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:26:51.681Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:26:56.436Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:27:01.182Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:27:05.934Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:27:10.691Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:27:15.437Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:27:20.194Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:27:24.939Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: '.f555123 joined the game' }
+[2025-10-17T19:27:29.690Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'Welcome back' }
+[2025-10-17T19:27:34.441Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:27:39.192Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:27:43.943Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:27:48.694Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:27:54.466Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'ow' }
+[2025-10-17T19:27:59.217Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:28:03.969Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:28:08.721Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:28:13.473Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:28:18.225Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:28:22.975Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'ow' }
+[2025-10-17T19:28:27.726Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:28:32.478Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:28:33.244Z] [INFO] [Enhanced Player] State: work -> rest
+[2025-10-17T19:28:37.230Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:28:39.257Z] [WARN] Low health: 4.68800163269043
+[2025-10-17T19:28:39.745Z] [WARN] Low health: 4.096001625061035
+[2025-10-17T19:28:40.097Z] [WARN] Low health: 3.8400015830993652
+[2025-10-17T19:28:40.099Z] [WARN] Low health: 3.8400015830993652
+[2025-10-17T19:28:40.395Z] [WARN] Low health: 2.992001533508301
+[2025-10-17T19:28:40.893Z] [WARN] Low health: 2.4000015258789062
+[2025-10-17T19:28:41.397Z] [WARN] Low health: 1.8080015182495117
+[2025-10-17T19:28:41.993Z] [WARN] Low health: 1.2160015106201172
+[2025-10-17T19:28:42.499Z] [WARN] Low health: 0.6240015029907227
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by .f555123' }
+[2025-10-17T19:28:42.998Z] [WARN] Low health: 0
+[2025-10-17T19:28:42.999Z] [WARN] Bot died
+[2025-10-17T19:28:44.004Z] [INFO] Auto-respawning...
+[2025-10-17T19:28:51.484Z] [INFO] [AI Decision] Gather Wood
+[Dashboard] Chat message event received: { message: 'hello' }
+[2025-10-17T19:29:15.241Z] [INFO] [AI Decision] Gather Wood
+[Dashboard] Chat message event received: { message: 'why are you not doing anything' }
+[2025-10-17T19:30:02.777Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:30:07.529Z] [INFO] [AI Decision] Gather Wood
+[Dashboard] Chat message event received: { message: '.f555123 left the game' }
+[Dashboard] Chat message event received: { message: 'ouch' }
+[2025-10-17T19:30:29.392Z] [WARN] Low health: 4.333332061767578
+[Dashboard] Chat message event received: { message: 'ow' }
+[2025-10-17T19:30:38.141Z] [WARN] Low health: 1.3333320617675781
+[Dashboard] Chat message event received: { message: '.f555123 joined the game' }
+[Dashboard] Chat message event received: { message: 'BetterBender was shot by Skeleton' }
+[2025-10-17T19:30:55.910Z] [WARN] Low health: 0
+[2025-10-17T19:30:55.926Z] [WARN] Bot died
+[Dashboard] Chat message event received: { message: 'dang it' }
+[2025-10-17T19:30:56.936Z] [INFO] Auto-respawning...
+[2025-10-17T19:30:59.797Z] [INFO] [AI Decision] Gather Wood
+[2025-10-17T19:30:59.972Z] [INFO] [Minecraft Progression] ✓ Completed: Gather Wood
+[2025-10-17T19:31:09.299Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:31:09.300Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:31:14.051Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:31:14.052Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'stop' }
+[2025-10-17T19:31:18.801Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:31:18.802Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'why are you afk' }
+[Dashboard] Chat message event received: { message: '!help' }
+[Dashboard] Chat message event received: { message: 'Sure, what do you need?' }
+[2025-10-17T19:31:47.309Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:31:47.329Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'start playing t' }
+[Dashboard] Chat message event received: { message: 'the game' }
+[2025-10-17T19:32:20.568Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:32:20.568Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:32:25.319Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:32:25.319Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: "don't afk" }
+[Dashboard] Chat message event received: { message: '!player' }
+[Dashboard] Chat message event received: { message: 'np' }
+[2025-10-17T19:32:53.826Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:32:53.826Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:32:58.577Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:32:58.578Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'why are you standing there doing nothing' }
+[2025-10-17T19:33:03.328Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:03.328Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:33:08.740Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:08.740Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:33:27.749Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:27.750Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: '!why are you standing there doing nothing?' }
+[2025-10-17T19:33:32.508Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:32.508Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:33:37.252Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:37.253Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:33:37.732Z] [INFO] [Enhanced Player] State: rest -> work
+[2025-10-17T19:33:42.004Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:33:46.756Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:46.756Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:33:51.507Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:51.507Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'better bender play the game stop afking' }
+[2025-10-17T19:33:56.259Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:33:56.260Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:01.011Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:34:01.012Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:05.763Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:10.515Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:15.267Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'ow' }
+[2025-10-17T19:34:20.019Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:34:20.020Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:24.771Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:34:24.772Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:29.523Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:34.275Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:39.026Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:34:39.027Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'do something live in the world and play stop afking' }
+[2025-10-17T19:34:43.777Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:34:43.777Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:48.528Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:53.280Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:34:53.280Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:34:58.032Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:35:02.784Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:35:02.784Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:35:07.535Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:35:07.536Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'hey!' }
+[2025-10-17T19:35:12.286Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'what' }
+[2025-10-17T19:35:17.037Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:35:20.990Z] [INFO] [Enhanced Player] State: work -> rest
+[Dashboard] Chat message event received: { message: 'ouch' }
+[2025-10-17T19:35:21.789Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:35:21.790Z] [INFO] [Player] Working on: Find food immediately
+[2025-10-17T19:35:26.143Z] [WARN] Low health: 4.8826680183410645
+[2025-10-17T19:35:26.492Z] [WARN] Low health: 4.03466796875
+[2025-10-17T19:35:26.690Z] [WARN] Low health: 4.03466796875
+[2025-10-17T19:35:26.691Z] [WARN] Low health: 4.03466796875
+[2025-10-17T19:35:27.091Z] [WARN] Low health: 3.6346678733825684
+[2025-10-17T19:35:27.241Z] [WARN] Low health: 3.4426679611206055
+[2025-10-17T19:35:27.602Z] [WARN] Low health: 2.594667911529541
+[2025-10-17T19:35:28.201Z] [WARN] Low health: 2.0026679039001465
+[2025-10-17T19:35:28.691Z] [WARN] Low health: 1.410667896270752
+[2025-10-17T19:35:29.293Z] [WARN] Low health: 0.8186678886413574
+[2025-10-17T19:35:29.539Z] [WARN] Low health: 0.562667965888977
+[Dashboard] Chat message event received: { message: 'BetterBender was slain by .f555123' }
+[2025-10-17T19:35:29.847Z] [WARN] Low health: 0
+[2025-10-17T19:35:29.847Z] [WARN] Bot died
+[2025-10-17T19:35:30.853Z] [INFO] Auto-respawning...
+[Dashboard] Chat message event received: { message: 'stop' }
+[Dashboard] Chat message event received: { message: '.f555123 left the game' }
+[2025-10-17T19:36:18.900Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:36:18.906Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:36:28.403Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:36:28.404Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:36:42.661Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:36:42.662Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:36:52.164Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:36:52.164Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:36:54.695Z] [INFO] IDLE MODE ACTIVATED - Reducing resource consumption
+[Dashboard] Client connected: hhVU5cBNT6oC2vafAAAB
+[2025-10-17T19:37:01.667Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:37:01.667Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:37:06.417Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:37:06.418Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:37:11.169Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:37:11.170Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:37:30.174Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:37:30.175Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:37:39.679Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:37:39.679Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:37:44.431Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:37:44.432Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:38:08.185Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:38:08.186Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:38:12.937Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:38:12.937Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:38:22.442Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:38:22.443Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:38:41.454Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:38:41.462Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:38:50.957Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:38:51.058Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Client disconnected: hhVU5cBNT6oC2vafAAAB
+[2025-10-17T19:38:55.709Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:38:55.709Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:39:00.461Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:39:00.461Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:39:09.963Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:39:09.963Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:39:19.465Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:39:19.466Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'f555123 joined the game' }
+[2025-10-17T19:39:33.717Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:39:33.722Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:39:38.468Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:39:38.469Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:39:47.970Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:39:47.970Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:02.226Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:40:02.227Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:16.491Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:40:16.517Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:21.022Z] [INFO] [Enhanced Player] State: rest -> work
+[2025-10-17T19:40:21.232Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:25.982Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:30.734Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:35.485Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:40:35.485Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:40.367Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:45.119Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:40:45.119Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:49.871Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:40:54.623Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:40:54.624Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: {
+  message: 'why are you just still afk and standing still doing nothing?'
+}
+[2025-10-17T19:40:59.373Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'Working on gatherFood' }
+[2025-10-17T19:41:04.125Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:08.877Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:41:08.877Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:13.628Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:41:13.629Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:18.381Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:41:18.382Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'but your just standing in front of me afk' }
+[2025-10-17T19:41:24.799Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:41:24.799Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:29.549Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:34.301Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:39.052Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:43.804Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:48.554Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:53.305Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:41:58.057Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: "you don't even fight back or run or nothing at all" }
+[2025-10-17T19:42:02.807Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:42:02.808Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:07.559Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:42:07.561Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[Dashboard] Chat message event received: { message: 'f555123 left the game' }
+[2025-10-17T19:42:12.310Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:17.061Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:21.813Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:26.569Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:31.320Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:36.072Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:42:36.073Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:40.824Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:42:40.825Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:45.575Z] [INFO] [AI Decision] Craft Crafting Table
+[2025-10-17T19:42:45.576Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:50.327Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:55.077Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
+[2025-10-17T19:42:59.829Z] [INFO] [Player] Working on: Gather wood, stone, and basic resources
