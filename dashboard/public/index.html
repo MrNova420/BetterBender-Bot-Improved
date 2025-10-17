@@ -1030,6 +1030,33 @@
       socket.on('recent_activities', updateRecentActivities);
       socket.on('goals_update', updateGoals);
       socket.on('activities_update', updateActivitiesHistory);
+      socket.on('inventory_update', (data) => {
+        const container = document.getElementById('inventoryDisplay');
+        if (!data.inventory || data.inventory.length === 0) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-state-icon">🎒</div>
+              <p>Inventory empty</p>
+            </div>
+          `;
+          return;
+        }
+        
+        let html = '<div style="display: grid; gap: 8px;">';
+        data.inventory.forEach(item => {
+          html += `
+            <div style="display: flex; justify-content: space-between; padding: 8px; background: #1e293b; border-radius: 4px;">
+              <div>
+                <strong>${item.name}</strong>
+                ${item.displayName ? `<br><small style="color: #64748b;">${item.displayName}</small>` : ''}
+              </div>
+              <span style="color: #38bdf8;">×${item.count}</span>
+            </div>
+          `;
+        });
+        html += '</div>';
+        container.innerHTML = html;
+      });
       
       setupEventListeners();
       setupTabs();
@@ -1567,34 +1594,6 @@
     function refreshInventory() {
       socket.emit('get_inventory');
     }
-    
-    socket.on('inventory_update', (data) => {
-      const container = document.getElementById('inventoryDisplay');
-      if (!data.inventory || data.inventory.length === 0) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">🎒</div>
-            <p>Inventory empty</p>
-          </div>
-        `;
-        return;
-      }
-      
-      let html = '<div style="display: grid; gap: 8px;">';
-      data.inventory.forEach(item => {
-        html += `
-          <div style="display: flex; justify-content: space-between; padding: 8px; background: #1e293b; border-radius: 4px;">
-            <div>
-              <strong>${item.name}</strong>
-              ${item.displayName ? `<br><small style="color: #64748b;">${item.displayName}</small>` : ''}
-            </div>
-            <span style="color: #38bdf8;">×${item.count}</span>
-          </div>
-        `;
-      });
-      html += '</div>';
-      container.innerHTML = html;
-    });
     
     function gotoCoordinates() {
       const x = document.getElementById('gotoX').value;
