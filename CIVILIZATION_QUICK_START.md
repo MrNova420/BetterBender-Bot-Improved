@@ -246,30 +246,79 @@ Copy an existing preset and modify:
 - Role assignments
 - Priority actions
 
+## ✅ System Validation
+
+All civilization configurations are automatically validated before launch:
+- Bot IDs must be unique
+- Bot names must follow Minecraft naming rules (max 16 chars, alphanumeric + underscore)
+- Personality traits must be between 0 and 1
+- Server configuration must be valid
+- All required fields must be present
+
+If validation fails, you'll see clear error messages explaining what to fix.
+
 ## 🔧 Troubleshooting
+
+### Configuration Validation Fails
+- Read the error messages carefully - they tell you exactly what's wrong
+- Check bot names are 16 characters or less
+- Ensure no duplicate bot IDs
+- Verify personality values are between 0.0 and 1.0
+- Use `npm run civilization` for interactive setup if manual config is failing
 
 ### Bots Won't Connect
 - Check Minecraft server is running
 - Verify server address and port
-- Ensure server is in offline mode
+- Ensure server is in offline mode (for bot authentication)
 - Check firewall settings
+- Test with `minecraft.local` or IP address instead of `localhost`
 
 ### Bots Not Building
-- They need materials first (will gather automatically)
-- Building actions depend on personality
-- Check console for errors
-- Builders prioritize construction
+- Bots automatically gather materials before building
+- Check console logs - you'll see gathering progress
+- Building requires proper terrain (flat-ish area)
+- Builder personality bots prioritize construction
+- Material gathering can take 30-60 seconds per structure
 
 ### Dashboard Not Loading
 - Check port 3001 is not in use
 - Restart with `npm run civilization`
 - Check console for errors
+- Try http://127.0.0.1:3001 instead
 
 ### Performance Issues
 - Start with smaller presets (5-10 bots)
 - Reduce bot count for your hardware
-- Check CPU/RAM usage
-- Use performance presets in CONFIG.json
+- Each bot uses ~50-100MB RAM
+- Check CPU/RAM usage with `top` or task manager
+- Consider disabling offline simulation for very large civilizations
+
+## 🧪 Testing Your Setup
+
+**First Launch Test:**
+```bash
+# Start with the smallest preset for testing
+npm run civ:tiny
+
+# What you should see:
+# 1. Configuration validation (should pass)
+# 2. "Starting civilization..."
+# 3. Bots connecting to server
+# 4. "Civilization started successfully!"
+```
+
+**Watch the Console:**
+- Bot connection messages
+- Material gathering progress
+- Building actions
+- Social interactions
+- Trading events
+
+**Check the Dashboard:**
+- Open http://localhost:3001
+- Verify all 5 bots appear
+- Watch real-time status updates
+- Monitor resource gathering
 
 ## 📚 Next Steps
 
@@ -277,21 +326,25 @@ Copy an existing preset and modify:
    - Monitor the dashboard
    - Read console logs
    - Explore in Minecraft
+   - Watch bots gather materials before building
 
 2. **Experiment with Presets**
    - Try different civilization sizes
    - Compare bot behaviors
    - Watch social dynamics
+   - Observe material gathering efficiency
 
 3. **Customize Personalities**
-   - Edit trait values
+   - Edit trait values in `civilization/presets/civilization_presets.json`
    - Create unique bot types
-   - Test personality impact
+   - Test personality impact on decision-making
+   - Adjust work_ethic to see gathering behavior changes
 
 4. **Advanced Features**
    - Enable offline simulation
    - Configure trading economy
    - Set up village governance
+   - Create custom structure types
 
 ## 🆘 Need Help?
 

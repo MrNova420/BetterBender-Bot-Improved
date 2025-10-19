@@ -1,6 +1,6 @@
-# 🤖 BetterBender 2.0 - Autonomous Minecraft Bot + Civilization System
+# 🤖 BetterBender 2.0 - Unified Autonomous Minecraft Bot System
 
-**The most advanced autonomous Minecraft bot that creates living, breathing AI civilizations**
+**One complete system with two modes: Single autonomous bot OR full AI civilization**
 
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.20.1-blue.svg)](https://www.minecraft.net/)
@@ -8,16 +8,33 @@
 
 ---
 
-## ⚡ Quick Start - Choose Your Mode!
+## ⚡ Quick Start - ONE Command!
 
-### 🏛️ **Civilization Mode** (NEW!)
-**Launch a complete AI society in 60 seconds:**
+### 🚀 **Unified Launcher**
 ```bash
 npm install
-npm run civilization    # Interactive setup
+npm start
 ```
 
-Or use quick-launch presets:
+This launches an interactive menu where you choose:
+1. **Single Bot Mode** - One autonomous bot
+2. **Civilization Mode** - Multiple AI bots forming societies
+3. **Dashboard Only** - Monitor existing bots
+
+### ⚡ **Quick Launch Options**
+
+**Single Bot:**
+```bash
+npm run bot          # Single autonomous bot with dashboard
+```
+Dashboard: http://localhost:5000
+
+**Civilization (Interactive):**
+```bash
+npm run civilization # Choose civilization size interactively
+```
+
+**Civilization (Quick Presets):**
 ```bash
 npm run civ:tiny     # 5 bots - Perfect for testing
 npm run civ:small    # 10 bots - Balanced community
@@ -25,17 +42,7 @@ npm run civ:medium   # 20 bots - Established city
 npm run civ:large    # 30 bots - Thriving metropolis
 npm run civ:mega     # 50 bots - Epic civilization
 ```
-
-**Dashboard**: http://localhost:3001
-
-### 🤖 **Single Bot Mode** (Classic)
-```bash
-npm install
-npm start            # Basic bot
-npm run dashboard    # Bot with web dashboard
-```
-
-**Dashboard**: http://localhost:5000
+Dashboard: http://localhost:3001
 
 ---
 

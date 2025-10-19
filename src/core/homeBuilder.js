@@ -1,5 +1,6 @@
 const Vec3 = require('vec3');
 const BuildingSystem = require('../../civilization/core/building_system');
+const MaterialGatherer = require('../../civilization/core/material_gatherer');
 
 class HomeBuilder {
   constructor(bot, logger) {
@@ -15,8 +16,9 @@ class HomeBuilder {
       farm: false
     };
     
-    // Use the new comprehensive building system
+    // Use unified building and gathering systems from civilization
     this.buildingSystem = new BuildingSystem(bot, logger);
+    this.materialGatherer = new MaterialGatherer(bot, logger);
   }
 
   async findBuildLocation() {
@@ -142,12 +144,34 @@ class HomeBuilder {
       await this.findBuildLocation();
     }
 
-    this.logger.info('[Home Builder] Starting home construction using BuildingSystem...');
+    this.logger.info('[Home Builder] Starting home construction with automatic material gathering...');
     
     try {
-      // Use the comprehensive building system to actually build the house
+      // Check materials needed
+      const materials = this.buildingSystem.getMaterialsNeeded('small_house');
+      if (materials) {
+        const check = this.materialGatherer.checkMaterials(materials);
+        
+        if (!check.hasMaterials) {
+          this.logger.info('[Home Builder] Gathering required materials...');
+          this.logger.info('[Home Builder] Needed:', check.missing);
+          
+          const gatherResult = await this.materialGatherer.gatherMaterials(materials, {
+            maxAttempts: 3,
+            timeout: 60000
+          });
+          
+          if (gatherResult.success) {
+            this.logger.info('[Home Builder] Successfully gathered all materials!');
+          } else {
+            this.logger.warn('[Home Builder] Could not gather all materials, building with what we have...');
+          }
+        }
+      }
+      
+      // Build the house using unified building system
       const result = await this.buildingSystem.buildStructure('small_house', this.homeLocation, { 
-        skipMaterialCheck: false 
+        skipMaterialCheck: true 
       });
       
       if (result.success) {
