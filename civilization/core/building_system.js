@@ -15,6 +15,14 @@ class BuildingSystem {
     this.buildProgress = [];
   }
 
+  /**
+   * Get material requirements for a structure type
+   */
+  getMaterialsNeeded(structureType) {
+    const template = this.structureTemplates[structureType];
+    return template ? template.materials : null;
+  }
+
   _initializeTemplates() {
     return {
       small_house: {

@@ -9,6 +9,7 @@ const readline = require('readline');
 const PresetGenerator = require('../presets/preset_generator');
 const BotManager = require('../core/bot_manager');
 const Logger = require('../../src/core/logger');
+const ConfigValidator = require('./validate_config');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -65,6 +66,30 @@ async function main() {
   console.log(`   Bots: ${config.botCount}`);
   console.log(`   Server: ${config.server.host}:${config.server.port}`);
   console.log(`   Version: ${config.server.version}`);
+  
+  // Validate configuration
+  console.log('\n🔍 Validating configuration...');
+  const validator = new ConfigValidator();
+  const validationResult = validator.validateCivilizationConfig(config);
+  
+  if (!validationResult.valid) {
+    console.log('\n❌ Configuration validation failed:\n');
+    validationResult.errors.forEach((error, index) => {
+      console.log(`  ${index + 1}. ${error}`);
+    });
+    console.log('\n');
+    rl.close();
+    return;
+  }
+  
+  if (validationResult.warnings.length > 0) {
+    console.log('\n⚠️  Configuration warnings:');
+    validationResult.warnings.forEach((warning, index) => {
+      console.log(`  ${index + 1}. ${warning}`);
+    });
+  }
+  
+  console.log('✅ Configuration validated successfully');
   
   const confirm = await question('\nStart civilization? (yes/no): ');
   
