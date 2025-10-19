@@ -1284,5 +1284,196 @@
         "z": 149.3
       }
     }
+  },
+  {
+    "id": "activity-1760907262912-m8xw3bn7x",
+    "type": "login",
+    "timestamp": 1760907262912,
+    "date": "2025-10-19T20:54:22.912Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907441333-wxzb6x6cu",
+    "type": "death",
+    "timestamp": 1760907441333,
+    "date": "2025-10-19T20:57:21.333Z",
+    "details": {
+      "position": {
+        "x": 457.7,
+        "y": 132,
+        "z": 198.7
+      }
+    }
+  },
+  {
+    "id": "activity-1760907450344-osl1c6mxv",
+    "type": "death",
+    "timestamp": 1760907450344,
+    "date": "2025-10-19T20:57:30.344Z",
+    "details": {
+      "position": {
+        "x": 456.7406486346581,
+        "y": 132,
+        "z": 198.19967759316734
+      }
+    }
+  },
+  {
+    "id": "activity-1760907462334-3oh5jio6z",
+    "type": "death",
+    "timestamp": 1760907462334,
+    "date": "2025-10-19T20:57:42.334Z",
+    "details": {
+      "position": {
+        "x": 457.7,
+        "y": 132,
+        "z": 198.41892398060796
+      }
+    }
+  },
+  {
+    "id": "activity-1760907472435-3kqmjaa5u",
+    "type": "death",
+    "timestamp": 1760907472435,
+    "date": "2025-10-19T20:57:52.435Z",
+    "details": {
+      "position": {
+        "x": 456.7,
+        "y": 133,
+        "z": 199.7
+      }
+    }
+  },
+  {
+    "id": "activity-1760907483384-vw6jwe504",
+    "type": "death",
+    "timestamp": 1760907483384,
+    "date": "2025-10-19T20:58:03.384Z",
+    "details": {
+      "position": {
+        "x": 452.7,
+        "y": 133,
+        "z": 194.49717834619926
+      }
+    }
+  },
+  {
+    "id": "activity-1760907496237-m5asjor37",
+    "type": "death",
+    "timestamp": 1760907496237,
+    "date": "2025-10-19T20:58:16.237Z",
+    "details": {
+      "position": {
+        "x": 444.8492048595726,
+        "y": 127,
+        "z": 202.95307612062714
+      }
+    }
+  },
+  {
+    "id": "activity-1760907519789-zcwyvuvme",
+    "type": "death",
+    "timestamp": 1760907519789,
+    "date": "2025-10-19T20:58:39.789Z",
+    "details": {
+      "position": {
+        "x": 457.7,
+        "y": 132,
+        "z": 197.3103835990785
+      }
+    }
+  },
+  {
+    "id": "activity-1760907531385-df1552w65",
+    "type": "death",
+    "timestamp": 1760907531385,
+    "date": "2025-10-19T20:58:51.385Z",
+    "details": {
+      "position": {
+        "x": 457.7,
+        "y": 132,
+        "z": 198.7
+      }
+    }
+  },
+  {
+    "id": "activity-1760907542485-w2pzoqgme",
+    "type": "death",
+    "timestamp": 1760907542485,
+    "date": "2025-10-19T20:59:02.485Z",
+    "details": {
+      "position": {
+        "x": 452.3,
+        "y": 133,
+        "z": 194.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760907553235-fkszlpf9n",
+    "type": "death",
+    "timestamp": 1760907553235,
+    "date": "2025-10-19T20:59:13.235Z",
+    "details": {
+      "position": {
+        "x": 456.1744388025454,
+        "y": 132,
+        "z": 197.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760907562287-cfv6qg3aa",
+    "type": "death",
+    "timestamp": 1760907562287,
+    "date": "2025-10-19T20:59:22.287Z",
+    "details": {
+      "position": {
+        "x": 453.07829450576565,
+        "y": 133,
+        "z": 196.40534750939705
+      }
+    }
+  },
+  {
+    "id": "activity-1760907571585-52lvnhenv",
+    "type": "death",
+    "timestamp": 1760907571585,
+    "date": "2025-10-19T20:59:31.585Z",
+    "details": {
+      "position": {
+        "x": 446.7,
+        "y": 130,
+        "z": 197.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760907585635-hj9o1c7ku",
+    "type": "death",
+    "timestamp": 1760907585635,
+    "date": "2025-10-19T20:59:45.635Z",
+    "details": {
+      "position": {
+        "x": 454.3,
+        "y": 132,
+        "z": 197.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760907601284-puwtp3h4s",
+    "type": "death",
+    "timestamp": 1760907601284,
+    "date": "2025-10-19T21:00:01.284Z",
+    "details": {
+      "position": {
+        "x": 452.52163748316565,
+        "y": 126,
+        "z": 217.99007613651108
+      }
+    }
   }
 ]
