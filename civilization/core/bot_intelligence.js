@@ -217,31 +217,63 @@ class BotIntelligence {
     
     let result = 'success';
     let actionResult = null;
+    const params = decision.params || {};
     
     try {
+      // Use action params from decision engine if available
+      const executionCategory = params.category || decision.action;
+      
       switch(decision.action) {
-        case 'explore_new_area':
-          actionResult = await this.actionExecutor.executeAction('explore', { distance: 40 });
+        // Building actions - use specific structure types
+        case 'build_house':
+        case 'build_farm':
+        case 'build_workshop':
+        case 'build_storage':
+        case 'build_road':
+        case 'build_bridge':
+          actionResult = await this.actionExecutor.executeAction('build_structure', { 
+            type: params.type,
+            skipMaterialCheck: false 
+          });
           break;
         
+        // Gathering actions - use specific amounts
+        case 'gather_wood':
+          actionResult = await this.actionExecutor.executeAction('gather_wood', { amount: params.amount || 16 });
+          break;
+        
+        case 'gather_stone':
+          actionResult = await this.actionExecutor.executeAction('gather_stone', { amount: params.amount || 32 });
+          break;
+        
+        case 'mine_ore':
+          actionResult = await this.actionExecutor.executeAction('mine_ore', { oreType: params.oreType || 'iron_ore' });
+          break;
+        
+        case 'hunt_food':
+          actionResult = await this.actionExecutor.executeAction('hunt_food');
+          break;
+        
+        // Exploration actions
+        case 'explore_new_area':
+        case 'map_terrain':
+        case 'find_resources':
+          actionResult = await this.actionExecutor.executeAction('explore', { distance: params.distance || 40 });
+          break;
+        
+        // Social actions
         case 'greet_bot':
         case 'chat':
-          actionResult = await this.actionExecutor.executeAction('socialize');
+        case 'help_other':
+          actionResult = await this.actionExecutor.executeAction('socialize', { targetPlayer: params.target });
           break;
         
-        case 'build_structure':
-          actionResult = await this.actionExecutor.executeAction('build_structure', { type: 'house' });
+        case 'trade':
+        case 'offer_trade':
+          actionResult = await this.actionExecutor.executeAction('trade', params);
           break;
         
-        case 'mine_resources':
-          const resourceType = this._chooseResourceType();
-          actionResult = await this.actionExecutor.executeAction(resourceType);
-          break;
-        
-        case 'collect_items':
-          actionResult = await this.actionExecutor.executeAction('gather_wood', { amount: 5 });
-          break;
-        
+        // Survival actions
         case 'eat':
           await this._tryEat();
           actionResult = { success: true };
@@ -253,17 +285,30 @@ class BotIntelligence {
           actionResult = { success: true };
           break;
         
+        // Resting actions
         case 'idle':
         case 'rest':
+        case 'sleep':
+        case 'organize_inventory':
           actionResult = await this.actionExecutor.executeAction('rest', { duration: 5000 });
           break;
         
+        // Crafting actions
+        case 'craft_items':
+          actionResult = await this.actionExecutor.executeAction('craft_item', { item: params.item || 'crafting_table' });
+          break;
+        
+        // Fallback - explore
         default:
+          this.logger.warn(`[Bot ${this.botName}] Unknown action: ${decision.action}, defaulting to explore`);
           actionResult = await this.actionExecutor.executeAction('explore', { distance: 20 });
       }
       
       if (actionResult && !actionResult.success) {
         result = 'failure';
+        this.logger.info(`[Bot ${this.botName}] Action failed: ${actionResult.reason || 'unknown'}`);
+      } else {
+        this.logger.info(`[Bot ${this.botName}] Action completed successfully`);
       }
     } catch (error) {
       this.logger.warn(`[Bot ${this.botName}] Action execution failed: ${error.message}`);

@@ -1,4 +1,5 @@
 const Vec3 = require('vec3');
+const BuildingSystem = require('../../civilization/core/building_system');
 
 class HomeBuilder {
   constructor(bot, logger) {
@@ -13,6 +14,9 @@ class HomeBuilder {
       storage: false,
       farm: false
     };
+    
+    // Use the new comprehensive building system
+    this.buildingSystem = new BuildingSystem(bot, logger);
   }
 
   async findBuildLocation() {
@@ -138,39 +142,82 @@ class HomeBuilder {
       await this.findBuildLocation();
     }
 
-    this.logger.info('[Home Builder] Starting home construction...');
+    this.logger.info('[Home Builder] Starting home construction using BuildingSystem...');
     
-    const tasks = [
-      { name: 'foundation', description: 'Laying foundation' },
-      { name: 'walls', description: 'Building walls' },
-      { name: 'door', description: 'Adding door' },
-      { name: 'roof', description: 'Building roof' },
-      { name: 'storage', description: 'Adding storage' }
-    ];
-
-    for (const task of tasks) {
-      if (!this.buildingProgress[task.name]) {
-        this.logger.info(`[Home Builder] ${task.description}...`);
-        this.buildingProgress[task.name] = true;
-        await this.sleep(2000);
+    try {
+      // Use the comprehensive building system to actually build the house
+      const result = await this.buildingSystem.buildStructure('small_house', this.homeLocation, { 
+        skipMaterialCheck: false 
+      });
+      
+      if (result.success) {
+        this.buildingProgress.foundation = true;
+        this.buildingProgress.walls = true;
+        this.buildingProgress.door = true;
+        this.buildingProgress.roof = true;
+        this.buildingProgress.storage = true;
+        
+        this.logger.info('[Home Builder] Home construction complete!');
+        return true;
+      } else {
+        this.logger.warn(`[Home Builder] Construction failed: ${result.reason}`);
+        if (result.needed) {
+          this.logger.info('[Home Builder] Required materials:', result.needed);
+        }
+        return false;
       }
+    } catch (error) {
+      this.logger.error('[Home Builder] Build error:', error.message);
+      return false;
     }
-
-    this.logger.info('[Home Builder] Home construction complete!');
-    return true;
   }
 
   async expandBase() {
-    this.logger.info('[Home Builder] Expanding base...');
+    this.logger.info('[Home Builder] Expanding base with farm and storage...');
     
-    if (!this.buildingProgress.farm) {
-      this.logger.info('[Home Builder] Building farm area...');
-      this.buildingProgress.farm = true;
-      await this.sleep(2000);
+    try {
+      if (!this.buildingProgress.farm && this.homeLocation) {
+        const farmLocation = new Vec3(
+          this.homeLocation.x + 15,
+          this.homeLocation.y,
+          this.homeLocation.z
+        );
+        
+        const farmResult = await this.buildingSystem.buildStructure('farm', farmLocation, { 
+          skipMaterialCheck: false 
+        });
+        
+        if (farmResult.success) {
+          this.buildingProgress.farm = true;
+          this.logger.info('[Home Builder] Farm constructed successfully');
+        } else {
+          this.logger.warn(`[Home Builder] Farm construction failed: ${farmResult.reason}`);
+        }
+      }
+      
+      // Also add a storage building
+      if (this.homeLocation) {
+        const storageLocation = new Vec3(
+          this.homeLocation.x - 10,
+          this.homeLocation.y,
+          this.homeLocation.z
+        );
+        
+        const storageResult = await this.buildingSystem.buildStructure('storage_building', storageLocation, { 
+          skipMaterialCheck: false 
+        });
+        
+        if (storageResult.success) {
+          this.logger.info('[Home Builder] Storage building constructed successfully');
+        }
+      }
+      
+      this.logger.info('[Home Builder] Base expansion complete!');
+      return true;
+    } catch (error) {
+      this.logger.error('[Home Builder] Expansion error:', error.message);
+      return false;
     }
-
-    this.logger.info('[Home Builder] Base expansion complete!');
-    return true;
   }
 
   getHomeLocation() {

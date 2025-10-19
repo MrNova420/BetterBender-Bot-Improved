@@ -7,10 +7,25 @@ class DecisionEngine {
       SURVIVAL: ['eat', 'flee', 'seek_shelter', 'heal'],
       EXPLORATION: ['explore_new_area', 'map_terrain', 'find_resources'],
       SOCIAL: ['greet_bot', 'chat', 'trade', 'help_other', 'form_alliance'],
-      BUILDING: ['build_structure', 'improve_home', 'craft_items', 'decorate'],
-      GATHERING: ['mine_resources', 'farm', 'collect_items', 'hunt'],
+      BUILDING: ['build_house', 'build_farm', 'build_workshop', 'build_storage', 'build_road', 'build_bridge', 'improve_home', 'craft_items', 'decorate'],
+      GATHERING: ['gather_wood', 'gather_stone', 'mine_ore', 'collect_items', 'hunt_food'],
       TRADING: ['offer_trade', 'visit_market', 'share_resources'],
       RESTING: ['idle', 'sleep', 'organize_inventory', 'reflect']
+    };
+    
+    // Map action names to actual execution parameters
+    this.actionParams = {
+      'build_house': { type: 'small_house', category: 'build_structure' },
+      'build_farm': { type: 'farm', category: 'build_structure' },
+      'build_workshop': { type: 'workshop', category: 'build_structure' },
+      'build_storage': { type: 'storage_building', category: 'build_structure' },
+      'build_road': { type: 'road', category: 'build_structure' },
+      'build_bridge': { type: 'bridge', category: 'build_structure' },
+      'gather_wood': { amount: 16, category: 'gather_wood' },
+      'gather_stone': { amount: 32, category: 'gather_stone' },
+      'mine_ore': { oreType: 'iron_ore', category: 'mine_ore' },
+      'hunt_food': { category: 'hunt_food' },
+      'explore_new_area': { distance: 50, category: 'explore' }
     };
   }
   
@@ -116,8 +131,16 @@ class DecisionEngine {
       category: categoryName,
       action: selectedAction,
       utility: categoryData.score,
-      allUtilities: utilities
+      allUtilities: utilities,
+      params: this.getActionParams(selectedAction)
     };
+  }
+  
+  /**
+   * Get execution parameters for a given action
+   */
+  getActionParams(actionName) {
+    return this.actionParams[actionName] || {};
   }
   
   _evaluateBaseNeeds(emotions, context) {

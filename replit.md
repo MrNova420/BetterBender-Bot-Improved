@@ -26,9 +26,10 @@ Preferred communication style: Simple, everyday language.
     - **Social & Relationship System:** Bots form friendships (0.0-1.0 trust scale), remember interactions, and engage in communication, cooperation, and alliances.
     - **Village Formation:** Bots automatically form villages based on trust levels, with leader election and role assignment.
     - **Offline Simulation:** World evolution continues offline via time-tick extrapolation.
-    - **Decision Engine:** Utility-based AI selects actions based on personality, emotions, context, and needs.
+    - **Decision Engine:** Utility-based AI selects actions based on personality, emotions, context, and needs. Supports specific action parameters for building, gathering, and trading.
     - **Trading System:** Full economy with item valuation, trust-based pricing, and negotiation.
-    - **Action Executor:** Enables bots to mine, gather, build, craft, combat, trade, socialize, explore, and rest.
+    - **Building System:** Comprehensive construction system with 7 structure types (small/medium houses, farms, workshops, storage, roads, bridges). Includes material requirements, step-by-step building logic, progress tracking, and actual block placement.
+    - **Action Executor:** Enables bots to mine, gather, build complete structures, craft, combat, trade, socialize, explore, and rest.
     - **Event System:** Records significant civilization events (births, discoveries, conflicts).
     - **WebSocket Broker:** Facilitates inter-bot communication.
     - **SQLite Persistence:** Stores all memories, relationships, emotions, villages, and events.

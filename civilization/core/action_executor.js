@@ -1,4 +1,6 @@
 const { goals: Goals } = require('mineflayer-pathfinder');
+const BuildingSystem = require('./building_system');
+const MaterialGatherer = require('./material_gatherer');
 
 class ActionExecutor {
   constructor(bot, logger) {
@@ -6,6 +8,9 @@ class ActionExecutor {
     this.logger = logger;
     this.isExecuting = false;
     this.currentAction = null;
+    this.buildingSystem = new BuildingSystem(bot, logger);
+    this.materialGatherer = new MaterialGatherer(bot, logger, this);
+    this.autoGatherMaterials = true; // Enable automatic material gathering
   }
 
   async executeAction(actionType, params = {}) {
@@ -253,16 +258,67 @@ class ActionExecutor {
 
   async _buildStructure(params) {
     try {
-      const { type, position } = params;
+      const { type, position, skipMaterialCheck, autoGather } = params;
       
-      if (!position) {
-        return { success: false, reason: 'no_position' };
+      if (!type) {
+        return { success: false, reason: 'no_structure_type' };
+      }
+      
+      // If no position specified, use current location with offset
+      let buildLocation = position;
+      if (!buildLocation) {
+        const currentPos = this.bot.entity.position;
+        buildLocation = {
+          x: Math.floor(currentPos.x) + 5,
+          y: Math.floor(currentPos.y),
+          z: Math.floor(currentPos.z) + 5
+        };
       }
 
-      this.logger.info(`[${this.bot.username}] Building ${type || 'structure'}`);
+      this.logger.info(`[${this.bot.username}] Planning to build ${type} at (${buildLocation.x}, ${buildLocation.y}, ${buildLocation.z})`);
       
-      return { success: true, structure: type };
+      // Check if we need to gather materials first
+      if (!skipMaterialCheck && (autoGather || this.autoGatherMaterials)) {
+        const materials = this.buildingSystem.getMaterialsNeeded(type);
+        if (materials) {
+          const check = this.materialGatherer.checkMaterials(materials);
+          
+          if (!check.hasMaterials) {
+            this.logger.info(`[${this.bot.username}] Missing materials, attempting to gather...`);
+            this.logger.info(`[${this.bot.username}] Needed:`, check.missing);
+            
+            const gatherResult = await this.materialGatherer.gatherMaterials(materials, {
+              maxAttempts: 2,
+              timeout: 30000 // 30 seconds per material
+            });
+            
+            if (gatherResult.success) {
+              this.logger.info(`[${this.bot.username}] Successfully gathered all materials`);
+            } else {
+              this.logger.warn(`[${this.bot.username}] Could not gather all materials: ${JSON.stringify(gatherResult.stillMissing)}`);
+              this.logger.info(`[${this.bot.username}] Attempting build anyway with available materials...`);
+            }
+          }
+        }
+      }
+      
+      // Use the building system to construct the structure
+      const result = await this.buildingSystem.buildStructure(type, buildLocation, { 
+        skipMaterialCheck: skipMaterialCheck || this.autoGatherMaterials 
+      });
+      
+      if (result.success) {
+        this.logger.info(`[${this.bot.username}] Successfully built ${type}`);
+      } else {
+        this.logger.warn(`[${this.bot.username}] Failed to build ${type}: ${result.reason}`);
+        if (result.needed) {
+          this.logger.info(`[${this.bot.username}] Still needed:`, result.needed);
+        }
+      }
+      
+      return result;
     } catch (error) {
+      this.logger.error(`[${this.bot.username}] Build structure error:`, error.message);
       return { success: false, reason: error.message };
     }
   }

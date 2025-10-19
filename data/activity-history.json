@@ -1475,5 +1475,168 @@
         "z": 217.99007613651108
       }
     }
+  },
+  {
+    "id": "activity-1760907766129-7rymiua97",
+    "type": "login",
+    "timestamp": 1760907766129,
+    "date": "2025-10-19T21:02:46.129Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907777009-mp0x37aen",
+    "type": "login",
+    "timestamp": 1760907777009,
+    "date": "2025-10-19T21:02:57.009Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907787910-jaye52co2",
+    "type": "login",
+    "timestamp": 1760907787910,
+    "date": "2025-10-19T21:03:07.910Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907798820-vlosujjxw",
+    "type": "login",
+    "timestamp": 1760907798820,
+    "date": "2025-10-19T21:03:18.820Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907809708-6e2bbws1j",
+    "type": "login",
+    "timestamp": 1760907809708,
+    "date": "2025-10-19T21:03:29.708Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907820608-k95j58asd",
+    "type": "login",
+    "timestamp": 1760907820608,
+    "date": "2025-10-19T21:03:40.608Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907831507-6jx6zt8at",
+    "type": "login",
+    "timestamp": 1760907831507,
+    "date": "2025-10-19T21:03:51.507Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907842408-3swehs7eb",
+    "type": "login",
+    "timestamp": 1760907842408,
+    "date": "2025-10-19T21:04:02.408Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907853259-wlgvsu23t",
+    "type": "login",
+    "timestamp": 1760907853259,
+    "date": "2025-10-19T21:04:13.259Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907864158-wyypiuq4n",
+    "type": "login",
+    "timestamp": 1760907864158,
+    "date": "2025-10-19T21:04:24.158Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907875057-ospvt206l",
+    "type": "login",
+    "timestamp": 1760907875057,
+    "date": "2025-10-19T21:04:35.057Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907885962-kuv79nuw0",
+    "type": "login",
+    "timestamp": 1760907885962,
+    "date": "2025-10-19T21:04:45.962Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907896863-bkqcgh2p1",
+    "type": "login",
+    "timestamp": 1760907896863,
+    "date": "2025-10-19T21:04:56.863Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907907756-b32rnti6b",
+    "type": "login",
+    "timestamp": 1760907907756,
+    "date": "2025-10-19T21:05:07.756Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907918608-vykohukzr",
+    "type": "login",
+    "timestamp": 1760907918608,
+    "date": "2025-10-19T21:05:18.608Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907929509-9959vqg1m",
+    "type": "login",
+    "timestamp": 1760907929509,
+    "date": "2025-10-19T21:05:29.509Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760907940409-nx0djedvz",
+    "type": "login",
+    "timestamp": 1760907940409,
+    "date": "2025-10-19T21:05:40.409Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760908164688-e0ol28583",
+    "type": "mode_change",
+    "timestamp": 1760908164688,
+    "date": "2025-10-19T21:09:24.688Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
   }
 ]
