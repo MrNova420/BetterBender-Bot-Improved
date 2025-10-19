@@ -17,6 +17,7 @@
     "civ:dashboard": "node civilization/dashboard/civilization_server.js",
     "civ:test": "node civilization/scripts/test_simulation.js",
     "civ:backup": "bash civilization/scripts/backup.sh",
+    "civ:validate": "node civilization/scripts/validate_personalities.js",
     "civ:all": "bash civilization/scripts/start_all.sh"
   },
   "keywords": [

@@ -48,6 +48,15 @@ async function main() {
   logger.info('Autonomous Bot Society Simulator');
   logger.info('='.repeat(60));
   
+  logger.info('Validating personality templates...');
+  const { execSync } = require('child_process');
+  try {
+    execSync('node civilization/scripts/validate_personalities.js', { stdio: 'inherit' });
+  } catch (error) {
+    logger.error('Personality validation failed! Fix personality files before running.');
+    process.exit(1);
+  }
+  
   const manager = new BotManager(config, logger);
   const offlineSim = new OfflineSimulation(manager.db, logger);
   

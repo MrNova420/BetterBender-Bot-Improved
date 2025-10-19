@@ -23,43 +23,104 @@ class BotManager {
     const personalities = new Map();
     const personalitiesDir = path.join(__dirname, '../personalities');
     
-    const files = fs.readdirSync(personalitiesDir);
+    let files;
+    try {
+      files = fs.readdirSync(personalitiesDir);
+    } catch (error) {
+      this.logger.error(`[Manager] Could not read personalities directory: ${error.message}`);
+      return personalities;
+    }
     
     for (const file of files) {
       if (file.endsWith('.json')) {
-        const personalityData = JSON.parse(
-          fs.readFileSync(path.join(personalitiesDir, file), 'utf8')
-        );
-        const name = file.replace('.json', '');
-        personalities.set(name, personalityData);
+        try {
+          const filePath = path.join(personalitiesDir, file);
+          const fileContent = fs.readFileSync(filePath, 'utf8');
+          const personalityData = JSON.parse(fileContent);
+          
+          if (!personalityData.traits || !personalityData.motivation_weights) {
+            this.logger.warn(`[Manager] Personality ${file} missing required fields, skipping`);
+            continue;
+          }
+          
+          const name = file.replace('.json', '');
+          personalities.set(name, personalityData);
+          this.logger.info(`[Manager] Loaded personality: ${name}`);
+        } catch (error) {
+          this.logger.error(`[Manager] Failed to load personality ${file}: ${error.message}`);
+        }
       }
     }
     
-    this.logger.info(`[Manager] Loaded ${personalities.size} personality templates`);
+    if (personalities.size === 0) {
+      const error = new Error('FATAL: No valid personalities loaded! Cannot start civilization system.');
+      this.logger.error(`[Manager] ${error.message}`);
+      throw error;
+    } else {
+      this.logger.info(`[Manager] Successfully loaded ${personalities.size} personality templates`);
+    }
+    
     return personalities;
   }
   
   async start() {
+    if (this.personalities.size === 0) {
+      throw new Error('Cannot start: No personalities loaded');
+    }
+    
+    const botsToSpawn = this.config.bots || [];
+    
+    if (botsToSpawn.length === 0) {
+      throw new Error('Cannot start: No bots configured to spawn');
+    }
+    
     this.logger.info('[Manager] Starting Civilization System...');
     
     this.wsBroker.start();
     
-    const botsToSpawn = this.config.bots || [];
+    let successfulSpawns = 0;
     
-    for (const botConfig of botsToSpawn) {
-      await this.spawnBot(botConfig);
-      await this._delay(3000);
+    try {
+      for (const botConfig of botsToSpawn) {
+        const botId = await this.spawnBot(botConfig);
+        if (botId) {
+          successfulSpawns++;
+        }
+        await this._delay(3000);
+      }
+      
+      if (successfulSpawns === 0) {
+        throw new Error(`FATAL: Failed to spawn any bots (0/${botsToSpawn.length} succeeded). Check personality configuration and Minecraft server connection.`);
+      }
+      
+      if (successfulSpawns < botsToSpawn.length) {
+        this.logger.warn(`[Manager] Only ${successfulSpawns}/${botsToSpawn.length} bots spawned successfully`);
+      }
+      
+      this.civilizationUpdateInterval = setInterval(() => {
+        this._updateCivilization();
+      }, 300000);
+      
+      this.isRunning = true;
+      this.logger.info(`[Manager] Civilization System started with ${successfulSpawns} active bots`);
+      
+    } catch (error) {
+      this.logger.error(`[Manager] Startup failed: ${error.message}`);
+      this.wsBroker.stop();
+      for (const [botId, bot] of this.bots.entries()) {
+        bot.disconnect();
+      }
+      this.bots.clear();
+      throw error;
     }
-    
-    this.civilizationUpdateInterval = setInterval(() => {
-      this._updateCivilization();
-    }, 300000);
-    
-    this.isRunning = true;
-    this.logger.info('[Manager] Civilization System started');
   }
   
   async spawnBot(botConfig) {
+    if (this.personalities.size === 0) {
+      this.logger.error('[Manager] Cannot spawn bot: No personalities available');
+      return null;
+    }
+    
     const botId = botConfig.id || `bot_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     const botName = botConfig.name || `Bot_${this.bots.size + 1}`;
     
@@ -68,8 +129,17 @@ class BotManager {
       personality = this.personalities.get(botConfig.personalityType);
     } else {
       const personalityKeys = Array.from(this.personalities.keys());
+      if (personalityKeys.length === 0) {
+        this.logger.error(`[Manager] No personalities available for bot ${botName}`);
+        return null;
+      }
       const randomKey = personalityKeys[Math.floor(Math.random() * personalityKeys.length)];
       personality = this.personalities.get(randomKey);
+    }
+    
+    if (!personality) {
+      this.logger.error(`[Manager] Failed to get personality for bot ${botName}`);
+      return null;
     }
     
     const fullConfig = {
