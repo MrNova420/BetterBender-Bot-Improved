@@ -1,10 +1,36 @@
-# BetterBender 2.0 - Autonomous Minecraft Bot
+# BetterBender 2.0 - Autonomous Minecraft Bot + Civilization System
 
 ## Overview
 
-BetterBender 2.0 is a fully autonomous Minecraft bot designed for 24/7 operation on low-to-medium end devices, including Termux (Android). It features advanced player simulation with **autonomous goal generation**, **home building**, **community interaction**, and **dynamic task creation** - the bot literally plays the game like a real player and never runs out of things to do. Built with Mineflayer and Node.js, it's heavily optimized for minimal resource usage (80-300MB RAM) and includes comprehensive safety features. The bot can run for months continuously, building bases, gathering resources, trading, and creating its own objectives. Setup is incredibly simple: install Node.js, edit one line in CONFIG.json, and run the start script.
+BetterBender 2.0 is a fully autonomous Minecraft bot designed for 24/7 operation on low-to-medium end devices, including Termux (Android). It features advanced player simulation with **autonomous goal generation**, **home building**, **community interaction**, and **dynamic task creation** - the bot literally plays the game like a real player and never runs out of things to do. Built with Mineflayer and Node.js, it's heavily optimized for minimal resource usage (80-300MB RAM) and includes comprehensive safety features. The bot can run for months continuously, building bases, gathering resources, trading, and creating its own objectives.
 
-## Recent Updates (October 17, 2025) - Critical Bot Action Fixes ✅
+**NEW: Civilization System** - Transform your single bot into an **autonomous society** of digital beings. The new Civilization System allows you to run multiple bots with unique personalities, emotions, memories, and relationships. Bots form friendships, create villages, develop cultures, and build civilizations that continue evolving even when offline. See CIVILIZATION_README.md for full details.
+
+## Recent Updates (October 19, 2025) - Civilization System Added ✨
+
+### Civilization System (Oct 19, 2025)
+- **Multi-bot AI society** - Run multiple autonomous bots with unique personalities and behaviors
+- **Personality engine** - 8 traits (curiosity, sociability, ambition, creativity, etc.) define each bot's character
+- **Emotion system** - Dynamic emotional states (hunger, safety, loneliness, boredom, etc.) drive decisions
+- **Memory & relationships** - Bots remember interactions, form friendships, and build trust over time
+- **Village formation** - Bots naturally form communities when relationships are strong
+- **Offline simulation** - World continues evolving even when system is offline
+- **Decision engine** - Utility-based AI chooses actions based on personality + emotions + context
+- **Social system** - Greetings, trading, cooperation, alliances, and communication
+- **Real-time dashboard** - Monitor all bots, villages, and civilization events at http://localhost:3001
+- **SQLite persistence** - All memories, relationships, and events stored in database
+- **WebSocket broker** - Inter-bot communication for messaging and coordination
+- **5 personality types** - Default, Explorer, Builder, Social, Gatherer (fully customizable)
+- **Quick start** - `npm run civilization` or `npm run civ:all` to launch everything
+
+### Scripts Added
+- `npm run civilization` - Start the civilization bot system
+- `npm run civ:dashboard` - Launch civilization monitoring dashboard
+- `npm run civ:test` - Test offline simulation with 3 bots
+- `npm run civ:backup` - Backup civilization database
+- `npm run civ:all` - Start both civilization and dashboard
+
+## Previous Updates (October 17, 2025) - Critical Bot Action Fixes ✅
 
 ### Critical Bot Action Fixes (Oct 17, 2025 - Evening)
 - **Fixed bot standing still bug** - Bot was logging AI decisions but not executing actions due to missing navigation and async/await issues
