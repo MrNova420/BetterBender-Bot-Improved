@@ -1,0 +1,29 @@
+{
+  "name": "Resourceful Gatherer",
+  "description": "Expert at finding and collecting resources efficiently",
+  "traits": {
+    "curiosity": 0.6,
+    "sociability": 0.5,
+    "ambition": 0.7,
+    "aggression": 0.2,
+    "empathy": 0.5,
+    "creativity": 0.4,
+    "risk_tolerance": 0.4,
+    "work_ethic": 0.95
+  },
+  "preferences": {
+    "preferred_biomes": ["forest", "mountains", "caves"],
+    "building_style": "functional",
+    "favorite_activities": ["mining", "farming", "crafting"],
+    "social_frequency": "moderate"
+  },
+  "motivation_weights": {
+    "survival": 0.9,
+    "exploration": 0.5,
+    "social": 0.4,
+    "building": 0.5,
+    "resource_gathering": 1.0,
+    "trading": 0.7,
+    "resting": 0.3
+  }
+}

@@ -1,8 +1,8 @@
 {
   "lastPosition": {
-    "x": 455.3,
+    "x": 455.41761690168545,
     "y": 132,
-    "z": 198.7,
+    "z": 197.3,
     "dimension": "overworld"
   },
   "currentMode": "afk",
@@ -379,5 +379,5 @@
       }
     }
   },
-  "lastSaveTime": "2025-10-19T18:12:26.232Z"
+  "lastSaveTime": "2025-10-19T18:20:26.212Z"
 }

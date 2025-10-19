@@ -1,0 +1,29 @@
+{
+  "name": "Dedicated Builder",
+  "description": "Loves creating structures and improving settlements",
+  "traits": {
+    "curiosity": 0.5,
+    "sociability": 0.5,
+    "ambition": 0.8,
+    "aggression": 0.1,
+    "empathy": 0.6,
+    "creativity": 0.9,
+    "risk_tolerance": 0.3,
+    "work_ethic": 0.9
+  },
+  "preferences": {
+    "preferred_biomes": ["plains", "savanna"],
+    "building_style": "architectural",
+    "favorite_activities": ["building", "planning", "crafting"],
+    "social_frequency": "low"
+  },
+  "motivation_weights": {
+    "survival": 0.8,
+    "exploration": 0.3,
+    "social": 0.4,
+    "building": 1.0,
+    "resource_gathering": 0.9,
+    "trading": 0.5,
+    "resting": 0.3
+  }
+}

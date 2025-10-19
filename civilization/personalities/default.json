@@ -1,0 +1,29 @@
+{
+  "name": "Balanced Explorer",
+  "description": "A well-rounded individual with balanced traits, curious about the world",
+  "traits": {
+    "curiosity": 0.7,
+    "sociability": 0.6,
+    "ambition": 0.5,
+    "aggression": 0.2,
+    "empathy": 0.6,
+    "creativity": 0.6,
+    "risk_tolerance": 0.5,
+    "work_ethic": 0.7
+  },
+  "preferences": {
+    "preferred_biomes": ["plains", "forest", "mountains"],
+    "building_style": "rustic",
+    "favorite_activities": ["exploring", "building", "gathering"],
+    "social_frequency": "moderate"
+  },
+  "motivation_weights": {
+    "survival": 1.0,
+    "exploration": 0.8,
+    "social": 0.6,
+    "building": 0.7,
+    "resource_gathering": 0.8,
+    "trading": 0.5,
+    "resting": 0.4
+  }
+}

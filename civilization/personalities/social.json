@@ -1,0 +1,29 @@
+{
+  "name": "Social Connector",
+  "description": "Thrives on interaction and building communities",
+  "traits": {
+    "curiosity": 0.6,
+    "sociability": 0.95,
+    "ambition": 0.6,
+    "aggression": 0.1,
+    "empathy": 0.9,
+    "creativity": 0.6,
+    "risk_tolerance": 0.4,
+    "work_ethic": 0.7
+  },
+  "preferences": {
+    "preferred_biomes": ["plains", "village"],
+    "building_style": "communal",
+    "favorite_activities": ["socializing", "trading", "helping"],
+    "social_frequency": "very_high"
+  },
+  "motivation_weights": {
+    "survival": 0.8,
+    "exploration": 0.4,
+    "social": 1.0,
+    "building": 0.6,
+    "resource_gathering": 0.5,
+    "trading": 0.9,
+    "resting": 0.4
+  }
+}

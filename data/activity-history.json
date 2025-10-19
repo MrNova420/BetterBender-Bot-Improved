@@ -1248,5 +1248,15 @@
         "z": 156.7
       }
     }
+  },
+  {
+    "id": "activity-1760897546233-j4pmzhiuy",
+    "type": "mode_change",
+    "timestamp": 1760897546233,
+    "date": "2025-10-19T18:12:26.233Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
   }
 ]

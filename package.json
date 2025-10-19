@@ -12,7 +12,12 @@
     "pm2:stop": "pm2 stop all",
     "pm2:restart": "pm2 restart all",
     "pm2:logs": "pm2 logs",
-    "pm2:status": "pm2 status"
+    "pm2:status": "pm2 status",
+    "civilization": "node civilization/index.js",
+    "civ:dashboard": "node civilization/dashboard/civilization_server.js",
+    "civ:test": "node civilization/scripts/test_simulation.js",
+    "civ:backup": "bash civilization/scripts/backup.sh",
+    "civ:all": "bash civilization/scripts/start_all.sh"
   },
   "keywords": [
     "minecraft",
