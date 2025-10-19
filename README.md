@@ -10,10 +10,16 @@
 
 ## ⚡ Quick Start - ONE Command!
 
-### 🚀 **Unified Launcher**
+### 🚀 **One-Command Setup**
 ```bash
-npm install
-npm start
+npm install && npm run setup && npm start
+```
+
+Or step by step:
+```bash
+npm install      # Install dependencies
+npm run setup    # Auto-configure everything
+npm start        # Launch interactive menu
 ```
 
 This launches an interactive menu where you choose:

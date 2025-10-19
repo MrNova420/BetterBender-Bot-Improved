@@ -4,11 +4,13 @@
   "description": "Autonomous Minecraft bot for 24/7 Termux operation with AFK and Player modes",
   "main": "src/engine.js",
   "scripts": {
+    "setup": "node setup.js",
     "start": "node launcher.js",
     "bot": "node dashboard/server.js",
     "civilization": "node civilization/scripts/start_civilization.js",
     "dashboard": "node launcher.js",
     "test": "node test/smoke.js",
+    "postinstall": "node -e \"console.log('\\\\n✅ Dependencies installed! Run: npm run setup\\\\n')\"",
     "pm2:start": "pm2 start ecosystem.config.js",
     "pm2:stop": "pm2 stop all",
     "pm2:restart": "pm2 restart all",

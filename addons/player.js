@@ -326,9 +326,33 @@ class EnhancedPlayerAddon {
     
     switch (goal.action) {
       case 'establish_home':
+        // ACTUALLY BUILD A HOME - not fake it!
+        try {
+          const HomeBuilder = require('../src/core/homeBuilder');
+          if (!this.homeBuilder) {
+            this.homeBuilder = new HomeBuilder(this.bot, this.logger);
+          }
+          
+          this.logger.info('[Player] Starting REAL home construction...');
+          const success = await this.homeBuilder.buildBasicHome();
+          
+          if (success) {
+            this.logger.info('[Player] ✅ HOME ACTUALLY BUILT!');
+            if (this.autonomousGoals) {
+              this.autonomousGoals.completeGoal(goal.action);
+            }
+          } else {
+            this.logger.warn('[Player] Home building failed - will retry later');
+          }
+        } catch (err) {
+          this.logger.error('[Player] Home build error:', err.message);
+        }
+        break;
+        
       case 'build_storage':
       case 'expand_base':
-        this._walkAround();
+        // For now, just gather materials
+        await this._mineNearbyBlock();
         if (this.autonomousGoals) {
           setTimeout(() => this.autonomousGoals.completeGoal(goal.action), 30000);
         }

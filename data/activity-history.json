@@ -1677,5 +1677,43 @@
         "z": 188.7
       }
     }
+  },
+  {
+    "id": "activity-1760910337542-sp92kgyxa",
+    "type": "login",
+    "timestamp": 1760910337542,
+    "date": "2025-10-19T21:45:37.542Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760910426798-c9cv7wh3v",
+    "type": "mode_change",
+    "timestamp": 1760910426798,
+    "date": "2025-10-19T21:47:06.798Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
+  },
+  {
+    "id": "activity-1760910513470-m2yx2yxjv",
+    "type": "login",
+    "timestamp": 1760910513470,
+    "date": "2025-10-19T21:48:33.470Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760910602470-7vw4zn98x",
+    "type": "mode_change",
+    "timestamp": 1760910602470,
+    "date": "2025-10-19T21:50:02.470Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
   }
 ]

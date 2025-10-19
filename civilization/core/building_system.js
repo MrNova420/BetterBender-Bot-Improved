@@ -194,15 +194,18 @@ class BuildingSystem {
   async _buildHouse(location, template) {
     const { width, height, depth } = template.dimensions;
     const basePos = location;
+    let totalBlocksPlaced = 0;
 
     try {
       // Step 1: Clear area and build foundation
       this.logger.info('[BuildingSystem] Building foundation...');
-      await this._buildFoundation(basePos, width, depth, 'oak_planks');
+      const foundationBlocks = await this._buildFoundation(basePos, width, depth, 'oak_planks');
+      totalBlocksPlaced += foundationBlocks;
 
       // Step 2: Build walls with door and window openings
       this.logger.info('[BuildingSystem] Building walls...');
-      await this._buildWalls(basePos, width, height, depth, 'oak_planks');
+      const wallBlocks = await this._buildWalls(basePos, width, height, depth, 'oak_planks');
+      totalBlocksPlaced += wallBlocks;
 
       // Step 3: Add door
       this.logger.info('[BuildingSystem] Adding door...');
@@ -211,7 +214,8 @@ class BuildingSystem {
         basePos.y + 1,
         basePos.z
       );
-      await this._placeDoor(doorPos, 'oak_door');
+      const doorSuccess = await this._placeDoor(doorPos, 'oak_door');
+      if (doorSuccess) totalBlocksPlaced++;
 
       // Step 4: Add windows
       this.logger.info('[BuildingSystem] Adding windows...');
@@ -225,8 +229,17 @@ class BuildingSystem {
       this.logger.info('[BuildingSystem] Adding interior...');
       await this._addInterior(basePos, width, depth, template);
 
-      this.logger.info('[BuildingSystem] House construction complete!');
-      return { success: true, structure: 'house', blocks_placed: width * height * depth };
+      // HONEST REPORTING - fail if we placed nothing!
+      if (totalBlocksPlaced === 0) {
+        this.logger.error('[BuildingSystem] ❌ FAILED - No blocks were placed! Missing materials.');
+        return { success: false, reason: 'no_materials', blocks_placed: 0 };
+      } else if (totalBlocksPlaced < 10) {
+        this.logger.warn(`[BuildingSystem] ⚠️  Partially built - only ${totalBlocksPlaced} blocks placed`);
+        return { success: false, reason: 'insufficient_materials', blocks_placed: totalBlocksPlaced };
+      }
+
+      this.logger.info(`[BuildingSystem] ✅ House construction complete! ${totalBlocksPlaced} blocks placed.`);
+      return { success: true, structure: 'house', blocks_placed: totalBlocksPlaced };
 
     } catch (error) {
       this.logger.error(`[BuildingSystem] House building error: ${error.message}`);
@@ -385,15 +398,29 @@ class BuildingSystem {
   // ============= HELPER METHODS =============
 
   async _buildFoundation(basePos, width, depth, material) {
+    let blocksPlaced = 0;
+    let blocksFailed = 0;
+    
     for (let x = 0; x < width; x++) {
       for (let z = 0; z < depth; z++) {
         const pos = new Vec3(basePos.x + x, basePos.y, basePos.z + z);
-        await this._placeBlock(material, pos);
+        const success = await this._placeBlock(material, pos);
+        if (success) {
+          blocksPlaced++;
+        } else {
+          blocksFailed++;
+        }
       }
     }
+    
+    this.logger.info(`[BuildingSystem] Foundation: ${blocksPlaced} placed, ${blocksFailed} failed`);
+    return blocksPlaced;
   }
 
   async _buildWalls(basePos, width, height, depth, material) {
+    let blocksPlaced = 0;
+    let blocksFailed = 0;
+    
     for (let y = 1; y <= height; y++) {
       // Front and back walls
       for (let x = 0; x < width; x++) {
@@ -402,19 +429,26 @@ class BuildingSystem {
         
         // Leave space for door in front center
         if (!(y <= 2 && x === Math.floor(width / 2) && frontPos.z === basePos.z)) {
-          await this._placeBlock(material, frontPos);
+          const success = await this._placeBlock(material, frontPos);
+          if (success) blocksPlaced++; else blocksFailed++;
         }
-        await this._placeBlock(material, backPos);
+        const success = await this._placeBlock(material, backPos);
+        if (success) blocksPlaced++; else blocksFailed++;
       }
       
       // Side walls
       for (let z = 1; z < depth - 1; z++) {
         const leftPos = new Vec3(basePos.x, basePos.y + y, basePos.z + z);
         const rightPos = new Vec3(basePos.x + width - 1, basePos.y + y, basePos.z + z);
-        await this._placeBlock(material, leftPos);
-        await this._placeBlock(material, rightPos);
+        const s1 = await this._placeBlock(material, leftPos);
+        const s2 = await this._placeBlock(material, rightPos);
+        if (s1) blocksPlaced++; else blocksFailed++;
+        if (s2) blocksPlaced++; else blocksFailed++;
       }
     }
+    
+    this.logger.info(`[BuildingSystem] Walls: ${blocksPlaced} placed, ${blocksFailed} failed`);
+    return blocksPlaced;
   }
 
   async _buildRoof(basePos, width, height, depth, material) {
@@ -576,8 +610,9 @@ class BuildingSystem {
 
   async _placeDoor(position, doorType) {
     // Doors need special handling as they occupy 2 blocks
-    await this._placeBlock(doorType, position);
+    const success = await this._placeBlock(doorType, position);
     // Note: Door automatically places upper half in Minecraft
+    return success;
   }
 
   async _hoeDirt(position) {

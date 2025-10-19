@@ -23,22 +23,32 @@ async function main() {
   console.log('║   🤖 BETTERBENDER 2.0 LAUNCHER 🤖     ║');
   console.log('╚════════════════════════════════════════╝\n');
   
-  console.log('Choose your mode:\n');
-  console.log('1. 🤖 Single Bot Mode');
-  console.log('   - One autonomous bot');
-  console.log('   - Builds homes, gathers resources, trades');
-  console.log('   - Perfect for personal use\n');
+  // Check for command-line argument (for non-interactive mode)
+  const cliMode = process.argv[2];
+  let choice = cliMode;
   
-  console.log('2. 🏛️  Civilization Mode');
-  console.log('   - Multiple AI bots with personalities');
-  console.log('   - Form villages, develop cultures');
-  console.log('   - Build societies that evolve\n');
+  if (!cliMode) {
+    // Interactive mode
+    console.log('Choose your mode:\n');
+    console.log('1. 🤖 Single Bot Mode');
+    console.log('   - One autonomous bot');
+    console.log('   - Builds homes, gathers resources, trades');
+    console.log('   - Perfect for personal use\n');
+    
+    console.log('2. 🏛️  Civilization Mode');
+    console.log('   - Multiple AI bots with personalities');
+    console.log('   - Form villages, develop cultures');
+    console.log('   - Build societies that evolve\n');
+    
+    console.log('3. 📊 Dashboard Only');
+    console.log('   - View running bots without starting new ones');
+    console.log('   - Monitor existing civilization\n');
+    
+    choice = await question('Select mode (1-3): ');
+  } else {
+    console.log(`🔧 Auto-starting mode ${cliMode} (non-interactive)\n`);
+  }
   
-  console.log('3. 📊 Dashboard Only');
-  console.log('   - View running bots without starting new ones');
-  console.log('   - Monitor existing civilization\n');
-  
-  const choice = await question('Select mode (1-3): ');
   rl.close();
   
   console.log(''); // Blank line for readability
