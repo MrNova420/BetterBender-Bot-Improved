@@ -1,0 +1,111 @@
+Got it — you want a single, unified “all-in-one” prompt that you can drop into Replit (or another IDE) and it will build everything:
+the bot clients, persistence layer, dashboard, comms, configs, and scripts — ready to run, expand, and watch the “living civilization” unfold.
+
+Here’s that one-shot super-prompt, compact but complete.
+Just paste it into Replit’s Ghostwriter or a dev assistant window, and it’ll scaffold the whole thing automatically.
+
+
+---
+
+All-in-One Prompt — “Minecraft Civilization AI Bots”
+
+> Prompt to feed into Replit (or your own AI code generator):
+
+
+
+Project: Minecraft Civilization AI Bot Simulator (Node.js / Mineflayer)
+
+Goal:
+Create an all-in-one Node.js project that runs multiple autonomous Minecraft bots as simulated beings. Each bot should behave like an independent player — mining, building, trading, socializing, and evolving into a self-organizing civilization. The system must be persistent, modular, and able to run continuously in Replit or any Node environment.
+
+Core Requirements:
+1. Each bot runs as its own process or worker thread using Mineflayer.
+2. Bots have personalities (JSON files) defining values, curiosity, goals, memory, and behavior weights.
+3. Include a decision engine that determines actions (mine, build, explore, socialize, trade, rest) using a motivational model (hunger, curiosity, social drive, ambition).
+4. Use SQLite to store each bot’s memory, logs, and progress.
+5. Include a simple Express + EJS dashboard to monitor bots, inventories, and civilization events.
+6. Add WebSocket (ws) communication for inter-bot messages, trade offers, alliances, and group projects.
+7. Add scripts for starting all bots, backing up the DB, and simulating time for testing.
+8. Environment variables in `.env` for Minecraft host, ports, version, DB path, and sandbox mode.
+9. Include full scaffolding: `bots/`, `server/`, `db/`, `scripts/`, `plugins/`, with README and package.json.
+10. Must be production-ready and self-contained — all setup, configs, and commands included in one workspace.
+
+Technical Stack:
+- Node.js 18+
+- mineflayer
+- express
+- ejs
+- better-sqlite3
+- ws
+- dotenv
+- uuid
+- bash scripts (for start_all, backup, test)
+
+Behavioral Logic:
+- Each bot has unique motivations and goals.
+- Bots can explore, gather, build structures, chat, and coordinate.
+- They persist state (inventory, relationships, goals).
+- Bots can form alliances or small communities through WebSocket messages.
+- Civilization emerges as bots trade and cooperate.
+- Include “sandbox mode” to prevent griefing or world damage.
+
+Deliverables (auto-generate these files):
+- package.json with all deps
+- .env.example
+- bots/bot_core.js
+- bots/decision_engine.js
+- bots/spawn_bot.js
+- bots/personalities/default.json (template)
+- server/api.js
+- server/websocket_broker.js
+- server/db_client.js
+- server/dashboard.ejs
+- scripts/start_all.sh
+- scripts/backup.sh
+- scripts/test_simulation.js
+- README.md (setup + run steps)
+
+Execution Flow:
+1. `npm install`
+2. `npm run start-all` — launches WS server, API, and all bot processes.
+3. Bots connect to Minecraft server, spawn, and begin autonomous actions.
+4. Dashboard served at localhost:3000 displays real-time bot status, logs, and civilization summary.
+5. Daily backups stored in `snapshots/` folder.
+
+Testing:
+Include `scripts/test_simulation.js` that spawns 3 bots on localhost server and simulates 8 hours (accelerated time).
+
+Persistence & Logs:
+Each bot writes daily memory JSON dumps (`/snapshots/YYYY-MM-DD/bot_id.json`) and all interactions go to SQLite (`db/civbots.sqlite`).
+
+Constraints:
+- Keep resource use minimal (bots sleep when idle).
+- Handle disconnects/reconnects automatically.
+- Include comments and TODO anchors for later AI/LLM integration.
+- Must be ready-to-run in Replit (no manual file creation).
+
+Ethics & Safety:
+- Bots must respect sandbox limits.
+- Never simulate real consciousness claims.
+- Keep logs and chat data private.
+
+End of prompt.
+
+
+---
+
+Feed that as one giant instruction block.
+It tells any AI code assistant or dev generator to create the full project — no back-and-forth needed.
+Once built, you’ll have a Replit workspace containing:
+
+Working bot AI framework
+
+Persistent civilization logic
+
+Web dashboard + DB
+
+Backups, testing, and expansion points
+
+
+From there, you can start the bots, go AFK for a week, and return to see what kind of blocky civilization they’ve founded.
+
