@@ -79,29 +79,71 @@ async function launchSingleBot() {
       console.log('📝 Please edit CONFIG.json to add your server details');
       console.log('Then run: npm start\n');
       process.exit(0);
+    } else {
+      console.log('❌ No config template found. Please create CONFIG.json manually.');
+      process.exit(1);
     }
   }
   
   console.log('📖 Configuration: CONFIG.json');
   console.log('📡 Dashboard will be at: http://localhost:5000\n');
   
-  // Launch single bot with dashboard
-  require('./dashboard/server.js');
+  // Load config and start bot with dashboard in-process
+  const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+  const BotEngine = require('./src/engine');
+  const DashboardServer = require('./dashboard/server');
+  
+  const engine = new BotEngine(config);
+  
+  // Register all addons
+  const AFKAddon = require('./addons/afk');
+  const PlayerAddon = require('./addons/player');
+  const CraftingAddon = require('./addons/crafting');
+  const PathfindingAddon = require('./addons/pathfinding');
+  const MiningAddon = require('./addons/mining');
+  const BuildingAddon = require('./addons/building');
+  const TradingAddon = require('./addons/trading');
+  
+  engine.registerAddon(AFKAddon);
+  engine.registerAddon(PlayerAddon);
+  engine.registerAddon(CraftingAddon);
+  engine.registerAddon(PathfindingAddon);
+  engine.registerAddon(MiningAddon);
+  engine.registerAddon(BuildingAddon);
+  engine.registerAddon(TradingAddon);
+  
+  // Start dashboard and bot
+  const dashboard = new DashboardServer(config, engine);
+  await dashboard.start();
+  await engine.start();
+  
+  console.log('\n✅ Single Bot Mode started successfully!');
+  console.log('📡 Dashboard: http://localhost:5000\n');
 }
 
 async function launchCivilization() {
-  // Use the interactive civilization launcher
-  const civLauncher = require('./civilization/scripts/start_civilization.js');
-  // The civilization launcher is already interactive, so it will handle the rest
+  // Launch the interactive civilization launcher
+  const { spawn } = require('child_process');
+  
+  const child = spawn('node', ['civilization/scripts/start_civilization.js'], {
+    stdio: 'inherit',
+    cwd: __dirname
+  });
+  
+  child.on('exit', (code) => {
+    process.exit(code);
+  });
 }
 
 async function launchDashboard() {
+  const { spawn } = require('child_process');
+  
+  const rl2 = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  
   const dashboardType = await new Promise(resolve => {
-    const rl2 = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
-    
     console.log('Which dashboard?');
     console.log('1. Single Bot Dashboard (port 5000)');
     console.log('2. Civilization Dashboard (port 3001)');
@@ -114,10 +156,24 @@ async function launchDashboard() {
   
   if (dashboardType === '1') {
     console.log('Starting Single Bot Dashboard on http://localhost:5000\n');
-    require('./dashboard/server.js');
+    const child = spawn('node', ['dashboard/server.js'], {
+      stdio: 'inherit',
+      cwd: __dirname
+    });
+    
+    child.on('exit', (code) => {
+      process.exit(code);
+    });
   } else if (dashboardType === '2') {
     console.log('Starting Civilization Dashboard on http://localhost:3001\n');
-    require('./civilization/dashboard/civilization_server.js');
+    const child = spawn('node', ['civilization/dashboard/civilization_server.js'], {
+      stdio: 'inherit',
+      cwd: __dirname
+    });
+    
+    child.on('exit', (code) => {
+      process.exit(code);
+    });
   } else {
     console.log('❌ Invalid selection');
     process.exit(1);
