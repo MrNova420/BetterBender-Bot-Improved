@@ -9,7 +9,7 @@ class ActionExecutor {
     this.isExecuting = false;
     this.currentAction = null;
     this.buildingSystem = new BuildingSystem(bot, logger);
-    this.materialGatherer = new MaterialGatherer(bot, logger, this);
+    this.materialGatherer = new MaterialGatherer(bot, logger); // No circular dependency
     this.autoGatherMaterials = true; // Enable automatic material gathering
   }
 

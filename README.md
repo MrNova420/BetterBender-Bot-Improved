@@ -1,47 +1,68 @@
-# 🤖 BetterBender 2.0 - Autonomous Minecraft Bot
+# 🤖 BetterBender 2.0 - Autonomous Minecraft Bot + Civilization System
 
-**A fully autonomous Minecraft bot that acts like a real player - builds homes, gathers resources, trades, creates communities, and generates its own goals for months of continuous operation!**
+**The most advanced autonomous Minecraft bot that creates living, breathing AI civilizations**
+
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.20.1-blue.svg)](https://www.minecraft.net/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-## ⚡ Quick Start (3 Steps!)
+## ⚡ Quick Start - Choose Your Mode!
 
-### 1. Install Node.js
+### 🏛️ **Civilization Mode** (NEW!)
+**Launch a complete AI society in 60 seconds:**
 ```bash
-# Download from https://nodejs.org
-# Or on Termux: pkg install nodejs-lts
+npm install
+npm run civilization    # Interactive setup
 ```
 
-### 2. Configure Server
-Edit `CONFIG.json` - change ONE line:
-```json
-{
-  "server": {
-    "host": "YOUR-SERVER-HERE"    ← Put your Minecraft server here!
-  }
-}
-```
-
-### 3. Start Bot
+Or use quick-launch presets:
 ```bash
-./start.sh           # Linux/Mac
-start.bat            # Windows
-# Or: node dashboard/server.js CONFIG.json
+npm run civ:tiny     # 5 bots - Perfect for testing
+npm run civ:small    # 10 bots - Balanced community
+npm run civ:medium   # 20 bots - Established city
+npm run civ:large    # 30 bots - Thriving metropolis
+npm run civ:mega     # 50 bots - Epic civilization
 ```
 
-**Dashboard**: http://localhost:5000 (no login needed!)
+**Dashboard**: http://localhost:3001
+
+### 🤖 **Single Bot Mode** (Classic)
+```bash
+npm install
+npm start            # Basic bot
+npm run dashboard    # Bot with web dashboard
+```
+
+**Dashboard**: http://localhost:5000
 
 ---
 
 ## 🎮 What It Does
 
-### AFK Mode (Simple)
-- Prevents AFK kicks
-- Minimal resource usage  
-- Just stays online
+### 🏛️ Civilization Mode (NEW!)
+**Create living AI societies:**
 
-### Player Mode (Autonomous!) ⭐
-**The bot becomes a real player:**
+✅ **Multi-Bot AI Society**: 5-50 bots with unique personalities
+✅ **Social Dynamics**: Bots form friendships, alliances, relationships
+✅ **Village Formation**: Automatic settlements based on trust
+✅ **Building System**: 7 structure types (houses, farms, workshops, roads, bridges)
+✅ **Economy & Trading**: Full market system with negotiation
+✅ **Personalities & Emotions**: 8 traits + 7 emotional states
+✅ **Persistent Memory**: Remember all interactions forever
+✅ **Offline Evolution**: World continues even when offline
+✅ **Cultural Development**: Unique traditions and identities emerge
+
+**5 Ready-to-Use Presets:**
+- Tiny Village (5 bots) - Perfect for testing
+- Small Town (10 bots) - Balanced community  
+- Medium City (20 bots) - Complex economy
+- Large Metropolis (30 bots) - Advanced society
+- Mega Civilization (50 bots) - Epic scale
+
+### 🤖 Single Bot Mode (Classic)
+**One bot plays like a real player:**
 
 ✅ **Survival** - Gathers food, wood, crafts tools
 ✅ **Home Building** - Finds location, builds complete home  

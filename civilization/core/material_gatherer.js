@@ -2,12 +2,12 @@ const { goals: Goals } = require('mineflayer-pathfinder');
 
 /**
  * MaterialGatherer - Automatically acquires materials for building projects
+ * Works independently without ActionExecutor to avoid deadlocks
  */
 class MaterialGatherer {
-  constructor(bot, logger, actionExecutor) {
+  constructor(bot, logger) {
     this.bot = bot;
     this.logger = logger;
-    this.actionExecutor = actionExecutor;
   }
 
   /**
@@ -151,25 +151,24 @@ class MaterialGatherer {
   }
 
   /**
-   * Gather a single material type
+   * Gather a single material type - DIRECT implementation without ActionExecutor
    */
   async _gatherSingleMaterial(material, amount) {
     try {
-      // Determine gathering method
+      // Determine gathering method and gather directly
       if (material.includes('log') || material.includes('oak') || material.includes('spruce') || material.includes('birch')) {
-        return await this.actionExecutor.executeAction('gather_wood', { amount: Math.ceil(amount / 4) });
+        return await this._directGatherWood(amount);
       }
       
       if (material.includes('cobblestone') || material.includes('stone') || material.includes('dirt')) {
-        return await this.actionExecutor.executeAction('gather_stone', { amount });
+        return await this._directGatherStone(amount);
       }
       
       if (material.includes('ore') || material.includes('iron') || material.includes('coal')) {
-        return await this.actionExecutor.executeAction('mine_ore', { oreType: material });
+        return await this._directMineOre(material, amount);
       }
       
       if (material.includes('glass')) {
-        // Glass requires sand and smelting
         const sandResult = await this._gatherSand(Math.ceil(amount));
         if (sandResult.success) {
           return await this._smeltGlass(amount);
@@ -178,23 +177,185 @@ class MaterialGatherer {
       }
       
       if (material.includes('plank')) {
-        // Planks are crafted from logs
         const logAmount = Math.ceil(amount / 4);
-        const logResult = await this.actionExecutor.executeAction('gather_wood', { amount: logAmount });
+        const logResult = await this._directGatherWood(logAmount);
         if (logResult.success) {
           return await this._craftPlanks(amount);
         }
         return logResult;
       }
       
-      // For craftable items, try to craft them
-      if (material.includes('door') || material.includes('chest') || material.includes('crafting_table')) {
+      if (material.includes('door') || material.includes('chest') || material.includes('crafting_table') || material.includes('torch') || material.includes('furnace')) {
+        return await this._craftItem(material, amount);
+      }
+      
+      if (material.includes('fence')) {
         return await this._craftItem(material, amount);
       }
       
       this.logger.warn(`[MaterialGatherer] No gathering method for ${material}`);
       return { success: false, reason: 'no_gather_method' };
       
+    } catch (error) {
+      return { success: false, reason: error.message };
+    }
+  }
+
+  /**
+   * Direct wood gathering without ActionExecutor
+   */
+  async _directGatherWood(targetAmount) {
+    try {
+      const mcData = require('minecraft-data')(this.bot.version);
+      const logTypes = ['oak_log', 'spruce_log', 'birch_log', 'log'];
+      let logBlock = null;
+      
+      for (const type of logTypes) {
+        logBlock = mcData.blocksByName[type];
+        if (logBlock) break;
+      }
+      
+      if (!logBlock) {
+        return { success: false, reason: 'no_wood_type' };
+      }
+
+      let gathered = 0;
+      const maxAttempts = Math.min(targetAmount * 2, 20);
+      
+      for (let attempt = 0; attempt < maxAttempts && gathered < targetAmount; attempt++) {
+        const block = this.bot.findBlock({
+          matching: logBlock.id,
+          maxDistance: 64
+        });
+
+        if (!block) {
+          this.logger.debug(`[MaterialGatherer] No more wood found nearby after ${gathered} logs`);
+          break;
+        }
+
+        try {
+          const goal = new Goals.GoalBlock(block.position.x, block.position.y, block.position.z);
+          await this.bot.pathfinder.goto(goal);
+          await this.bot.dig(block);
+          gathered++;
+          
+          if (gathered % 5 === 0) {
+            this.logger.info(`[MaterialGatherer] Gathered ${gathered}/${targetAmount} wood`);
+          }
+        } catch (err) {
+          this.logger.debug(`[MaterialGatherer] Failed to gather log: ${err.message}`);
+        }
+      }
+
+      return { 
+        success: gathered >= targetAmount,
+        amount: gathered,
+        item: 'wood' 
+      };
+    } catch (error) {
+      return { success: false, reason: error.message };
+    }
+  }
+
+  /**
+   * Direct stone gathering without ActionExecutor
+   */
+  async _directGatherStone(targetAmount) {
+    try {
+      const mcData = require('minecraft-data')(this.bot.version);
+      const stoneTypes = ['stone', 'cobblestone', 'dirt'];
+      let stoneBlock = null;
+      
+      for (const type of stoneTypes) {
+        stoneBlock = mcData.blocksByName[type];
+        if (stoneBlock) break;
+      }
+      
+      if (!stoneBlock) {
+        return { success: false, reason: 'no_stone_type' };
+      }
+
+      let gathered = 0;
+      const maxAttempts = Math.min(targetAmount * 2, 30);
+      
+      for (let attempt = 0; attempt < maxAttempts && gathered < targetAmount; attempt++) {
+        const block = this.bot.findBlock({
+          matching: stoneBlock.id,
+          maxDistance: 64
+        });
+
+        if (!block) {
+          this.logger.debug(`[MaterialGatherer] No more stone found nearby after ${gathered} blocks`);
+          break;
+        }
+
+        try {
+          const goal = new Goals.GoalBlock(block.position.x, block.position.y, block.position.z);
+          await this.bot.pathfinder.goto(goal);
+          await this.bot.dig(block);
+          gathered++;
+          
+          if (gathered % 10 === 0) {
+            this.logger.info(`[MaterialGatherer] Gathered ${gathered}/${targetAmount} stone`);
+          }
+        } catch (err) {
+          this.logger.debug(`[MaterialGatherer] Failed to gather stone: ${err.message}`);
+        }
+      }
+
+      return { 
+        success: gathered >= targetAmount,
+        amount: gathered,
+        item: 'stone' 
+      };
+    } catch (error) {
+      return { success: false, reason: error.message };
+    }
+  }
+
+  /**
+   * Direct ore mining without ActionExecutor
+   */
+  async _directMineOre(oreType, targetAmount) {
+    try {
+      const mcData = require('minecraft-data')(this.bot.version);
+      const oreBlock = mcData.blocksByName[oreType];
+      
+      if (!oreBlock) {
+        return { success: false, reason: 'invalid_ore_type' };
+      }
+
+      let mined = 0;
+      const maxAttempts = Math.min(targetAmount * 3, 15);
+      
+      for (let attempt = 0; attempt < maxAttempts && mined < targetAmount; attempt++) {
+        const block = this.bot.findBlock({
+          matching: oreBlock.id,
+          maxDistance: 64
+        });
+
+        if (!block) {
+          this.logger.debug(`[MaterialGatherer] No more ${oreType} found nearby`);
+          break;
+        }
+
+        try {
+          const goal = new Goals.GoalBlock(block.position.x, block.position.y, block.position.z);
+          await this.bot.pathfinder.goto(goal);
+          await this.bot.dig(block);
+          mined++;
+          
+          this.logger.info(`[MaterialGatherer] Mined ${mined}/${targetAmount} ${oreType}`);
+        } catch (err) {
+          this.logger.debug(`[MaterialGatherer] Failed to mine ore: ${err.message}`);
+        }
+      }
+
+      return { 
+        success: mined >= targetAmount,
+        amount: mined,
+        item: oreType 
+      };
     } catch (error) {
       return { success: false, reason: error.message };
     }

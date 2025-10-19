@@ -1,0 +1,222 @@
+{
+  "presets": {
+    "tiny_village": {
+      "name": "Tiny Village",
+      "description": "A small settlement with 3-5 bots learning to cooperate",
+      "botCount": 5,
+      "bots": [
+        {
+          "id": "builder_001",
+          "name": "Mason",
+          "personality": "builder",
+          "role": "construction",
+          "priority_actions": ["build_house", "build_workshop", "build_storage"]
+        },
+        {
+          "id": "farmer_001",
+          "name": "Harvest",
+          "personality": "gatherer",
+          "role": "farmer",
+          "priority_actions": ["build_farm", "gather_wood", "hunt_food"]
+        },
+        {
+          "id": "explorer_001",
+          "name": "Scout",
+          "personality": "explorer",
+          "role": "explorer",
+          "priority_actions": ["explore_new_area", "find_resources", "map_terrain"]
+        },
+        {
+          "id": "social_001",
+          "name": "Harmony",
+          "personality": "social",
+          "role": "diplomat",
+          "priority_actions": ["greet_bot", "chat", "help_other"]
+        },
+        {
+          "id": "gatherer_001",
+          "name": "Gather",
+          "personality": "gatherer",
+          "role": "resource_collector",
+          "priority_actions": ["gather_wood", "gather_stone", "mine_ore"]
+        }
+      ]
+    },
+    
+    "small_town": {
+      "name": "Small Town",
+      "description": "A growing community with specialized roles and diverse personalities",
+      "botCount": 10,
+      "bots": [
+        {"id": "builder_001", "name": "Mason", "personality": "builder", "role": "chief_builder"},
+        {"id": "builder_002", "name": "Brick", "personality": "builder", "role": "construction"},
+        {"id": "farmer_001", "name": "Harvest", "personality": "gatherer", "role": "head_farmer"},
+        {"id": "farmer_002", "name": "Crop", "personality": "gatherer", "role": "farmer"},
+        {"id": "miner_001", "name": "Digger", "personality": "gatherer", "role": "chief_miner"},
+        {"id": "miner_002", "name": "Ore", "personality": "gatherer", "role": "miner"},
+        {"id": "explorer_001", "name": "Scout", "personality": "explorer", "role": "explorer"},
+        {"id": "social_001", "name": "Harmony", "personality": "social", "role": "diplomat"},
+        {"id": "trader_001", "name": "Merchant", "personality": "social", "role": "trader"},
+        {"id": "guard_001", "name": "Shield", "personality": "default", "role": "guard"}
+      ]
+    },
+    
+    "medium_city": {
+      "name": "Medium City",
+      "description": "An established city with complex economy and multiple districts",
+      "botCount": 20,
+      "bots": [
+        {"id": "builder_001", "name": "Mason", "personality": "builder", "role": "chief_architect"},
+        {"id": "builder_002", "name": "Brick", "personality": "builder", "role": "construction_lead"},
+        {"id": "builder_003", "name": "Stone", "personality": "builder", "role": "builder"},
+        {"id": "builder_004", "name": "Craft", "personality": "builder", "role": "builder"},
+        {"id": "farmer_001", "name": "Harvest", "personality": "gatherer", "role": "agriculture_chief"},
+        {"id": "farmer_002", "name": "Crop", "personality": "gatherer", "role": "farmer"},
+        {"id": "farmer_003", "name": "Wheat", "personality": "gatherer", "role": "farmer"},
+        {"id": "miner_001", "name": "Digger", "personality": "gatherer", "role": "mining_chief"},
+        {"id": "miner_002", "name": "Ore", "personality": "gatherer", "role": "miner"},
+        {"id": "miner_003", "name": "Coal", "personality": "gatherer", "role": "miner"},
+        {"id": "miner_004", "name": "Iron", "personality": "gatherer", "role": "miner"},
+        {"id": "explorer_001", "name": "Scout", "personality": "explorer", "role": "chief_explorer"},
+        {"id": "explorer_002", "name": "Trek", "personality": "explorer", "role": "explorer"},
+        {"id": "social_001", "name": "Harmony", "personality": "social", "role": "mayor"},
+        {"id": "social_002", "name": "Unity", "personality": "social", "role": "diplomat"},
+        {"id": "trader_001", "name": "Merchant", "personality": "social", "role": "trade_master"},
+        {"id": "trader_002", "name": "Deal", "personality": "social", "role": "trader"},
+        {"id": "guard_001", "name": "Shield", "personality": "default", "role": "captain"},
+        {"id": "guard_002", "name": "Sword", "personality": "default", "role": "guard"},
+        {"id": "artisan_001", "name": "Artisan", "personality": "builder", "role": "craftsman"}
+      ]
+    },
+    
+    "large_metropolis": {
+      "name": "Large Metropolis",
+      "description": "A thriving metropolis with advanced specialization and culture",
+      "botCount": 30,
+      "bots": []
+    },
+    
+    "mega_civilization": {
+      "name": "Mega Civilization",
+      "description": "A massive civilization with multiple villages and complex hierarchies",
+      "botCount": 50,
+      "bots": []
+    }
+  },
+  
+  "personalities_library": {
+    "builder": {
+      "curiosity": 0.6,
+      "sociability": 0.4,
+      "work_ethic": 0.9,
+      "creativity": 0.8,
+      "ambition": 0.7,
+      "empathy": 0.5,
+      "risk_tolerance": 0.4,
+      "aggression": 0.2
+    },
+    "explorer": {
+      "curiosity": 0.95,
+      "sociability": 0.5,
+      "work_ethic": 0.7,
+      "creativity": 0.6,
+      "ambition": 0.6,
+      "empathy": 0.4,
+      "risk_tolerance": 0.85,
+      "aggression": 0.3
+    },
+    "gatherer": {
+      "curiosity": 0.4,
+      "sociability": 0.5,
+      "work_ethic": 0.95,
+      "creativity": 0.3,
+      "ambition": 0.5,
+      "empathy": 0.6,
+      "risk_tolerance": 0.3,
+      "aggression": 0.2
+    },
+    "social": {
+      "curiosity": 0.5,
+      "sociability": 0.95,
+      "work_ethic": 0.6,
+      "creativity": 0.7,
+      "ambition": 0.6,
+      "empathy": 0.9,
+      "risk_tolerance": 0.4,
+      "aggression": 0.1
+    },
+    "default": {
+      "curiosity": 0.5,
+      "sociability": 0.5,
+      "work_ethic": 0.5,
+      "creativity": 0.5,
+      "ambition": 0.5,
+      "empathy": 0.5,
+      "risk_tolerance": 0.5,
+      "aggression": 0.5
+    }
+  },
+  
+  "role_configurations": {
+    "chief_builder": {
+      "priority": 10,
+      "actions": ["build_house", "build_workshop", "build_storage", "build_road"],
+      "skills": ["construction", "planning", "resource_management"]
+    },
+    "construction": {
+      "priority": 8,
+      "actions": ["build_house", "build_workshop", "gather_wood", "gather_stone"],
+      "skills": ["construction", "material_gathering"]
+    },
+    "head_farmer": {
+      "priority": 9,
+      "actions": ["build_farm", "gather_wood", "hunt_food", "craft_items"],
+      "skills": ["agriculture", "food_production", "animal_husbandry"]
+    },
+    "farmer": {
+      "priority": 7,
+      "actions": ["build_farm", "hunt_food", "gather_wood"],
+      "skills": ["agriculture", "food_gathering"]
+    },
+    "chief_miner": {
+      "priority": 9,
+      "actions": ["mine_ore", "gather_stone", "build_workshop"],
+      "skills": ["mining", "ore_processing", "resource_management"]
+    },
+    "miner": {
+      "priority": 7,
+      "actions": ["mine_ore", "gather_stone", "explore_new_area"],
+      "skills": ["mining", "resource_gathering"]
+    },
+    "chief_explorer": {
+      "priority": 8,
+      "actions": ["explore_new_area", "map_terrain", "find_resources"],
+      "skills": ["exploration", "mapping", "scouting"]
+    },
+    "explorer": {
+      "priority": 6,
+      "actions": ["explore_new_area", "find_resources"],
+      "skills": ["exploration", "discovery"]
+    },
+    "diplomat": {
+      "priority": 7,
+      "actions": ["greet_bot", "chat", "help_other", "form_alliance"],
+      "skills": ["diplomacy", "communication", "mediation"]
+    },
+    "trader": {
+      "priority": 7,
+      "actions": ["offer_trade", "visit_market", "chat"],
+      "skills": ["trading", "negotiation", "economics"]
+    },
+    "guard": {
+      "priority": 8,
+      "actions": ["defend", "explore_new_area", "help_other"],
+      "skills": ["combat", "protection", "security"]
+    },
+    "resource_collector": {
+      "priority": 6,
+      "actions": ["gather_wood", "gather_stone", "mine_ore", "collect_items"],
+      "skills": ["gathering", "resource_collection"]
+    }
+  }
+}
