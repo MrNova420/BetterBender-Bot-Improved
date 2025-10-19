@@ -16,8 +16,7 @@ class EnhancedPlayerAddon {
     this.blocksThisCycle = 0;
     this.lastActionTime = 0;
     this.recentPlayers = new Map();
-    this.inventory = [];
-    this.isWorking = false;
+    this.isPerformingAction = false;
     
     this.naturalPhrases = {
       greetings: ['Hey!', 'Hi there', 'Hello!', 'Yo', 'Sup', 'Hey everyone', 'Greetings'],
@@ -40,59 +39,47 @@ class EnhancedPlayerAddon {
     this.config = engine.config.playerMode || {};
     
     const ProgressionSystem = require('../src/core/progressionSystem');
-    const PlayerInteractions = require('./player-interactions');
     const AutonomousGoalGenerator = require('../src/core/autonomousGoals');
-    const HomeBuilder = require('../src/core/homeBuilder');
     const MinecraftProgressionSystem = require('../src/core/minecraftProgression');
     const LifelikeAI = require('../src/core/lifelikeAI');
     
     this.progression = new ProgressionSystem(engine.getStateManager(), this.logger);
-    this.interactions = new PlayerInteractions(bot, engine, this.logger);
     this.autonomousGoals = new AutonomousGoalGenerator(bot, this.logger, this.progression);
-    this.homeBuilder = new HomeBuilder(bot, this.logger);
-    
     this.minecraftProgression = new MinecraftProgressionSystem(engine.getStateManager(), this.logger);
     this.lifelikeAI = new LifelikeAI(bot, this.logger, this.minecraftProgression);
     
     this._setupEventHandlers();
     
     if (engine.currentMode === 'player') {
-      this.enable();
+      setTimeout(() => {
+        this.enable();
+      }, 2000);
     }
   }
   
   _setupEventHandlers() {
-    this.bot.on('playerJoined', (player) => {
-      if (this.enabled && this.config.respondToChat) {
-        this._handlePlayerJoin(player);
-      }
-    });
-    
-    this.bot.on('playerLeft', (player) => {
-      this.recentPlayers.delete(player.username);
-    });
-    
     this.bot.on('death', () => {
       if (this.enabled) {
-        this._handleDeath();
-      }
-    });
-    
-    this.bot.on('messagestr', (message, messagePosition, jsonMsg, sender) => {
-      if (this.enabled && this.config.respondToChat) {
-        this._handleChatMessage(message, sender);
+        setTimeout(() => {
+          try {
+            this.bot.respawn();
+            this._setState('rest');
+          } catch (err) {
+            this.logger.error('[Player] Respawn error:', err.message);
+          }
+        }, 2000);
       }
     });
     
     this.bot.on('health', () => {
-      if (this.enabled) {
-        this._handleHealthChange();
+      if (this.enabled && this.bot.food < 16) {
+        this._tryEat();
       }
     });
     
-    this.bot.on('entityHurt', (entity) => {
-      if (this.enabled && entity === this.bot.entity) {
-        this._reactToHurt();
+    this.bot.on('chat', (username, message) => {
+      if (this.enabled && username !== this.bot.username) {
+        this._handleChatMessage(message, username);
       }
     });
   }
@@ -100,30 +87,36 @@ class EnhancedPlayerAddon {
   enable() {
     if (this.enabled) return;
     
-    this.enabled = true;
-    this.logger.info('[Enhanced Player] Mode activated');
-    this.engine.getActivityTracker().record('mode_activated', { mode: 'player' });
+    if (!this.bot || !this.bot.entity) {
+      this.logger.warn('[Player] Cannot enable - bot not connected');
+      return;
+    }
     
-    this._setState('rest');
+    this.enabled = true;
+    this.logger.info('[Player] Mode activated - Bot will act like a player');
+    
+    this._setState('explore');
     
     this.stateInterval = setInterval(() => {
       this._updateState();
-    }, 5000);
+    }, 10000);
     
     this.activityInterval = setInterval(() => {
       this._performActivity();
-    }, 3000 + Math.random() * 2000);
+    }, 3000);
     
     setTimeout(() => {
-      this._naturalGreeting();
-    }, 5000 + Math.random() * 10000);
+      if (Math.random() < 0.5) {
+        this._saySomething(this._randomFrom(this.naturalPhrases.greetings));
+      }
+    }, 5000);
   }
   
   disable() {
     if (!this.enabled) return;
     
     this.enabled = false;
-    this.logger.info('[Enhanced Player] Mode deactivated');
+    this.logger.info('[Player] Mode deactivated');
     
     if (this.stateInterval) {
       clearInterval(this.stateInterval);
@@ -135,58 +128,445 @@ class EnhancedPlayerAddon {
       this.activityInterval = null;
     }
     
-    this.bot.clearControlStates();
+    if (this.bot) {
+      this.bot.clearControlStates();
+    }
   }
   
-  _naturalGreeting() {
-    if (!this.enabled || Math.random() > 0.6) return;
+  _setState(newState) {
+    if (this.currentState === newState) return;
     
-    const greeting = this._randomFrom(this.naturalPhrases.greetings);
-    setTimeout(() => {
-      this._saySomething(greeting);
-    }, 2000 + Math.random() * 3000);
+    this.logger.info(`[Player] State: ${this.currentState} -> ${newState}`);
+    this.currentState = newState;
+    this.stateStartTime = Date.now();
+    this.blocksThisCycle = 0;
   }
   
-  _handlePlayerJoin(player) {
-    if (player.username === this.bot.username) return;
+  _updateState() {
+    if (!this.bot || !this.bot.entity || !this.enabled) return;
     
-    this.recentPlayers.set(player.username, Date.now());
+    const elapsed = Date.now() - this.stateStartTime;
     
-    if (Math.random() < 0.3) {
+    const stateDurations = {
+      work: 120000,
+      rest: 60000,
+      explore: 180000,
+      social: 90000
+    };
+    
+    const duration = stateDurations[this.currentState] || 120000;
+    
+    if (elapsed > duration) {
+      const nextState = this._pickNextState();
+      this._setState(nextState);
+    }
+  }
+  
+  _pickNextState() {
+    const weights = {
+      rest: 0.2,
+      work: 0.3,
+      explore: 0.35,
+      social: 0.15
+    };
+    
+    const rand = Math.random();
+    let cumulative = 0;
+    
+    for (const [state, weight] of Object.entries(weights)) {
+      cumulative += weight;
+      if (rand < cumulative) {
+        return state;
+      }
+    }
+    
+    return 'explore';
+  }
+  
+  async _performActivity() {
+    if (!this.bot || !this.bot.entity || !this.enabled) return;
+    if (this.isPerformingAction) return;
+    
+    const now = Date.now();
+    if (now - this.lastActionTime < 2000) return;
+    
+    this.isPerformingAction = true;
+    this.lastActionTime = now;
+    
+    try {
+      if (this.bot.health < 6) {
+        this._escapeFromDanger();
+        return;
+      }
+      
+      if (this.lifelikeAI && Math.random() < 0.3) {
+        const aiAction = this.lifelikeAI.decideNextAction();
+        if (aiAction) {
+          await this._executeAIAction(aiAction);
+          return;
+        }
+      }
+      
+      if (this.autonomousGoals && Math.random() < 0.4) {
+        const goal = this.autonomousGoals.getNextGoal();
+        if (goal) {
+          this.logger.info(`[Player] Working on: ${goal.description}`);
+          await this._executeGoal(goal);
+          return;
+        }
+      }
+      
+      switch (this.currentState) {
+        case 'work':
+          await this._doWork();
+          break;
+        case 'rest':
+          this._doRest();
+          break;
+        case 'explore':
+          this._doExplore();
+          break;
+        case 'social':
+          this._doSocial();
+          break;
+        case 'build':
+          await this._doBuild();
+          break;
+        case 'organize':
+          this._doOrganize();
+          break;
+      }
+    } catch (err) {
+      this.logger.error('[Player] Activity error:', err.message);
+    } finally {
+      this.isPerformingAction = false;
+    }
+  }
+  
+  async _doWork() {
+    const action = Math.random();
+    
+    if (action < 0.6) {
+      await this._mineNearbyBlock();
+    } else if (action < 0.9) {
+      this._walkAround();
+    } else {
+      this._lookAround();
+    }
+  }
+  
+  _doRest() {
+    if (Math.random() < 0.6) {
+      this._lookAround();
+    } else {
+      this._checkInventory();
+    }
+  }
+  
+  _doExplore() {
+    if (Math.random() < 0.85) {
+      this._walkAround();
+    } else {
+      this._lookAround();
+    }
+  }
+  
+  _doSocial() {
+    if (Math.random() < 0.15) {
+      const phrases = [...this.naturalPhrases.responses, ...this.naturalPhrases.work];
+      this._saySomething(this._randomFrom(phrases));
+    } else {
+      this._lookAround();
+    }
+  }
+  
+  async _doBuild() {
+    if (Math.random() < 0.4) {
+      await this._mineNearbyBlock();
+    } else {
+      this._lookAround();
+    }
+  }
+  
+  _doOrganize() {
+    this._checkInventory();
+  }
+  
+  async _executeAIAction(aiAction) {
+    if (!aiAction) return;
+    
+    this.logger.debug(`[Player] AI action: ${aiAction.action}`);
+    
+    switch (aiAction.action) {
+      case 'chop_trees':
+      case 'mine_stone':
+      case 'mine':
+        await this._mineNearbyBlock();
+        break;
+      case 'explore':
+        this._walkAround();
+        break;
+      case 'find_food':
+      case 'emergency_heal':
+        this._tryEat();
+        break;
+      case 'rest':
+        this._doRest();
+        break;
+      case 'interact_players':
+        this._doSocial();
+        break;
+      default:
+        this._walkAround();
+    }
+  }
+  
+  async _executeGoal(goal) {
+    if (!goal) return;
+    
+    switch (goal.action) {
+      case 'establish_home':
+      case 'build_storage':
+      case 'expand_base':
+        this._walkAround();
+        if (this.autonomousGoals) {
+          setTimeout(() => this.autonomousGoals.completeGoal(goal.action), 30000);
+        }
+        break;
+        
+      case 'gather_basic_materials':
+      case 'gather_wood':
+        await this._mineNearbyBlock();
+        break;
+        
+      case 'craft_tools':
+        this._checkInventory();
+        break;
+        
+      case 'find_food':
+        this._tryEat();
+        break;
+        
+      case 'explore_randomly':
+      case 'explore_new_areas':
+        this._walkAround();
+        break;
+        
+      case 'interact_with_players':
+        this._doSocial();
+        break;
+        
+      default:
+        await this._mineNearbyBlock();
+    }
+  }
+  
+  async _mineNearbyBlock() {
+    try {
+      const mcData = require('minecraft-data')(this.bot.version);
+      const blockTypes = ['coal_ore', 'iron_ore', 'oak_log', 'birch_log', 'stone', 'dirt'];
+      
+      for (const blockName of blockTypes) {
+        const blockType = mcData.blocksByName[blockName];
+        if (!blockType) continue;
+        
+        const block = this.bot.findBlock({
+          matching: blockType.id,
+          maxDistance: 24
+        });
+        
+        if (block) {
+          this.logger.info(`[Player] Mining ${blockName}...`);
+          
+          const tool = this._getBestTool(block);
+          if (tool) {
+            await this.bot.equip(tool, 'hand').catch(() => {});
+          }
+          
+          const distance = this.bot.entity.position.distanceTo(block.position);
+          if (distance > 4.5) {
+            this.bot.lookAt(block.position);
+            this.bot.clearControlStates();
+            this.bot.setControlState('forward', true);
+            if (distance > 8) this.bot.setControlState('sprint', true);
+            
+            await new Promise(resolve => setTimeout(resolve, Math.min(distance * 250, 4000)));
+            this.bot.clearControlStates();
+            
+            await new Promise(resolve => setTimeout(resolve, 200));
+          }
+          
+          const finalDistance = this.bot.entity.position.distanceTo(block.position);
+          if (finalDistance <= 5.5) {
+            await this.bot.dig(block).catch(err => {
+              this.logger.debug('[Player] Dig error:', err.message);
+            });
+            
+            this.blocksThisCycle++;
+            if (this.engine.getSafety()) {
+              this.engine.getSafety().recordBlock();
+            }
+            this.logger.info(`[Player] Successfully mined ${blockName}!`);
+            
+            if (Math.random() < 0.1) {
+              setTimeout(() => {
+                this._saySomething(this._randomFrom(['nice', 'got it', 'cool']));
+              }, 500);
+            }
+          } else {
+            this.logger.debug(`[Player] Too far from block: ${finalDistance}`);
+          }
+          
+          break;
+        }
+      }
+    } catch (err) {
+      this.logger.debug('[Player] Mining error:', err.message);
+    }
+  }
+  
+  _walkAround() {
+    if (!this.bot || !this.bot.entity) return;
+    
+    try {
+      const pos = this.bot.entity.position;
+      const distance = 8 + Math.random() * 15;
+      const angle = Math.random() * Math.PI * 2;
+      
+      const dx = Math.cos(angle) * distance;
+      const dz = Math.sin(angle) * distance;
+      
+      const targetPos = pos.offset(dx, 0, dz);
+      this.bot.lookAt(targetPos, true);
+      
+      this.logger.debug('[Player] Walking around...');
+      
+      this.bot.clearControlStates();
+      this.bot.setControlState('forward', true);
+      
+      if (Math.random() < 0.4) {
+        this.bot.setControlState('sprint', true);
+      }
+      
+      const walkTime = 2000 + Math.random() * 3000;
+      
       setTimeout(() => {
-        const greetings = ['Hey ' + player.username, 'Welcome back', 'Hi ' + player.username];
-        this._saySomething(this._randomFrom(greetings));
-      }, 3000 + Math.random() * 5000);
+        if (this.bot && this.enabled) {
+          this.bot.clearControlStates();
+          
+          if (Math.random() < 0.25) {
+            this.bot.setControlState('jump', true);
+            setTimeout(() => {
+              if (this.bot) this.bot.setControlState('jump', false);
+            }, 300);
+          }
+        }
+      }, walkTime);
+      
+    } catch (err) {
+      this.logger.error('[Player] Walk error:', err.message);
+      if (this.bot) this.bot.clearControlStates();
     }
   }
   
-  _handleDeath() {
-    const reactions = ['oof', 'rip', 'welp', 'lol', 'dang it'];
-    this._saySomething(this._randomFrom(reactions));
+  _lookAround() {
+    if (!this.bot || !this.bot.entity) return;
     
-    setTimeout(() => {
-      this.bot.respawn();
-      this._setState('rest');
-    }, 2000 + Math.random() * 3000);
-  }
-  
-  _reactToHurt() {
-    if (Math.random() < 0.2 && this.bot.health > 5) {
-      const reactions = ['ow', 'hey!', 'stop', 'ouch'];
-      this._saySomething(this._randomFrom(reactions));
+    try {
+      const pos = this.bot.entity.position;
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 10 + Math.random() * 20;
+      const height = Math.random() * 4 - 1;
+      
+      const lookPos = pos.offset(
+        Math.cos(angle) * distance,
+        height,
+        Math.sin(angle) * distance
+      );
+      
+      this.bot.lookAt(lookPos, true);
+      this.logger.debug('[Player] Looking around');
+    } catch (err) {
+      this.logger.debug('[Player] Look error:', err.message);
     }
   }
   
-  _handleHealthChange() {
-    if (this.bot.food < 16) {
-      this._tryEat();
-    }
+  _checkInventory() {
+    if (!this.bot) return;
     
-    if (this.bot.health < 6) {
-      this._escapeFromDanger();
+    try {
+      const items = this.bot.inventory.items();
+      this.logger.debug(`[Player] Inventory check: ${items.length} items`);
+    } catch (err) {
+      this.logger.debug('[Player] Inventory error:', err.message);
+    }
+  }
+  
+  _escapeFromDanger() {
+    if (!this.bot || !this.bot.entity) return;
+    
+    try {
+      this.logger.warn('[Player] Low health - escaping!');
+      
+      const pos = this.bot.entity.position;
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 20;
+      
+      const escapePos = pos.offset(
+        Math.cos(angle) * distance,
+        0,
+        Math.sin(angle) * distance
+      );
+      
+      this.bot.lookAt(escapePos, true);
+      this.bot.clearControlStates();
+      this.bot.setControlState('forward', true);
+      this.bot.setControlState('sprint', true);
+      
+      setTimeout(() => {
+        if (this.bot && this.enabled) {
+          this.bot.clearControlStates();
+        }
+      }, 3000);
+      
       this._tryEat();
-    } else if (this.bot.health < 10 && this.currentState !== 'rest') {
-      this._setState('rest');
+    } catch (err) {
+      this.logger.error('[Player] Escape error:', err.message);
+    }
+  }
+  
+  _tryEat() {
+    if (!this.bot) return;
+    
+    try {
+      const foods = this.bot.inventory.items().filter(item => {
+        return item && item.name && (
+          item.name.includes('bread') ||
+          item.name.includes('beef') ||
+          item.name.includes('pork') ||
+          item.name.includes('chicken') ||
+          item.name.includes('fish') ||
+          item.name.includes('apple') ||
+          item.name.includes('carrot') ||
+          item.name.includes('potato') ||
+          item.name.includes('mutton') ||
+          item.name.includes('cooked')
+        );
+      });
+      
+      if (foods.length > 0) {
+        this.bot.equip(foods[0], 'hand', (err) => {
+          if (!err) {
+            this.bot.consume((err) => {
+              if (!err) {
+                this.logger.info('[Player] Ate food');
+              }
+            });
+          }
+        });
+      }
+    } catch (err) {
+      this.logger.debug('[Player] Eat error:', err.message);
     }
   }
   
@@ -200,57 +580,18 @@ class EnhancedPlayerAddon {
     const botName = this.bot.username.toLowerCase();
     
     const mentionsBot = lowerMsg.includes(botName);
-    const isQuestion = lowerMsg.includes('?') || lowerMsg.includes('anyone') || lowerMsg.includes('help');
-    const shouldRespond = mentionsBot || (isQuestion && Math.random() < 0.4);
+    const isQuestion = lowerMsg.includes('?');
     
-    let playerName = 'unknown';
-    if (sender && typeof sender === 'string') {
-      playerName = sender;
-    }
-    
-    if (mentionsBot && playerName !== 'unknown') {
-      this.engine.getStateManager().updatePlayerRelationship(playerName, 'mentioned_bot');
-      
-      const response = this.interactions.handlePlayerRequest(playerName, message);
-      if (response) {
-        setTimeout(() => {
-          this._saySomething(response);
-        }, 1500 + Math.random() * 2500);
-        return;
-      }
-    }
-    
-    if (shouldRespond) {
-      const delay = 1500 + Math.random() * 3000;
-      
+    if (mentionsBot || (isQuestion && Math.random() < 0.3)) {
       setTimeout(() => {
         if (lowerMsg.includes('help')) {
-          const helps = ['Sure, what do you need?', 'Happy to help!', 'What can I do?', 'Yeah, what\'s up?'];
-          this._saySomething(this._randomFrom(helps));
-        } else if (lowerMsg.includes('doing') || lowerMsg.includes('up')) {
-          const currentGoal = this.progression.getCurrentGoal();
-          if (currentGoal) {
-            const goalResponses = [
-              `Working on ${currentGoal.name}`,
-              `Trying to ${currentGoal.name}`,
-              'Just gathering resources',
-              'Building stuff'
-            ];
-            this._saySomething(this._randomFrom(goalResponses));
-          } else {
-            this._saySomething(this._randomFrom(this.naturalPhrases.work));
-          }
-        } else if (lowerMsg.includes('building')) {
-          const responses = ['Working on my base', 'Just gathering stuff', 'Exploring mostly', 'Nothing much'];
-          this._saySomething(this._randomFrom(responses));
+          this._saySomething('Sure, what do you need?');
+        } else if (lowerMsg.includes('doing')) {
+          this._saySomething(this._randomFrom(this.naturalPhrases.work));
         } else {
           this._saySomething(this._randomFrom(this.naturalPhrases.responses));
         }
-      }, delay);
-    } else if (Math.random() < 0.05) {
-      setTimeout(() => {
-        this._saySomething(this._randomFrom(this.naturalPhrases.responses));
-      }, 2000 + Math.random() * 4000);
+      }, 1000 + Math.random() * 2000);
     }
   }
   
@@ -261,813 +602,39 @@ class EnhancedPlayerAddon {
     try {
       this.bot.chat(message);
       this.lastChatTime = now;
-      this.chatCooldown = 15000 + Math.random() * 15000;
-      this.logger.debug(`[Enhanced Player] Said: ${message}`);
+      this.chatCooldown = 15000 + Math.random() * 10000;
+      this.logger.debug(`[Player] Said: ${message}`);
     } catch (err) {
-      this.logger.debug('[Enhanced Player] Chat error:', err.message);
-    }
-  }
-  
-  _setState(newState) {
-    if (this.currentState === newState) return;
-    
-    this.logger.info(`[Enhanced Player] State: ${this.currentState} -> ${newState}`);
-    this.engine.getActivityTracker().record('state_change', { 
-      from: this.currentState, 
-      to: newState 
-    });
-    this.currentState = newState;
-    this.stateStartTime = Date.now();
-    this.blocksThisCycle = 0;
-  }
-  
-  _updateState() {
-    if (!this.bot || !this.bot.entity) return;
-    
-    if (this.engine.getSafety().isThrottled()) {
-      if (this.currentState !== 'rest') {
-        this._setState('rest');
-      }
-      return;
-    }
-    
-    const elapsed = Date.now() - this.stateStartTime;
-    const maxBlocks = this.config.maxBlocksPerCycle || 100;
-    
-    if (this.blocksThisCycle >= maxBlocks) {
-      this._setState('rest');
-      return;
-    }
-    
-    const stateDurations = {
-      work: 1800000,
-      rest: 300000,
-      trade: 600000,
-      social: 900000,
-      explore: 1200000,
-      build: 1500000,
-      organize: 400000
-    };
-    
-    const duration = stateDurations[this.currentState] || 600000;
-    
-    if (elapsed > duration) {
-      const nextState = this._pickNextState();
-      this._setState(nextState);
-      
-      if (Math.random() < 0.2) {
-        setTimeout(() => {
-          const phrases = this.naturalPhrases[nextState] || this.naturalPhrases.work;
-          this._saySomething(this._randomFrom(phrases));
-        }, 2000 + Math.random() * 3000);
-      }
-    }
-  }
-  
-  _pickNextState() {
-    const weights = {
-      rest: 0.15,
-      work: 0.25,
-      explore: 0.20,
-      social: 0.15,
-      build: 0.15,
-      organize: 0.05,
-      trade: 0.05
-    };
-    
-    const rand = Math.random();
-    let cumulative = 0;
-    
-    for (const [state, weight] of Object.entries(weights)) {
-      cumulative += weight;
-      if (rand < cumulative) {
-        return state;
-      }
-    }
-    
-    return 'work';
-  }
-  
-  async _performActivity() {
-    if (!this.bot || !this.bot.entity || !this.enabled) return;
-    
-    const now = Date.now();
-    if (now - this.lastActionTime < 2000) return;
-    
-    if (this.bot.health < 6) {
-      this._escapeFromDanger();
-      this.lastActionTime = now;
-      return;
-    }
-    
-    if (this.interactions.hasActiveTasks()) {
-      this._handlePlayerTask();
-      this.lastActionTime = now;
-      return;
-    }
-    
-    if (this.lifelikeAI && Math.random() < 0.4) {
-      await this._performLifelikeActivity();
-      this.lastActionTime = now;
-      return;
-    }
-    
-    switch (this.currentState) {
-      case 'work':
-        await this._doWork();
-        break;
-      case 'rest':
-        this._doRest();
-        break;
-      case 'explore':
-        this._doExplore();
-        break;
-      case 'social':
-        this._doSocial();
-        break;
-      case 'build':
-        await this._doBuild();
-        break;
-      case 'organize':
-        this._doOrganize();
-        break;
-    }
-    
-    this.lastActionTime = now;
-  }
-  
-  _handlePlayerTask() {
-    const task = this.interactions.getNextHelpTask();
-    if (!task) return;
-    
-    this.logger.info(`[Player] Helping ${task.player} with ${task.type}`);
-    
-    switch (task.type) {
-      case 'follow':
-        this._followPlayer(task.player);
-        break;
-      case 'gather':
-        this._gatherForPlayer(task.resourceType);
-        break;
-      case 'build':
-        this._buildForPlayer(task.buildType);
-        break;
-    }
-  }
-  
-  _followPlayer(playerName) {
-    const player = this.bot.players[playerName];
-    if (player && player.entity) {
-      const pos = player.entity.position;
-      this.bot.lookAt(pos);
-      
-      const distance = this.bot.entity.position.distanceTo(pos);
-      if (distance > 3) {
-        this.bot.setControlState('forward', true);
-        if (distance > 10) this.bot.setControlState('sprint', true);
-        
-        setTimeout(() => {
-          this.bot.clearControlStates();
-        }, 2000);
-      }
-    }
-  }
-  
-  _gatherForPlayer(resourceType) {
-    this._gatherNaturally();
-    this.progression.updateGoal('social', 'helpPlayers', 1);
-  }
-  
-  _buildForPlayer(buildType) {
-    this._placeBlockNaturally();
-    this.progression.updateGoal('social', 'helpPlayers', 1);
-  }
-  
-  async _doWork() {
-    if (this.isWorking) return;
-    this.isWorking = true;
-    
-    try {
-      const autonomousGoal = this.autonomousGoals.getNextGoal();
-      
-      if (autonomousGoal) {
-        this.logger.info(`[Player] Working on: ${autonomousGoal.description}`);
-        this.engine.getActivityTracker().record('autonomous_goal', { 
-          action: autonomousGoal.action,
-          description: autonomousGoal.description 
-        });
-        
-        switch (autonomousGoal.action) {
-          case 'establish_home':
-            this._gatherNaturally();
-            const homePos = this.bot.entity.position;
-            if (homePos) {
-              this.autonomousGoals.setHomeLocation(homePos);
-              this.autonomousGoals.completeGoal('establish_home');
-            }
-            break;
-            
-          case 'build_storage':
-            this._placeBlockNaturally();
-            setTimeout(() => {
-              this.autonomousGoals.completeGoal('build_storage');
-            }, 60000);
-            break;
-            
-          case 'expand_base':
-            this._placeBlockNaturally();
-            setTimeout(() => {
-              this.autonomousGoals.completeGoal('expand_base');
-            }, 120000);
-            break;
-          
-        case 'gather_basic_materials':
-          this._gatherNaturally();
-          break;
-          
-        case 'craft_tools':
-          this._checkInventory();
-          break;
-          
-        case 'find_food':
-          this._gatherNaturally();
-          break;
-          
-        case 'interact_with_players':
-          this._doSocial();
-          break;
-          
-        case 'explore_new_areas':
-        case 'explore_randomly':
-          this._walkNaturally();
-          break;
-          
-        case 'find_trading_opportunities':
-          this._doTrade();
-          break;
-          
-        default:
-          this._mineNaturally();
-        }
-      } else {
-        const currentGoal = this.progression.getCurrentGoal();
-        
-        if (currentGoal) {
-          if (currentGoal.name.includes('mine') || currentGoal.name.includes('Mine')) {
-            this._mineNaturally();
-          } else if (currentGoal.name.includes('gather') || currentGoal.name.includes('Gather')) {
-            this._gatherNaturally();
-          } else if (currentGoal.name.includes('build') || currentGoal.name.includes('Build')) {
-            this._placeBlockNaturally();
-          } else {
-            this._mineNaturally();
-          }
-        } else {
-          this._mineNaturally();
-        }
-      }
-    } finally {
-      this.isWorking = false;
-    }
-  }
-  
-  _doRest() {
-    if (Math.random() < 0.3) {
-      this._lookAround();
-    }
-    
-    if (Math.random() < 0.1) {
-      this._checkInventory();
-    }
-  }
-  
-  _doExplore() {
-    if (Math.random() < 0.7) {
-      this._walkNaturally();
-    } else {
-      this._lookAround();
-    }
-  }
-  
-  _doSocial() {
-    if (Math.random() < 0.1) {
-      const phrases = [...this.naturalPhrases.questions, ...this.naturalPhrases.observations];
-      this._saySomething(this._randomFrom(phrases));
-    } else {
-      this._lookAround();
-    }
-  }
-  
-  async _doBuild() {
-    if (Math.random() < 0.4) {
-      await this._placeBlockNaturally();
-    } else {
-      this._lookAround();
-    }
-  }
-  
-  _doOrganize() {
-    this._checkInventory();
-  }
-  
-  async _mineNaturally() {
-    try {
-      const mcData = require('minecraft-data')(this.bot.version);
-      const blocks = ['stone', 'dirt', 'coal_ore', 'iron_ore', 'oak_log', 'birch_log'];
-      
-      for (const blockName of blocks) {
-        const blockType = mcData.blocksByName[blockName];
-        if (!blockType) continue;
-        
-        const block = this.bot.findBlock({
-          matching: blockType.id,
-          maxDistance: 16 + Math.random() * 16
-        });
-        
-        if (block) {
-          const tool = this._getBestTool(block);
-          
-          if (tool) {
-            await this.bot.equip(tool, 'hand');
-          }
-          
-          const pathfinder = this.engine.getAddon('pathfinding');
-          if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
-            const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
-            if (!success) {
-              this.logger.debug(`[Enhanced Player] Could not reach ${blockName}`);
-              continue;
-            }
-          }
-          
-          await this.bot.dig(block);
-          this.blocksThisCycle++;
-          this.engine.getSafety().recordBlock();
-          
-          if (blockName.includes('coal')) {
-            this.progression.updateGoal('resources', 'mineCoal', 1);
-          } else if (blockName.includes('iron')) {
-            this.progression.updateGoal('resources', 'mineIron', 1);
-          } else if (blockName.includes('stone')) {
-            this.progression.updateGoal('resources', 'mineStone', 1);
-          }
-          
-          this.logger.info(`[Enhanced Player] Mined ${blockName}`);
-          
-          if (Math.random() < 0.05) {
-            const comments = ['nice', 'got it', 'cool'];
-            this._saySomething(this._randomFrom(comments));
-          }
-          break;
-        }
-      }
-    } catch (err) {
-      this.logger.warn('[Enhanced Player] Mining error:', err.message);
-    }
-  }
-  
-  async _gatherNaturally() {
-    try {
-      const mcData = require('minecraft-data')(this.bot.version);
-      const gatherables = ['wheat', 'carrots', 'potatoes', 'oak_log', 'birch_log'];
-      
-      for (const itemName of gatherables) {
-        const itemType = mcData.blocksByName[itemName];
-        if (!itemType) continue;
-        
-        const block = this.bot.findBlock({
-          matching: itemType.id,
-          maxDistance: 12 + Math.random() * 12
-        });
-        
-        if (block) {
-          const tool = this._getBestTool(block);
-          if (tool) {
-            await this.bot.equip(tool, 'hand');
-          }
-          
-          const pathfinder = this.engine.getAddon('pathfinding');
-          if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
-            const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
-            if (!success) {
-              this.logger.debug(`[Enhanced Player] Could not reach ${itemName}`);
-              continue;
-            }
-          }
-          
-          await this.bot.dig(block);
-          this.blocksThisCycle++;
-          this.engine.getSafety().recordBlock();
-          
-          if (itemName.includes('log')) {
-            this.progression.updateGoal('survival', 'gatherWood', 1);
-          } else if (itemName.includes('wheat') || itemName.includes('carrot') || itemName.includes('potato')) {
-            this.progression.updateGoal('survival', 'gatherFood', 1);
-          }
-          
-          this.logger.info(`[Enhanced Player] Gathered ${itemName}`);
-          break;
-        }
-      }
-    } catch (err) {
-      this.logger.warn('[Enhanced Player] Gathering error:', err.message);
-    }
-  }
-  
-  async _placeBlockNaturally() {
-    try {
-      const buildableItems = this.bot.inventory.items().filter(item => {
-        return item && item.name && (
-          item.name.includes('planks') ||
-          item.name.includes('stone') ||
-          item.name.includes('cobblestone') ||
-          item.name.includes('dirt')
-        );
-      });
-      
-      if (buildableItems.length > 0) {
-        const item = this._randomFrom(buildableItems);
-        const pos = this.bot.entity.position;
-        const offsetX = Math.floor(Math.random() * 5 - 2);
-        const offsetZ = Math.floor(Math.random() * 5 - 2);
-        
-        const referenceBlock = this.bot.blockAt(
-          pos.offset(offsetX, -1, offsetZ)
-        );
-        
-        if (referenceBlock && referenceBlock.name !== 'air') {
-          await this.bot.equip(item, 'hand');
-          await this.bot.lookAt(referenceBlock.position.offset(0.5, 1, 0.5));
-          
-          const Vec3 = require('vec3');
-          await this.bot.placeBlock(referenceBlock, new Vec3(0, 1, 0));
-          this.blocksThisCycle++;
-          this.engine.getSafety().recordBlock();
-          this.logger.info('[Enhanced Player] Placed block');
-        }
-      }
-    } catch (err) {
-      this.logger.warn('[Enhanced Player] Building error:', err.message);
-    }
-  }
-  
-  _walkNaturally() {
-    try {
-      const pos = this.bot.entity.position;
-      const distance = 10 + Math.random() * 20;
-      const angle = Math.random() * Math.PI * 2;
-      
-      const dx = Math.cos(angle) * distance;
-      const dz = Math.sin(angle) * distance;
-      
-      const targetPos = pos.offset(dx, 0, dz);
-      this.bot.lookAt(targetPos);
-      
-      this.bot.setControlState('forward', true);
-      
-      if (Math.random() < 0.3) {
-        this.bot.setControlState('sprint', true);
-      }
-      
-      const walkTime = 2000 + Math.random() * 3000;
-      
-      setTimeout(() => {
-        this.bot.clearControlStates();
-      }, walkTime);
-      
-      if (Math.random() < 0.2) {
-        setTimeout(() => {
-          this.bot.setControlState('jump', true);
-          setTimeout(() => {
-            this.bot.setControlState('jump', false);
-          }, 200);
-        }, walkTime / 2);
-      }
-    } catch (err) {
-      this.logger.debug('[Enhanced Player] Walking error:', err.message);
-    }
-  }
-  
-  _lookAround() {
-    try {
-      const yaw = this.bot.entity.yaw + (Math.random() - 0.5) * Math.PI;
-      const pitch = (Math.random() - 0.5) * 0.5;
-      
-      this.bot.look(yaw, pitch, false);
-    } catch (err) {
-      this.logger.debug('[Enhanced Player] Look error:', err.message);
-    }
-  }
-  
-  _checkInventory() {
-    if (Math.random() < 0.3) {
-      const slot = Math.floor(Math.random() * 9);
-      this.bot.setQuickBarSlot(slot);
+      this.logger.debug('[Player] Chat error:', err.message);
     }
   }
   
   _getBestTool(block) {
-    const tools = this.bot.inventory.items().filter(item => {
-      return item && item.name && (
-        item.name.includes('pickaxe') ||
-        item.name.includes('shovel') ||
-        item.name.includes('axe')
-      );
-    });
+    if (!block || !this.bot) return null;
     
-    if (tools.length === 0) return null;
-    
-    return this._randomFrom(tools);
-  }
-  
-  _tryEat() {
     try {
-      const foods = this.bot.inventory.items().filter(item => {
-        return item && item.name && (
-          item.name.includes('bread') ||
-          item.name.includes('beef') ||
-          item.name.includes('pork') ||
-          item.name.includes('chicken') ||
-          item.name.includes('fish') ||
-          item.name.includes('apple') ||
-          item.name.includes('carrot') ||
-          item.name.includes('potato') ||
-          item.name.includes('mutton')
-        );
-      });
+      const items = this.bot.inventory.items();
       
-      if (foods.length > 0) {
-        this.bot.equip(foods[0], 'hand', (err) => {
-          if (!err) {
-            this.bot.consume((err) => {
-              if (!err) {
-                this.logger.info('[Enhanced Player] Ate food');
-              }
-            });
-          }
-        });
+      if (block.name && block.name.includes('log')) {
+        return items.find(item => item.name.includes('axe'));
       }
-    } catch (err) {
-      this.logger.debug('[Enhanced Player] Eat error:', err.message);
-    }
-  }
-  
-  _escapeFromDanger() {
-    try {
-      const entities = Object.values(this.bot.entities);
-      const nearbyMobs = entities.filter(e => {
-        if (!e || !e.position || !e.type || e.type !== 'mob') return false;
-        const mobName = e.displayName || e.name || '';
-        const hostileTypes = ['zombie', 'skeleton', 'spider', 'creeper', 'enderman', 'vindicator', 'pillager'];
-        return hostileTypes.some(type => mobName.toLowerCase().includes(type));
-      });
       
-      if (nearbyMobs.length > 0) {
-        const closestMob = nearbyMobs.sort((a, b) => {
-          const distA = this.bot.entity.position.distanceTo(a.position);
-          const distB = this.bot.entity.position.distanceTo(b.position);
-          return distA - distB;
-        })[0];
-        
-        const mobPos = closestMob.position;
-        const myPos = this.bot.entity.position;
-        const dx = myPos.x - mobPos.x;
-        const dz = myPos.z - mobPos.z;
-        
-        const escapePos = myPos.offset(dx * 3, 0, dz * 3);
-        this.bot.lookAt(escapePos);
-        
-        this.bot.clearControlStates();
-        this.bot.setControlState('forward', true);
-        this.bot.setControlState('sprint', true);
-        
-        this.logger.info('[Player] Escaping from danger!');
-        
-        setTimeout(() => {
-          this.bot.clearControlStates();
-        }, 3000);
+      if (block.name && (block.name.includes('stone') || block.name.includes('ore'))) {
+        return items.find(item => item.name.includes('pickaxe'));
       }
+      
+      if (block.name && block.name.includes('dirt')) {
+        return items.find(item => item.name.includes('shovel'));
+      }
+      
+      return null;
     } catch (err) {
-      this.logger.debug('[Player] Escape error:', err.message);
+      return null;
     }
   }
   
   _randomFrom(array) {
     return array[Math.floor(Math.random() * array.length)];
-  }
-  
-  async _performLifelikeActivity() {
-    if (!this.lifelikeAI || !this.bot || !this.bot.entity) return;
-    
-    this.lifelikeAI.performRandomBehavior();
-    
-    const aiDecision = this.lifelikeAI.decideNextAction();
-    if (!aiDecision) return;
-    
-    this.logger.info(`[AI Decision] ${aiDecision.description || aiDecision.action}`);
-    this.lifelikeAI.recordActivity(aiDecision.action);
-    
-    switch (aiDecision.action) {
-      case 'chop_trees':
-        await this._gatherWood();
-        this.minecraftProgression.updateGoal('early_game', 'gather_wood', 4);
-        break;
-      case 'mine_stone':
-        await this._mineStone();
-        this.minecraftProgression.updateGoal('early_game', 'mine_stone', 1);
-        break;
-      case 'mine_ore':
-        await this._mineOre(aiDecision.ore || 'coal_ore');
-        if (aiDecision.ore === 'coal_ore') {
-          this.minecraftProgression.updateGoal('iron_age', 'mine_coal', 1);
-        } else if (aiDecision.ore === 'iron_ore') {
-          this.minecraftProgression.updateGoal('iron_age', 'mine_iron', 1);
-        } else if (aiDecision.ore === 'diamond_ore') {
-          this.minecraftProgression.updateGoal('diamond', 'find_diamonds', 1);
-        }
-        break;
-      case 'scout_location':
-        await this._scoutBuildLocation();
-        break;
-      case 'build_structure':
-        await this._buildStructure(aiDecision.structure);
-        break;
-      case 'hunt_gather':
-        await this._gatherFood();
-        this.minecraftProgression.updateGoal('early_game', 'find_food', 2);
-        break;
-      case 'interact_players':
-        this._doSocial();
-        break;
-      case 'explore':
-        this._walkNaturally();
-        break;
-      case 'rest':
-        this._doRest();
-        break;
-      default:
-        await this._doWork();
-    }
-  }
-  
-  async _gatherWood() {
-    try {
-      const mcData = require('minecraft-data')(this.bot.version);
-      const logBlocks = ['oak_log', 'birch_log', 'spruce_log', 'jungle_log'].map(name => mcData.blocksByName[name]?.id).filter(id => id);
-      
-      const block = this.bot.findBlock({
-        matching: logBlocks,
-        maxDistance: 32
-      });
-      
-      if (block) {
-        const tool = this.bot.inventory.items().find(item => 
-          item && item.name && item.name.includes('axe')
-        );
-        
-        if (tool) {
-          await this.bot.equip(tool, 'hand');
-        }
-        
-        const pathfinder = this.engine.getAddon('pathfinding');
-        if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
-          const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
-          if (!success) {
-            this.logger.warn('[Player] Could not reach wood block');
-            return;
-          }
-        }
-        
-        await this.bot.dig(block);
-        this.engine.getSafety().recordBlock();
-        this.logger.info('[Player] Gathered wood');
-      } else {
-        this.logger.debug('[Player] No wood blocks found nearby');
-      }
-    } catch (err) {
-      this.logger.warn('[Player] Wood gathering error:', err.message);
-    }
-  }
-  
-  async _mineStone() {
-    try {
-      const mcData = require('minecraft-data')(this.bot.version);
-      const stoneId = mcData.blocksByName['stone']?.id;
-      
-      if (!stoneId) return;
-      
-      const block = this.bot.findBlock({
-        matching: stoneId,
-        maxDistance: 32
-      });
-      
-      if (block) {
-        const tool = this.bot.inventory.items().find(item => 
-          item && item.name && item.name.includes('pickaxe')
-        );
-        
-        if (tool) {
-          await this.bot.equip(tool, 'hand');
-        }
-        
-        const pathfinder = this.engine.getAddon('pathfinding');
-        if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
-          const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
-          if (!success) {
-            this.logger.warn('[Player] Could not reach stone block');
-            return;
-          }
-        }
-        
-        await this.bot.dig(block);
-        this.engine.getSafety().recordBlock();
-        this.logger.info('[Player] Mined stone');
-      } else {
-        this.logger.debug('[Player] No stone blocks found nearby');
-      }
-    } catch (err) {
-      this.logger.warn('[Player] Stone mining error:', err.message);
-    }
-  }
-  
-  async _mineOre(oreName) {
-    try {
-      const mcData = require('minecraft-data')(this.bot.version);
-      const oreId = mcData.blocksByName[oreName]?.id;
-      
-      if (!oreId) return;
-      
-      const block = this.bot.findBlock({
-        matching: oreId,
-        maxDistance: 32
-      });
-      
-      if (block) {
-        const tool = this.bot.inventory.items().find(item => 
-          item && item.name && item.name.includes('pickaxe')
-        );
-        
-        if (tool) {
-          await this.bot.equip(tool, 'hand');
-        }
-        
-        const pathfinder = this.engine.getAddon('pathfinding');
-        if (pathfinder && this.bot.entity.position.distanceTo(block.position) > 4.5) {
-          const success = await pathfinder.goTo(block.position.x, block.position.y, block.position.z);
-          if (!success) {
-            this.logger.warn(`[Player] Could not reach ${oreName} block`);
-            return;
-          }
-        }
-        
-        await this.bot.dig(block);
-        this.engine.getSafety().recordBlock();
-        this.logger.info(`[Player] Mined ${oreName}`);
-      } else {
-        this.logger.debug(`[Player] No ${oreName} blocks found nearby`);
-      }
-    } catch (err) {
-      this.logger.warn(`[Player] ${oreName} mining error:`, err.message);
-    }
-  }
-  
-  async _scoutBuildLocation() {
-    try {
-      const location = await this.homeBuilder.findBuildLocation();
-      if (location) {
-        this.logger.info(`[Player] Found build location at ${Math.floor(location.x)}, ${Math.floor(location.y)}, ${Math.floor(location.z)}`);
-        this.minecraftProgression.updateGoal('shelter', 'find_location', 1);
-      }
-    } catch (err) {
-      this.logger.debug('[Player] Scout error:', err.message);
-    }
-  }
-  
-  async _buildStructure(structureType) {
-    try {
-      if (structureType === 'foundation') {
-        this.minecraftProgression.updateGoal('shelter', 'build_foundation', 1);
-      } else if (structureType === 'walls') {
-        this.minecraftProgression.updateGoal('shelter', 'build_walls', 1);
-      }
-      this._placeBlockNaturally();
-    } catch (err) {
-      this.logger.debug('[Player] Build error:', err.message);
-    }
-  }
-  
-  async _gatherFood() {
-    try {
-      const foods = ['beef', 'chicken', 'porkchop', 'mutton', 'rabbit', 'apple', 'carrot', 'potato'];
-      const inventory = this.bot.inventory.items();
-      const hasFood = inventory.some(item => foods.some(food => item.name.includes(food)));
-      
-      if (!hasFood) {
-        this._gatherNaturally();
-      }
-    } catch (err) {
-      this.logger.debug('[Player] Food gathering error:', err.message);
-    }
   }
   
   getMinecraftProgress() {
@@ -1079,7 +646,7 @@ class EnhancedPlayerAddon {
     if (!this.lifelikeAI) return null;
     return this.lifelikeAI.getStatus();
   }
-
+  
   cleanup() {
     this.disable();
   }

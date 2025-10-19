@@ -161,7 +161,11 @@ class BotEngine {
         const response = this.commandHandler.handleMessage(message, username);
         if (response) {
           setTimeout(() => {
-            this.bot.chat(response);
+            try {
+              this.bot.chat(response);
+            } catch (err) {
+              this.logger.error('Chat response error:', err.message);
+            }
           }, 500);
         }
       }

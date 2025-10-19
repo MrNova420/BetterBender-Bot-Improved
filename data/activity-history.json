@@ -689,5 +689,241 @@
       "action": "gather_basic_materials",
       "description": "Gather wood, stone, and basic resources"
     }
+  },
+  {
+    "id": "activity-1760893186994-ut0924plf",
+    "type": "login",
+    "timestamp": 1760893186994,
+    "date": "2025-10-19T16:59:46.994Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760893307611-8k23g69c1",
+    "type": "death",
+    "timestamp": 1760893307611,
+    "date": "2025-10-19T17:01:47.611Z",
+    "details": {
+      "position": {
+        "x": 454.3,
+        "y": 133,
+        "z": 194.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760893319446-8r5lf6qik",
+    "type": "death",
+    "timestamp": 1760893319446,
+    "date": "2025-10-19T17:01:59.446Z",
+    "details": {
+      "position": {
+        "x": 454.3112680145236,
+        "y": 133,
+        "z": 198.7
+      }
+    }
+  },
+  {
+    "id": "activity-1760893329547-95ntgfns8",
+    "type": "death",
+    "timestamp": 1760893329547,
+    "date": "2025-10-19T17:02:09.547Z",
+    "details": {
+      "position": {
+        "x": 454.555030855061,
+        "y": 133,
+        "z": 196.83817209314896
+      }
+    }
+  },
+  {
+    "id": "activity-1760893339547-xi6cpxp01",
+    "type": "death",
+    "timestamp": 1760893339547,
+    "date": "2025-10-19T17:02:19.547Z",
+    "details": {
+      "position": {
+        "x": 457.7,
+        "y": 132,
+        "z": 198.7
+      }
+    }
+  },
+  {
+    "id": "activity-1760893353651-l13oz3es1",
+    "type": "death",
+    "timestamp": 1760893353651,
+    "date": "2025-10-19T17:02:33.651Z",
+    "details": {
+      "position": {
+        "x": 449.9967486886473,
+        "y": 133,
+        "z": 197.7
+      }
+    }
+  },
+  {
+    "id": "activity-1760893364547-7fvijwmrn",
+    "type": "death",
+    "timestamp": 1760893364547,
+    "date": "2025-10-19T17:02:44.547Z",
+    "details": {
+      "position": {
+        "x": 456.7,
+        "y": 132,
+        "z": 196.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760893377347-om78xmp1c",
+    "type": "login",
+    "timestamp": 1760893377347,
+    "date": "2025-10-19T17:02:57.347Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760893381151-9izad2gck",
+    "type": "death",
+    "timestamp": 1760893381151,
+    "date": "2025-10-19T17:03:01.151Z",
+    "details": {
+      "position": {
+        "x": 452.3,
+        "y": 133,
+        "z": 194.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760893394446-l1vgg1k5g",
+    "type": "death",
+    "timestamp": 1760893394446,
+    "date": "2025-10-19T17:03:14.446Z",
+    "details": {
+      "position": {
+        "x": 458.7,
+        "y": 134,
+        "z": 194.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760893407852-cjk2nfx5r",
+    "type": "death",
+    "timestamp": 1760893407852,
+    "date": "2025-10-19T17:03:27.852Z",
+    "details": {
+      "position": {
+        "x": 443.3,
+        "y": 128,
+        "z": 200.09401876808568
+      }
+    }
+  },
+  {
+    "id": "activity-1760893433349-iya9l06js",
+    "type": "death",
+    "timestamp": 1760893433351,
+    "date": "2025-10-19T17:03:53.351Z",
+    "details": {
+      "position": {
+        "x": 454.3760046396948,
+        "y": 133,
+        "z": 194.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760893448646-hwelolm5j",
+    "type": "death",
+    "timestamp": 1760893448646,
+    "date": "2025-10-19T17:04:08.646Z",
+    "details": {
+      "position": {
+        "x": 442.9460039705817,
+        "y": 130,
+        "z": 194.85047333601545
+      }
+    }
+  },
+  {
+    "id": "activity-1760893466496-curix2mki",
+    "type": "death",
+    "timestamp": 1760893466496,
+    "date": "2025-10-19T17:04:26.496Z",
+    "details": {
+      "position": {
+        "x": 456.3,
+        "y": 132,
+        "z": 196.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760893479197-d0zjcz9ob",
+    "type": "death",
+    "timestamp": 1760893479197,
+    "date": "2025-10-19T17:04:39.197Z",
+    "details": {
+      "position": {
+        "x": 455.7,
+        "y": 134,
+        "z": 194.3387097701007
+      }
+    }
+  },
+  {
+    "id": "activity-1760893487293-s2b9t4il0",
+    "type": "login",
+    "timestamp": 1760893487293,
+    "date": "2025-10-19T17:04:47.293Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760893527891-3vvden6a3",
+    "type": "death",
+    "timestamp": 1760893527891,
+    "date": "2025-10-19T17:05:27.891Z",
+    "details": {
+      "position": {
+        "x": 503.7,
+        "y": 70.7531999805212,
+        "z": 174.4685994924512
+      }
+    }
+  },
+  {
+    "id": "activity-1760893609168-dii8gikeu",
+    "type": "login",
+    "timestamp": 1760893609168,
+    "date": "2025-10-19T17:06:49.168Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894131522-0qf8wx6yv",
+    "type": "login",
+    "timestamp": 1760894131522,
+    "date": "2025-10-19T17:15:31.522Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894240970-20gmi8t73",
+    "type": "login",
+    "timestamp": 1760894240970,
+    "date": "2025-10-19T17:17:20.970Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
   }
 ]
