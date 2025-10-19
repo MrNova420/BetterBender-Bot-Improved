@@ -1,1 +1,693 @@
-[]
+[
+  {
+    "id": "activity-1760731702581-81m0k5ma6",
+    "type": "login",
+    "timestamp": 1760731702581,
+    "date": "2025-10-17T20:08:22.581Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760731702906-1sj9urr8u",
+    "type": "mode_activated",
+    "timestamp": 1760731702906,
+    "date": "2025-10-17T20:08:22.906Z",
+    "details": {
+      "mode": "player"
+    }
+  },
+  {
+    "id": "activity-1760731712906-edw0wpn7u",
+    "type": "state_change",
+    "timestamp": 1760731712906,
+    "date": "2025-10-17T20:08:32.906Z",
+    "details": {
+      "from": "rest",
+      "to": "explore"
+    }
+  },
+  {
+    "id": "activity-1760731952234-evl0iveg4",
+    "type": "autonomous_goal",
+    "timestamp": 1760731952234,
+    "date": "2025-10-17T20:12:32.234Z",
+    "details": {
+      "action": "establish_home",
+      "description": "Find location and build first home"
+    }
+  },
+  {
+    "id": "activity-1760731966085-whin3vlo5",
+    "type": "autonomous_goal",
+    "timestamp": 1760731966085,
+    "date": "2025-10-17T20:12:46.085Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760731975320-oaag42dj7",
+    "type": "autonomous_goal",
+    "timestamp": 1760731975320,
+    "date": "2025-10-17T20:12:55.320Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760731979937-utlfx8dsd",
+    "type": "autonomous_goal",
+    "timestamp": 1760731979937,
+    "date": "2025-10-17T20:12:59.937Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760731993787-g918f86mc",
+    "type": "autonomous_goal",
+    "timestamp": 1760731993787,
+    "date": "2025-10-17T20:13:13.787Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732007639-jzbsnuarm",
+    "type": "autonomous_goal",
+    "timestamp": 1760732007639,
+    "date": "2025-10-17T20:13:27.639Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732016872-4fc5qk0go",
+    "type": "autonomous_goal",
+    "timestamp": 1760732016872,
+    "date": "2025-10-17T20:13:36.872Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732021489-wbg0coc97",
+    "type": "autonomous_goal",
+    "timestamp": 1760732021489,
+    "date": "2025-10-17T20:13:41.489Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732035342-adoe3dw1c",
+    "type": "autonomous_goal",
+    "timestamp": 1760732035342,
+    "date": "2025-10-17T20:13:55.342Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732039960-z4p92lcec",
+    "type": "autonomous_goal",
+    "timestamp": 1760732039960,
+    "date": "2025-10-17T20:13:59.960Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732049193-rggwkopw8",
+    "type": "autonomous_goal",
+    "timestamp": 1760732049193,
+    "date": "2025-10-17T20:14:09.193Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732058428-e8foz9jtf",
+    "type": "autonomous_goal",
+    "timestamp": 1760732058428,
+    "date": "2025-10-17T20:14:18.428Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732072279-v3gr6hhb8",
+    "type": "autonomous_goal",
+    "timestamp": 1760732072279,
+    "date": "2025-10-17T20:14:32.279Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732081513-hr7amt1tq",
+    "type": "autonomous_goal",
+    "timestamp": 1760732081513,
+    "date": "2025-10-17T20:14:41.513Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732101059-96z017rre",
+    "type": "death",
+    "timestamp": 1760732101059,
+    "date": "2025-10-17T20:15:01.059Z",
+    "details": {
+      "position": {
+        "x": 453.7724435580753,
+        "y": 72,
+        "z": 251.03207555536048
+      }
+    }
+  },
+  {
+    "id": "activity-1760732104177-4ai2075cw",
+    "type": "state_change",
+    "timestamp": 1760732104177,
+    "date": "2025-10-17T20:15:04.177Z",
+    "details": {
+      "from": "explore",
+      "to": "rest"
+    }
+  },
+  {
+    "id": "activity-1760732109219-1k9d3lh8c",
+    "type": "autonomous_goal",
+    "timestamp": 1760732109219,
+    "date": "2025-10-17T20:15:09.219Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732146156-xyn9q61wd",
+    "type": "autonomous_goal",
+    "timestamp": 1760732146156,
+    "date": "2025-10-17T20:15:46.156Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732150773-zremknfmv",
+    "type": "autonomous_goal",
+    "timestamp": 1760732150773,
+    "date": "2025-10-17T20:15:50.773Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732155389-1fux4m8a5",
+    "type": "autonomous_goal",
+    "timestamp": 1760732155389,
+    "date": "2025-10-17T20:15:55.389Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732183094-m9u8vesuy",
+    "type": "autonomous_goal",
+    "timestamp": 1760732183094,
+    "date": "2025-10-17T20:16:23.094Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732187710-5uideo1b9",
+    "type": "autonomous_goal",
+    "timestamp": 1760732187710,
+    "date": "2025-10-17T20:16:27.710Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732201562-wn7i9usim",
+    "type": "autonomous_goal",
+    "timestamp": 1760732201562,
+    "date": "2025-10-17T20:16:41.562Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732220033-ilz93x7e7",
+    "type": "autonomous_goal",
+    "timestamp": 1760732220033,
+    "date": "2025-10-17T20:17:00.033Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732247736-376pc6kva",
+    "type": "autonomous_goal",
+    "timestamp": 1760732247736,
+    "date": "2025-10-17T20:17:27.736Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732266207-x8cm80zom",
+    "type": "autonomous_goal",
+    "timestamp": 1760732266207,
+    "date": "2025-10-17T20:17:46.207Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732280058-hbuqk47oy",
+    "type": "autonomous_goal",
+    "timestamp": 1760732280058,
+    "date": "2025-10-17T20:18:00.058Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732289291-cx06913d1",
+    "type": "autonomous_goal",
+    "timestamp": 1760732289291,
+    "date": "2025-10-17T20:18:09.291Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732298525-7977gy3ts",
+    "type": "autonomous_goal",
+    "timestamp": 1760732298525,
+    "date": "2025-10-17T20:18:18.525Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732316995-wnzrjlska",
+    "type": "autonomous_goal",
+    "timestamp": 1760732316995,
+    "date": "2025-10-17T20:18:36.995Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732326229-ebv8vcplu",
+    "type": "autonomous_goal",
+    "timestamp": 1760732326229,
+    "date": "2025-10-17T20:18:46.229Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732340080-fj55tkvm9",
+    "type": "autonomous_goal",
+    "timestamp": 1760732340080,
+    "date": "2025-10-17T20:19:00.080Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732344698-6ups71lq7",
+    "type": "autonomous_goal",
+    "timestamp": 1760732344698,
+    "date": "2025-10-17T20:19:04.698Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732349314-w8a8zmci1",
+    "type": "autonomous_goal",
+    "timestamp": 1760732349314,
+    "date": "2025-10-17T20:19:09.314Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732367783-uc0yshvhb",
+    "type": "autonomous_goal",
+    "timestamp": 1760732367783,
+    "date": "2025-10-17T20:19:27.783Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732381635-hutw2gtm8",
+    "type": "autonomous_goal",
+    "timestamp": 1760732381635,
+    "date": "2025-10-17T20:19:41.635Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732400104-e2rzewlbb",
+    "type": "autonomous_goal",
+    "timestamp": 1760732400104,
+    "date": "2025-10-17T20:20:00.104Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732408229-3sezov4sc",
+    "type": "state_change",
+    "timestamp": 1760732408229,
+    "date": "2025-10-17T20:20:08.229Z",
+    "details": {
+      "from": "rest",
+      "to": "social"
+    }
+  },
+  {
+    "id": "activity-1760732409337-8vk9eyv1d",
+    "type": "autonomous_goal",
+    "timestamp": 1760732409337,
+    "date": "2025-10-17T20:20:09.337Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732427806-sb1eomdqw",
+    "type": "autonomous_goal",
+    "timestamp": 1760732427806,
+    "date": "2025-10-17T20:20:27.806Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732432424-vyjlq2k2p",
+    "type": "autonomous_goal",
+    "timestamp": 1760732432424,
+    "date": "2025-10-17T20:20:32.424Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732441659-i2rswfet0",
+    "type": "autonomous_goal",
+    "timestamp": 1760732441659,
+    "date": "2025-10-17T20:20:41.659Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732446276-ix8bz7yyp",
+    "type": "autonomous_goal",
+    "timestamp": 1760732446276,
+    "date": "2025-10-17T20:20:46.276Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732450893-u4qhn36ps",
+    "type": "autonomous_goal",
+    "timestamp": 1760732450893,
+    "date": "2025-10-17T20:20:50.893Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732469363-7jwp5wkcj",
+    "type": "autonomous_goal",
+    "timestamp": 1760732469363,
+    "date": "2025-10-17T20:21:09.363Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732478597-c8dzw5sat",
+    "type": "autonomous_goal",
+    "timestamp": 1760732478597,
+    "date": "2025-10-17T20:21:18.597Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732487830-o77v7p06k",
+    "type": "autonomous_goal",
+    "timestamp": 1760732487830,
+    "date": "2025-10-17T20:21:27.830Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732492448-m37og3rix",
+    "type": "autonomous_goal",
+    "timestamp": 1760732492448,
+    "date": "2025-10-17T20:21:32.448Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732501682-j0lrn4fy8",
+    "type": "autonomous_goal",
+    "timestamp": 1760732501682,
+    "date": "2025-10-17T20:21:41.682Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732515533-ukyt4wn73",
+    "type": "autonomous_goal",
+    "timestamp": 1760732515533,
+    "date": "2025-10-17T20:21:55.533Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732520150-q1pkr2t4o",
+    "type": "autonomous_goal",
+    "timestamp": 1760732520150,
+    "date": "2025-10-17T20:22:00.150Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732524768-c7eowsx9s",
+    "type": "autonomous_goal",
+    "timestamp": 1760732524768,
+    "date": "2025-10-17T20:22:04.768Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732534002-6e1kh4vwm",
+    "type": "autonomous_goal",
+    "timestamp": 1760732534002,
+    "date": "2025-10-17T20:22:14.002Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732575555-c8uk6lcxk",
+    "type": "autonomous_goal",
+    "timestamp": 1760732575555,
+    "date": "2025-10-17T20:22:55.555Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732584789-x6ty98vvn",
+    "type": "autonomous_goal",
+    "timestamp": 1760732584789,
+    "date": "2025-10-17T20:23:04.789Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732612491-pc1sc58q4",
+    "type": "autonomous_goal",
+    "timestamp": 1760732612491,
+    "date": "2025-10-17T20:23:32.491Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732617108-x1u0c1lcn",
+    "type": "autonomous_goal",
+    "timestamp": 1760732617108,
+    "date": "2025-10-17T20:23:37.108Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732621725-k3tpelsl4",
+    "type": "autonomous_goal",
+    "timestamp": 1760732621725,
+    "date": "2025-10-17T20:23:41.725Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732626344-pecvfka0q",
+    "type": "autonomous_goal",
+    "timestamp": 1760732626344,
+    "date": "2025-10-17T20:23:46.344Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732630960-3lo2i4cdw",
+    "type": "autonomous_goal",
+    "timestamp": 1760732630960,
+    "date": "2025-10-17T20:23:50.960Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732635577-8mwypudov",
+    "type": "autonomous_goal",
+    "timestamp": 1760732635577,
+    "date": "2025-10-17T20:23:55.577Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732640194-96n7uiheu",
+    "type": "autonomous_goal",
+    "timestamp": 1760732640194,
+    "date": "2025-10-17T20:24:00.194Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732644811-ae5p0c5mi",
+    "type": "autonomous_goal",
+    "timestamp": 1760732644811,
+    "date": "2025-10-17T20:24:04.811Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732654046-lac3ckfg2",
+    "type": "autonomous_goal",
+    "timestamp": 1760732654046,
+    "date": "2025-10-17T20:24:14.046Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732658662-x0xn6jok0",
+    "type": "autonomous_goal",
+    "timestamp": 1760732658662,
+    "date": "2025-10-17T20:24:18.662Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  },
+  {
+    "id": "activity-1760732667897-0qeoda1cb",
+    "type": "autonomous_goal",
+    "timestamp": 1760732667897,
+    "date": "2025-10-17T20:24:27.897Z",
+    "details": {
+      "action": "gather_basic_materials",
+      "description": "Gather wood, stone, and basic resources"
+    }
+  }
+]
