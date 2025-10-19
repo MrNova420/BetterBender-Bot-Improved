@@ -3,6 +3,7 @@ const { pathfinder, Movements, goals } = require('mineflayer-pathfinder');
 const DecisionEngine = require('./decision_engine');
 const MemorySystem = require('./memory_system');
 const SocialSystem = require('./social_system');
+const ActionExecutor = require('./action_executor');
 
 class BotIntelligence {
   constructor(botConfig, db, logger, wsBroker) {
@@ -18,6 +19,7 @@ class BotIntelligence {
     this.decisionEngine = new DecisionEngine(db, logger);
     this.memorySystem = new MemorySystem(db, logger);
     this.socialSystem = new SocialSystem(db, logger, this.memorySystem);
+    this.actionExecutor = null;
     
     this.personality = null;
     this.currentEmotions = null;
@@ -27,7 +29,7 @@ class BotIntelligence {
     
     this.isPerformingAction = false;
     this.lastActionTime = 0;
-    this.actionCooldown = 10000;
+    this.actionCooldown = 15000;
   }
   
   async connect() {
@@ -43,6 +45,12 @@ class BotIntelligence {
       });
       
       this.bot.loadPlugin(pathfinder);
+      
+      const mcData = require('minecraft-data')(this.bot.version);
+      const defaultMove = new Movements(this.bot, mcData);
+      this.bot.pathfinder.setMovements(defaultMove);
+      
+      this.actionExecutor = new ActionExecutor(this.bot, this.logger);
       
       this._setupEventHandlers();
       
@@ -208,43 +216,54 @@ class BotIntelligence {
     this.logger.info(`[Bot ${this.botName}] Executing: ${decision.action}`);
     
     let result = 'success';
+    let actionResult = null;
     
     try {
       switch(decision.action) {
         case 'explore_new_area':
-          await this._explore();
+          actionResult = await this.actionExecutor.executeAction('explore', { distance: 40 });
           break;
         
         case 'greet_bot':
         case 'chat':
-          await this._socialInteract();
+          actionResult = await this.actionExecutor.executeAction('socialize');
           break;
         
         case 'build_structure':
-          await this._buildSomething();
+          actionResult = await this.actionExecutor.executeAction('build_structure', { type: 'house' });
           break;
         
         case 'mine_resources':
+          const resourceType = this._chooseResourceType();
+          actionResult = await this.actionExecutor.executeAction(resourceType);
+          break;
+        
         case 'collect_items':
-          await this._gatherResources();
+          actionResult = await this.actionExecutor.executeAction('gather_wood', { amount: 5 });
           break;
         
         case 'eat':
           await this._tryEat();
+          actionResult = { success: true };
           break;
         
         case 'flee':
         case 'seek_shelter':
           await this._seekSafety();
+          actionResult = { success: true };
           break;
         
         case 'idle':
         case 'rest':
-          await this._rest();
+          actionResult = await this.actionExecutor.executeAction('rest', { duration: 5000 });
           break;
         
         default:
-          await this._wander();
+          actionResult = await this.actionExecutor.executeAction('explore', { distance: 20 });
+      }
+      
+      if (actionResult && !actionResult.success) {
+        result = 'failure';
       }
     } catch (error) {
       this.logger.warn(`[Bot ${this.botName}] Action execution failed: ${error.message}`);
@@ -252,6 +271,11 @@ class BotIntelligence {
     }
     
     this.decisionEngine.updateEmotionsAfterAction(this.botId, decision.action, result);
+  }
+  
+  _chooseResourceType() {
+    const resources = ['gather_wood', 'gather_stone', 'mine_ore'];
+    return resources[Math.floor(Math.random() * resources.length)];
   }
   
   async _explore() {
