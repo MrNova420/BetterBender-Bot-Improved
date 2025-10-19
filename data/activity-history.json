@@ -1715,5 +1715,14 @@
       "from": "player",
       "to": "afk"
     }
+  },
+  {
+    "id": "activity-1760910783116-fb2q4cww5",
+    "type": "login",
+    "timestamp": 1760910783116,
+    "date": "2025-10-19T21:53:03.116Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
   }
 ]

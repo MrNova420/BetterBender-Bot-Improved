@@ -45,13 +45,6 @@ class BotIntelligence {
       });
       
       this.bot.loadPlugin(pathfinder);
-      
-      const mcData = require('minecraft-data')(this.bot.version);
-      const defaultMove = new Movements(this.bot, mcData);
-      this.bot.pathfinder.setMovements(defaultMove);
-      
-      this.actionExecutor = new ActionExecutor(this.bot, this.logger);
-      
       this._setupEventHandlers();
       
       await new Promise((resolve, reject) => {
@@ -61,6 +54,13 @@ class BotIntelligence {
       });
       
       this.logger.info(`[Bot ${this.botName}] Connected and spawned`);
+      
+      // Setup pathfinder AFTER spawn
+      const mcData = require('minecraft-data')(this.bot.version);
+      const defaultMove = new Movements(this.bot, mcData);
+      this.bot.pathfinder.setMovements(defaultMove);
+      
+      this.actionExecutor = new ActionExecutor(this.bot, this.logger);
       
       await this._initialize();
       
@@ -443,6 +443,7 @@ class BotIntelligence {
   }
   
   _handleIncomingChat(username, message) {
+    if (!this.personality) return; // Not initialized yet
     const botRef = this.db.getBotByName(username);
     
     if (botRef) {
@@ -462,6 +463,7 @@ class BotIntelligence {
   }
   
   _handlePlayerJoined(player) {
+    if (!this.personality) return; // Not initialized yet
     if (Math.random() < this.personality.sociability) {
       setTimeout(() => {
         this.bot.chat(`Hey ${player.username}!`);
@@ -470,6 +472,7 @@ class BotIntelligence {
   }
   
   _handleDamage() {
+    if (!this.personality) return; // Not initialized yet
     this.currentEmotions = this.db.getLatestEmotions(this.botId);
     this.currentEmotions.safety = Math.max(0, this.currentEmotions.safety - 0.3);
     this.currentEmotions.stress = Math.min(1, this.currentEmotions.stress + 0.4);
@@ -479,6 +482,7 @@ class BotIntelligence {
   }
   
   _handleDeath() {
+    if (!this.personality) return; // Not initialized yet
     setTimeout(() => {
       this.bot.respawn();
       
@@ -492,6 +496,7 @@ class BotIntelligence {
   }
   
   _updateHealthStatus() {
+    if (!this.personality) return; // Not initialized yet
     this.db.updateBotStats(
       this.botId,
       this.bot.health,
