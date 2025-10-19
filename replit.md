@@ -28,7 +28,12 @@ Preferred communication style: Simple, everyday language.
     - **Offline Simulation:** World evolution continues offline via time-tick extrapolation.
     - **Decision Engine:** Utility-based AI selects actions based on personality, emotions, context, and needs. Supports specific action parameters for building, gathering, and trading.
     - **Trading System:** Full economy with item valuation, trust-based pricing, and negotiation.
-    - **Building System:** Comprehensive construction system with 7 structure types (small/medium houses, farms, workshops, storage, roads, bridges). Includes material requirements, step-by-step building logic, progress tracking, and actual block placement.
+    - **Building System:** Comprehensive construction system with 7 structure types (small/medium houses, farms, workshops, storage, roads, bridges). Includes material requirements, step-by-step building logic, progress tracking, and actual block placement. Total of 700+ lines of building logic.
+    - **Material Gatherer:** Automatic resource acquisition system that gathers materials before building. Uses direct bot actions to avoid ActionExecutor deadlocks. Supports wood, stone, ores, crafting, and smelting.
+    - **Civilization Presets:** 5 pre-configured civilization templates (Tiny Village 5 bots, Small Town 10 bots, Medium City 20 bots, Large Metropolis 30 bots, Mega Civilization 50 bots). Each includes balanced personality distributions and role assignments ready to use out-of-the-box.
+    - **Preset Generator:** Automatic bot configuration generator that creates complete civilization setups with personalities, roles, skills, and server connections.
+    - **Interactive Launcher:** User-friendly civilization starter with guided setup, server configuration, and automatic initialization.
+    - **Configuration Validator:** Validates civilization configurations with helpful error messages and warnings. Checks bot IDs, names, personalities, roles, and server settings.
     - **Action Executor:** Enables bots to mine, gather, build complete structures, craft, combat, trade, socialize, explore, and rest.
     - **Event System:** Records significant civilization events (births, discoveries, conflicts).
     - **WebSocket Broker:** Facilitates inter-bot communication.
@@ -76,4 +81,33 @@ Preferred communication style: Simple, everyday language.
 - **Runtime Environment:** Node.js 22+ runtime.
 - **Network:** TCP connectivity to Minecraft servers, HTTPS for Microsoft authentication.
 - **Persistent Storage:** For configuration and SQLite database (Civilization System).
-- **Ports:** Inbound port 5000 (Express dashboard), Outbound Minecraft server port (default 25565), and HTTPS 443 for Microsoft authentication.
+- **Ports:** Inbound port 5000 (Express dashboard), port 3001 (Civilization dashboard), Outbound Minecraft server port (default 25565), and HTTPS 443 for Microsoft authentication.
+
+### Recent Changes (Oct 19, 2025)
+
+**Phase 1: Building System Complete**
+- ✅ Built comprehensive BuildingSystem class (700+ lines) with 7 structure types
+- ✅ Implemented MaterialGatherer for automatic resource acquisition
+- ✅ Fixed architectural deadlock by refactoring MaterialGatherer to use direct bot actions
+- ✅ Created Civilization Preset System with 5 ready-to-use templates
+- ✅ Built PresetGenerator for automatic bot configuration
+- ✅ Created interactive startup wizard (civilization/scripts/start_civilization.js)
+- ✅ Added NPM quick-launch scripts (npm run civilization, civ:tiny, civ:small, etc.)
+- ✅ Created comprehensive documentation (CIVILIZATION_QUICK_START.md)
+- ✅ Updated README.md with civilization features and usage guides
+- ✅ Added ConfigValidator for configuration validation and error checking
+
+**User Experience Improvements:**
+- Users can now launch civilizations in 60 seconds with `npm run civilization`
+- No manual configuration required - presets are ready to use
+- Interactive wizard guides users through server setup
+- Quick-launch commands for each civilization size
+- Comprehensive documentation for all levels of users
+
+**Technical Improvements:**
+- Material gathering no longer causes ActionExecutor deadlocks
+- Direct bot action implementation for resource acquisition
+- Validated configurations prevent startup errors
+- Balanced role distributions for all civilization sizes
+- Personality library with 5 distinct types (builder, explorer, gatherer, social, default)
+- Role configurations with priority actions and skills
