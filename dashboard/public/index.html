@@ -1002,21 +1002,25 @@
     }
     
     function initDashboard() {
-      socket = io({
-        auth: { token: authToken }
-      });
+      socket = io();
       
       socket.on('connect', () => {
         updateConnectionStatus(true);
+        socket.emit('authenticate', authToken);
       });
       
       socket.on('disconnect', () => {
         updateConnectionStatus(false);
       });
       
-      socket.on('authenticated', () => {
-        console.log('Authenticated');
-        loadInitialData();
+      socket.on('authenticated', (data) => {
+        if (data.success) {
+          console.log('Authenticated');
+          loadInitialData();
+        } else {
+          alert('Invalid token');
+          logout();
+        }
       });
       
       socket.on('auth_failed', () => {

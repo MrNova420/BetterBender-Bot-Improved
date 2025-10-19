@@ -429,6 +429,10 @@ class EnhancedPlayerAddon {
     if (!this.bot || !this.bot.entity) return;
     
     try {
+      if (this.bot.pathfinder) {
+        this.bot.pathfinder.setGoal(null);
+      }
+      
       const pos = this.bot.entity.position;
       const distance = 8 + Math.random() * 15;
       const angle = Math.random() * Math.PI * 2;
@@ -507,6 +511,10 @@ class EnhancedPlayerAddon {
     
     try {
       this.logger.warn('[Player] Low health - escaping!');
+      
+      if (this.bot.pathfinder) {
+        this.bot.pathfinder.setGoal(null);
+      }
       
       const pos = this.bot.entity.position;
       const angle = Math.random() * Math.PI * 2;

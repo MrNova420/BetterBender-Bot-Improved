@@ -925,5 +925,209 @@
     "details": {
       "server": "BetterSMP-J787.aternos.me"
     }
+  },
+  {
+    "id": "activity-1760894279115-k6ed67456",
+    "type": "login",
+    "timestamp": 1760894279115,
+    "date": "2025-10-19T17:17:59.115Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894412624-aobi75ptm",
+    "type": "login",
+    "timestamp": 1760894412624,
+    "date": "2025-10-19T17:20:12.624Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894436446-bq9rwmh81",
+    "type": "death",
+    "timestamp": 1760894436446,
+    "date": "2025-10-19T17:20:36.446Z",
+    "details": {
+      "position": {
+        "x": 445.7,
+        "y": 127,
+        "z": 206.7
+      }
+    }
+  },
+  {
+    "id": "activity-1760894501939-bbe78kuqn",
+    "type": "mode_change",
+    "timestamp": 1760894501939,
+    "date": "2025-10-19T17:21:41.939Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
+  },
+  {
+    "id": "activity-1760894504745-f09s8o5it",
+    "type": "death",
+    "timestamp": 1760894504745,
+    "date": "2025-10-19T17:21:44.745Z",
+    "details": {
+      "position": {
+        "x": 456.3,
+        "y": 132.15216968906861,
+        "z": 196.3
+      }
+    }
+  },
+  {
+    "id": "activity-1760894530490-q80jrxidx",
+    "type": "death",
+    "timestamp": 1760894530490,
+    "date": "2025-10-19T17:22:10.490Z",
+    "details": {
+      "position": {
+        "x": 473.7758401870822,
+        "y": 111.00133597911214,
+        "z": 238.32122769379433
+      }
+    }
+  },
+  {
+    "id": "activity-1760894537320-je0kt9bu1",
+    "type": "login",
+    "timestamp": 1760894537320,
+    "date": "2025-10-19T17:22:17.320Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894592751-8fp7qlqba",
+    "type": "death",
+    "timestamp": 1760894592751,
+    "date": "2025-10-19T17:23:12.751Z",
+    "details": {
+      "position": {
+        "x": 481.3,
+        "y": 125,
+        "z": 213.66176214341567
+      }
+    }
+  },
+  {
+    "id": "activity-1760894626656-yx28n9ex6",
+    "type": "mode_change",
+    "timestamp": 1760894626656,
+    "date": "2025-10-19T17:23:46.656Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
+  },
+  {
+    "id": "activity-1760894662932-e7izas5zy",
+    "type": "login",
+    "timestamp": 1760894662932,
+    "date": "2025-10-19T17:24:22.932Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894746696-r18q4xl88",
+    "type": "login",
+    "timestamp": 1760894746696,
+    "date": "2025-10-19T17:25:46.696Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894775934-tqifdsb43",
+    "type": "login",
+    "timestamp": 1760894775934,
+    "date": "2025-10-19T17:26:15.934Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760894865249-1avurpnsj",
+    "type": "mode_change",
+    "timestamp": 1760894865249,
+    "date": "2025-10-19T17:27:45.249Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
+  },
+  {
+    "id": "activity-1760895105985-furnkzzk6",
+    "type": "login",
+    "timestamp": 1760895105985,
+    "date": "2025-10-19T17:31:45.985Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760895189518-f5zz7pblk",
+    "type": "login",
+    "timestamp": 1760895189518,
+    "date": "2025-10-19T17:33:09.518Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760895265703-vyh1tymnn",
+    "type": "login",
+    "timestamp": 1760895265703,
+    "date": "2025-10-19T17:34:25.703Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760895350042-qzv20fc01",
+    "type": "login",
+    "timestamp": 1760895350042,
+    "date": "2025-10-19T17:35:50.042Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760895392008-ekedddrds",
+    "type": "login",
+    "timestamp": 1760895392008,
+    "date": "2025-10-19T17:36:32.008Z",
+    "details": {
+      "server": "BetterSMP-J787.aternos.me"
+    }
+  },
+  {
+    "id": "activity-1760895470894-klf54e5u9",
+    "type": "death",
+    "timestamp": 1760895470894,
+    "date": "2025-10-19T17:37:50.894Z",
+    "details": {
+      "position": {
+        "x": 477.7,
+        "y": 73,
+        "z": 236.05675627465018
+      }
+    }
+  },
+  {
+    "id": "activity-1760895481358-tjl8jewg6",
+    "type": "mode_change",
+    "timestamp": 1760895481358,
+    "date": "2025-10-19T17:38:01.358Z",
+    "details": {
+      "from": "player",
+      "to": "afk"
+    }
   }
 ]
