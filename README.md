@@ -7,7 +7,6 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Under Development](https://img.shields.io/badge/status-under--development-orange.svg)]()
 [![Partially Ready to Use](https://img.shields.io/badge/Partially%20Ready%20to%20Use-Partially%20Ready%20to%20Use.svg)]()
-
 ---
 
 ## ⚡ Quick Start - ONE Command!
